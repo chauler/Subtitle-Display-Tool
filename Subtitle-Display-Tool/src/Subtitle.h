@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "raylib.h"
 
 struct Vec2f {
 	float x;
@@ -23,6 +24,7 @@ struct Styles {
 	Vec2i position = {100, 100};
 	Vec4i fontColor = {255, 255, 255, 255};
 	Vec4i bgColor = {0, 0, 0, 255};
+	std::string fontPath = "";
 };
 
 class Subtitle {
@@ -33,7 +35,9 @@ public:
 	Vec2i GetPosition() const { return m_styles.position; }
 	Vec4i GetColor() const { return m_styles.fontColor; }
 	Vec4i GetBackgroundColor() const { return m_styles.bgColor; }
+	Font GetFont() const { return m_font; }
 private:
 	std::string m_dialogue;
 	Styles m_styles;
+	Font m_font;
 };

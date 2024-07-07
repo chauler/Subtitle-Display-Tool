@@ -3,6 +3,8 @@
 #include <math.h>
 #include "Window.h"
 
+#define DEFAULT_SPACING 5
+
 Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
 
 Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y))
@@ -11,7 +13,7 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, 255 };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
 	ClearBackground(bgColor);
-	DrawText(m_subtitle.GetDialogue().c_str(), 0, 0, m_subtitle.GetFontSize(), fontColor);
+	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, WHITE);
 	EndTextureMode();
 }
 
@@ -23,7 +25,8 @@ Window::~Window() {
 
 Vec2f Window::GetWindowDimensions() const
 {
-	return { floorf(MeasureText(m_subtitle.GetDialogue().c_str(), m_subtitle.GetFontSize())), m_subtitle.GetFontSize() };
+	Vector2 dims = MeasureTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING);
+	return { dims.x, dims.y };
 }
 
 void Window::Draw() const
