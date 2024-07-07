@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Subtitle-Display-Tool", "Subtitle-Display-Tool\Subtitle-Display-Tool.vcxproj", "{D714B63E-4366-4118-9D0D-29CF76D2F59C}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Example1", "Example1\Example1.pyproj", "{5E84D10D-0EF7-4BAD-9686-93CEB0A92FCF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
