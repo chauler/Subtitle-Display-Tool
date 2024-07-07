@@ -1,6 +1,6 @@
 #include "WindowManager.h"
 
-void WindowManager::AddWindow(Window window)
+void WindowManager::AddWindow(const Window& window)
 {
 	m_windows.push_back(window);
 }

@@ -4,7 +4,7 @@
 
 class WindowManager {
 public:
-	void AddWindow(Window window);
+	void AddWindow(const Window& window);
 	void DrawWindows();
 private:
 	std::vector<Window> m_windows;
