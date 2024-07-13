@@ -6,6 +6,10 @@ class Window {
 public:
 	Window(std::string dialogue);
 	Window(Subtitle subtitle);
+	Window(const Window& other);
+	Window(Window&& other) noexcept;
+	Window& operator=(const Window& other);
+	Window& operator=(Window&& other) noexcept;
 	~Window();
 	Vec2f GetWindowDimensions() const;
 	void Draw() const;
