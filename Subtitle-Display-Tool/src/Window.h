@@ -9,8 +9,10 @@ public:
 	~Window();
 	Vec2f GetWindowDimensions() const;
 	void Draw() const;
+	bool IsExpired() const;
 private:
 	Window();
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
+	double m_startTime;
 };

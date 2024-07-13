@@ -7,7 +7,7 @@
 
 Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
 
-Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y))
+Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), m_startTime(GetTime())
 {
 	BeginTextureMode(m_target);
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, 255 };
@@ -31,5 +31,16 @@ Vec2f Window::GetWindowDimensions() const
 
 void Window::Draw() const
 {
-	DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { (float)m_subtitle.GetPosition().x, (float)m_subtitle.GetPosition().y }, WHITE);
+	if (!IsExpired()) {
+		DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { (float)m_subtitle.GetPosition().x, (float)m_subtitle.GetPosition().y }, WHITE);
+	}
+}
+
+bool Window::IsExpired() const
+{
+	//Not sure if this will be permanent - treat a lifetime of 0 as permanent
+	if (m_subtitle.GetLifetime() < 0.01 && m_subtitle.GetLifetime() > -0.01) {
+		return false;
+	}
+	return GetTime() - m_startTime > m_subtitle.GetLifetime();
 }
