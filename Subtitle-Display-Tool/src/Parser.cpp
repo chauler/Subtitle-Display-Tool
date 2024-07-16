@@ -37,6 +37,40 @@ void Parser::Parse(const std::string& input)
 		m_windowManager.AddWindow({ data["dialogue"].get<json::string_t>()});
 	}
 	else if (input_data["mode"] == "advanced") {
+		if (!data.contains("dialogue") || !data["dialogue"].is_string()) {
+			std::cout << "Invalid message structure" << std::endl;
+			return;
+		}
+
+		Styles styles;
+
+		if (data.contains("styles") && data["styles"].is_object()) {
+			json stylesData = data["styles"];
+
+			if (stylesData.contains("fontSize") && stylesData["fontSize"].is_number_float()) {
+				styles.fontSize = stylesData["fontSize"];
+			}
+			if (stylesData.contains("position") && stylesData["position"].is_array() && stylesData["position"].size() == 2 ) {
+				styles.position = { stylesData["position"][0], stylesData["position"][1] };
+			}
+			if (stylesData.contains("fontColor") && stylesData["fontColor"].is_array() && stylesData["fontColor"].size() == 4) {
+				styles.fontColor = { stylesData["fontColor"][0], stylesData["fontColor"][1], stylesData["fontColor"][2], stylesData["fontColor"][3] };
+			}
+			if (stylesData.contains("bgColor") && stylesData["bgColor"].is_array() && stylesData["bgColor"].size() == 4 ) {
+				styles.bgColor= { stylesData["bgColor"][0], stylesData["bgColor"][1], stylesData["bgColor"][2], stylesData["bgColor"][3] };
+			}
+			if (stylesData.contains("fontPath") && stylesData["fontPath"].is_string()) {
+				styles.fontPath = stylesData["fontPath"];
+			}
+			if (stylesData.contains("lifetime") && stylesData["lifetime"].is_number_float()) {
+				styles.lifetime = stylesData["lifetime"];
+			}
+		}
+
+		//Dialogue exists and is a string, create a Window object with styles
+		Window nw = Window({ data["dialogue"].get<json::string_t>(), styles });
+
+		m_windowManager.AddWindow(nw);
 
 	}
 	else if (input_data["mode"] == "file") { //Realistically could assume all other cases ==file, but still checking as we may want to reject invalid values for some reason.
