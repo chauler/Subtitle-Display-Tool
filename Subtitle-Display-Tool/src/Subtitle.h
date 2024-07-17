@@ -25,6 +25,7 @@ struct Styles {
 	Vec4i fontColor = {255, 255, 255, 255};
 	Vec4i bgColor = {0, 0, 0, 255};
 	std::string fontPath = "";
+	double lifetime = 5.0;
 };
 
 class Subtitle {
@@ -36,6 +37,7 @@ public:
 	Vec4i GetColor() const { return m_styles.fontColor; }
 	Vec4i GetBackgroundColor() const { return m_styles.bgColor; }
 	Font GetFont() const { return m_font; }
+	double GetLifetime() const { return m_styles.lifetime; }
 private:
 	std::string m_dialogue;
 	Styles m_styles;
