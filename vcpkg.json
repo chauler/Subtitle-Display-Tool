@@ -1,3 +1,6 @@
 {
-  "dependencies": ["raylib"]
+  "dependencies": [
+    "raylib",
+    "asio"
+  ]
 }
