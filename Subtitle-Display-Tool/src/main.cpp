@@ -46,8 +46,6 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 	int portNum = std::stoi(argv[1]);
-	std::cout << "Input Desired Port: ";
-	std::cin >> portNum;
 
 	std::string input_data = im.GetData(portNum);
 	std::cout << input_data;
@@ -55,7 +53,7 @@ int main(int argc, char * argv[]) {
 	while (!WindowShouldClose()) {
 		//Just using this to test the parser - this should eventually be called by the Input Manager with whatever messages were received
 		if (SAMPLE_JSON != "") {
-			parser.Parse(SAMPLE_JSON);
+			parser.Parse(input_data);
 			SAMPLE_JSON = "";
 		}
 
