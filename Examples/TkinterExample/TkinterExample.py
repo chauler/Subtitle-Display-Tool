@@ -25,7 +25,7 @@ def clicked():
     try:
         # Connect to server and send data
         sock.connect((HOST, PORT))
-        sock.sendall(bytes(data,encoding="utf-8"))
+        sock.sendall(bytes(json.dumps(data),encoding="utf-8"))
 
 
         # Receive data from the server and shut down
