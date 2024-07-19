@@ -34,7 +34,8 @@ void Parser::Parse(const std::string& input)
 			return;
 		}
 		//Dialogue exists and is a string, create a Window object and pass it to AddWindow(). (The braces are an initializer, it knows we're creating a window and is the same as using the Window constructor)
-		m_windowManager.AddWindow({ data["dialogue"].get<json::string_t>()});
+		Window window = { data["dialogue"].get<json::string_t>() };
+		m_windowManager.AddWindow(window);
 	}
 	else if (input_data["mode"] == "advanced") {
 		if (!data.contains("dialogue") || !data["dialogue"].is_string()) {
