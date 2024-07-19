@@ -5,8 +5,8 @@ import json
 HOST = "localhost"
 PORT = 9999
 
-args = ['..\..\bin\Debug\Subtitle-Display-Tool.exe', str(PORT)]
-subprocess.call(args)
+args = ['..\\..\\bin\\Debug\\Subtitle-Display-Tool.exe', str(PORT)]
+subprocess.Popen(args)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
@@ -29,6 +29,7 @@ def clicked():
 
 
         # Receive data from the server and shut down
+        sock.settimeout(1)
         received = sock.recv(1024)
         received = received.decode("utf-8")
 
@@ -36,7 +37,8 @@ def clicked():
         sock.close()
         
     print("Sent:     {}".format(data))
-    print("Received: {}".format(received))
+    if received:
+        print("Received: {}".format(received))
  
 btn = Button(app, text = "Create window using simple mode", fg = "black", command=clicked)
 
