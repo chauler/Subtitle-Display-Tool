@@ -24,7 +24,7 @@ std::string SAMPLE_JSON = R"({
 })";
 
 
-int main() {
+int main(int argc, char * argv[]) {
 	SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED | FLAG_WINDOW_UNFOCUSED | FLAG_WINDOW_MOUSE_PASSTHROUGH | FLAG_VSYNC_HINT);
 	InitWindow(0, 0, "Subtitle Display Tool");
 	
@@ -41,7 +41,11 @@ int main() {
 	//As mentioned above, all data members of the Styles object have default values.  The Subtitle constructor doesn't require you to provide styles at all, it'll just create a default Styles object.
 	//wm.AddWindow(Window("Testing default styles"));
 	//wm.AddWindow(Window({ "Testing custom fonts", {.position = {0, 0}, .fontPath = "C:\\Windows\\Fonts\\arial.ttf", .lifetime = 0.} }));
-	int portNum;
+	if (argc < 2) {
+		std::cout << "Usage: " << argv[0] << "PORT" << std::endl;
+		return 1;
+	}
+	int portNum = std::stoi(argv[1]);
 	std::cout << "Input Desired Port: ";
 	std::cin >> portNum;
 
