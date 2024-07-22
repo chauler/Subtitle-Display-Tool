@@ -7,7 +7,6 @@ PORT = 9999
 
 args = ['..\\..\\bin\\Debug\\Subtitle-Display-Tool.exe', str(PORT)]
 subprocess.Popen(args)
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 app = Tk()
 app.title("Example Tkinter Host App")
@@ -17,6 +16,7 @@ def clicked(data):
     #Send JSON to our program
     try:
         # Connect to server and send data
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((HOST, PORT))
         sock.sendall(bytes(json.dumps(data),encoding="utf-8"))
 
