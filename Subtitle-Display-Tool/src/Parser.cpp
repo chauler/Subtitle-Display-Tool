@@ -47,7 +47,7 @@ void Parser::Parse(const std::string& input)
 		if (data.contains("styles") && data["styles"].is_object()) {
 			json stylesData = data["styles"];
 
-			if (stylesData.contains("fontSize") && stylesData["fontSize"].is_number_float()) {
+			if (stylesData.contains("fontSize") && stylesData["fontSize"].is_number()) {
 				styles.fontSize = stylesData["fontSize"];
 			}
 			if (stylesData.contains("position") && stylesData["position"].is_array() && stylesData["position"].size() == 2 ) {

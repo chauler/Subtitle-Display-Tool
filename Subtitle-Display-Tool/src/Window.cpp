@@ -4,16 +4,25 @@
 #include "Window.h"
 
 #define DEFAULT_SPACING 5
+#define TEMP_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/sdf.fs"
 
 Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
 
 Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), m_startTime(GetTime())
 {
-	BeginTextureMode(m_target);
-	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w};
+	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
+
+	//Replace the macro once the layout of the distributed version is decided
+	Shader shader = LoadShader(0, TEMP_SHADER_PATH);
+
+	//We are drawing to a texture, with a shader used to draw SDF fonts
+	BeginTextureMode(m_target);
+	BeginShaderMode(shader);
+	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
 	ClearBackground(bgColor);
 	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	EndShaderMode();
 	EndTextureMode();
 }
 
