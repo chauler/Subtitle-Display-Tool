@@ -39,6 +39,7 @@ public:
 	Font GetFont() const { return m_font; }
 	double GetLifetime() const { return m_styles.lifetime; }
 private:
+	Font ConvertFontToSDF(std::string fontPath);
 	std::string m_dialogue;
 	Styles m_styles;
 	Font m_font;
