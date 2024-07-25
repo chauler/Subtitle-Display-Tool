@@ -41,6 +41,25 @@ struct OutlineSettings {
 	int outlineSize = 2;
 };
 
+struct DropShadowSettings {
+	union {
+		struct {
+			float r;
+			float g;
+			float b;
+		};
+		float values[3] = { 0.0, 0.0, 0.0 };
+	} shadowColor;
+	union {
+		struct {
+			int x;
+			int y;
+		};
+		int values[2] = { 1, 1 };
+	} shadowOffset;
+	int blurStrength = 1;
+};
+
 struct Styles {
 	float fontSize = 50;
 	Vec2i position = {100, 100};
