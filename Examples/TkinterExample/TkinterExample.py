@@ -2,11 +2,14 @@ import socket
 from tkinter import *
 import subprocess
 import json
+import os
+import signal
+
 HOST = "localhost"
 PORT = 9999
 
 args = ['..\\..\\bin\\Debug\\Subtitle-Display-Tool.exe', str(PORT)]
-subprocess.Popen(args)
+proc = subprocess.Popen(args)
 
 app = Tk()
 app.title("Example Tkinter Host App")
@@ -24,6 +27,20 @@ def clicked(data):
         sock.close()
         
     print("Sent:     {}".format(data))
+
+def restart_connection():
+    global proc
+    if(proc):
+        # Terminates current process
+        os.kill(proc.pid, signal.SIGTERM)
+    # Starts a new process to establish a fresh connection
+    proc = subprocess.Popen(args)
+    print("Connection restated")
+
+def on_closing():
+    if proc:
+        os.kill(proc.pid, signal.SIGTERM)
+    app.destroy()
  
 btn = Button(app, text = "Create window using simple mode", fg = "black", command=lambda: clicked({
         "mode": "simple",
@@ -89,11 +106,14 @@ btn5 = Button(app, text = "Create a window showcasing the outline and dropshadow
                 "lifetime": 0.0,
                 "outline": {
                     "size": 2.0,
-                    "color": [0.0, 0.0, 0.0, 1.0]
+                    "color": [0.0, 0.4, 0.3, 1.0]
                     }
             }
         }
     }))
+
+# Temporary workaround to reset the socket connection
+btn_restart = Button(app, text="Restart Connection", fg="black", command=restart_connection)
 
 btn.grid(column=0, row=0)
 btn2.grid(column=0, row=1)
@@ -101,4 +121,7 @@ btn3.grid(column=0, row=2)
 btn4.grid(column=0, row=3)
 btn5.grid(column=0, row=4)
 
+btn_restart.grid(column=0, row=5)
+
+app.protocol("WM_DELETE_WINDOW", on_closing)
 app.mainloop()

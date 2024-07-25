@@ -65,6 +65,18 @@ void Parser::Parse(const std::string& input)
 			if (stylesData.contains("lifetime") && stylesData["lifetime"].is_number_float()) {
 				styles.lifetime = stylesData["lifetime"];
 			}
+			if (stylesData.contains("outline") && stylesData["outline"].is_object()) {
+				json outlineData = stylesData["outline"];
+				if (outlineData.contains("color") && outlineData["color"].is_array() && outlineData["color"].size() == 4) {
+					styles.outline.outlineColor.r = outlineData["color"][0];
+					styles.outline.outlineColor.g = outlineData["color"][1];
+					styles.outline.outlineColor.b = outlineData["color"][2];
+					styles.outline.outlineColor.a = outlineData["color"][3];
+				}
+				if (outlineData.contains("size") && outlineData["size"].is_number()) {
+					styles.outline.outlineSize = outlineData["size"];
+				}
+			}
 		}
 
 		//Dialogue exists and is a string, create a Window object with styles
@@ -78,18 +90,3 @@ void Parser::Parse(const std::string& input)
 	}
 }
 
-/*
-Currently proposed API format:
-* denotes required property
-{
-	"*mode": "simple" | "advanced" | "file",
-	"*data": {
-		"*dialogue": "string",	//This property will exist in all modes, but with differing a differing function. If mode == simple or advanced, this will be the text displayed on screen. 
-								//If mode == file, it'll be a filepath for the file to be parsed.
-		"styles": {
-			//Various properties that are currently undecided. Should be easy to add/remove from this as the Styles constructor allows for any combination of arguments in its constructor.
-			//Just look at the Styles struct contained in Subtitle.h and use its data members to figure this out
-		},
-	}
-}
-*/
