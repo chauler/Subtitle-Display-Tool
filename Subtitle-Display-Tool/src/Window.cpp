@@ -13,7 +13,7 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 {
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
-	float outlineSize = m_subtitle.GetStyles().outline.outlineSize;
+	int outlineSize = m_subtitle.GetStyles().outline.outlineSize;
 
 	//Replace the macro once the layout of the distributed version is decided
 	Shader SDFShader = LoadShader(0, SDF_SHADER_PATH);
@@ -24,7 +24,7 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 	int outlineColorLoc = GetShaderLocation(outlineShader, "outlineColor");
 	int textureSizeLoc = GetShaderLocation(outlineShader, "textureSize");
 	float textureSize[2] = { GetWindowDimensions().x, GetWindowDimensions().y };
-	SetShaderValue(outlineShader, outlineSizeLoc, &outlineSize, SHADER_UNIFORM_FLOAT);
+	SetShaderValue(outlineShader, outlineSizeLoc, &outlineSize, SHADER_UNIFORM_INT);
 	SetShaderValue(outlineShader, outlineColorLoc, m_subtitle.GetStyles().outline.outlineColor.values, SHADER_UNIFORM_VEC4);
 	SetShaderValue(outlineShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
 
@@ -33,12 +33,15 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 	BeginTextureMode(secondaryTex);
 	BeginShaderMode(SDFShader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
-	ClearBackground(bgColor);
+	ClearBackground(BLANK);
 	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
 	EndShaderMode();
 	EndTextureMode();
 	//Second pass. Draw texture with outline shader enabled.
 	BeginTextureMode(m_target);
+	//We draw rectangle for the background so that non-opaque text correctly
+	//inherits the background color, rather than the color of the screen behind the window
+	DrawRectangle(0, 0, GetWindowDimensions().x, GetWindowDimensions().y, bgColor);
 	BeginShaderMode(outlineShader);
 	DrawTextureRec(secondaryTex.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
 	EndShaderMode();

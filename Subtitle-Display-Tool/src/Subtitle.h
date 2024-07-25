@@ -38,7 +38,7 @@ struct OutlineSettings {
 		};
 		float values[4] = {1.0, 0.0, 0.0, 1.0};
 	} outlineColor;
-	float outlineSize = 2.0f;
+	int outlineSize = 2;
 };
 
 struct Styles {

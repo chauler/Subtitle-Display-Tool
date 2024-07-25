@@ -9,7 +9,7 @@ uniform sampler2D texture0;
 uniform vec4 colDiffuse;
 
 uniform vec2 textureSize;
-uniform float outlineSize;
+uniform int outlineSize;
 uniform vec4 outlineColor;
 
 // Output fragment color
@@ -31,5 +31,9 @@ void main()
 
     float outline = min(dot(corners, vec4(1.0)), 1.0);
     vec4 color = mix(vec4(0.0), outlineColor, outline);
-    finalColor = mix(color, texel, texel.a);
+    if(texel.a != 0.0) {
+        finalColor = texel;
+    } else if(corners.x != 0.0 || corners.y != 0.0 || corners.z != 0.0 || corners.w != 0.0) {
+        finalColor = outlineColor;
+    }
 }
