@@ -9,7 +9,10 @@
 
 Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
 
-Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), m_startTime(GetTime())
+Window::Window(Subtitle subtitle) : 
+	m_subtitle(subtitle), 
+	m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), 
+	m_startTime(GetTime())
 {
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
@@ -34,7 +37,7 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 	BeginShaderMode(SDFShader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
 	ClearBackground(BLANK);
-	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), { (float)m_subtitle.GetStyles().outline.outlineSize, (float)m_subtitle.GetStyles().outline.outlineSize }, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
 	EndShaderMode();
 	EndTextureMode();
 	//Second pass. Draw texture with outline shader enabled.
@@ -82,6 +85,8 @@ Window::~Window() {
 Vec2f Window::GetWindowDimensions() const
 {
 	Vector2 dims = MeasureTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING);
+	dims.x += 2*m_subtitle.GetStyles().outline.outlineSize;
+	dims.y += 2*m_subtitle.GetStyles().outline.outlineSize;
 	return { dims.x, dims.y };
 }
 
