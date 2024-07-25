@@ -4,7 +4,8 @@
 #include "Window.h"
 
 #define DEFAULT_SPACING 5
-#define TEMP_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/sdf.fs"
+#define SDF_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/sdf.fs"
+#define OUTLINE_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/outline.fs"
 
 Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
 
@@ -12,16 +13,34 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 {
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
+	float outlineSize = m_subtitle.GetStyles().outline.outlineSize;
 
 	//Replace the macro once the layout of the distributed version is decided
-	Shader shader = LoadShader(0, TEMP_SHADER_PATH);
+	Shader SDFShader = LoadShader(0, SDF_SHADER_PATH);
+	Shader outlineShader = LoadShader(0, OUTLINE_SHADER_PATH);
 
+	//Update shader uniforms with values from subtitle styles
+	int outlineSizeLoc = GetShaderLocation(outlineShader, "outlineSize");
+	int outlineColorLoc = GetShaderLocation(outlineShader, "outlineColor");
+	int textureSizeLoc = GetShaderLocation(outlineShader, "textureSize");
+	float textureSize[2] = { GetWindowDimensions().x, GetWindowDimensions().y };
+	SetShaderValue(outlineShader, outlineSizeLoc, &outlineSize, SHADER_UNIFORM_FLOAT);
+	SetShaderValue(outlineShader, outlineColorLoc, m_subtitle.GetStyles().outline.outlineColor.values, SHADER_UNIFORM_VEC4);
+	SetShaderValue(outlineShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
+
+	RenderTexture2D secondaryTex = LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y);
 	//We are drawing to a texture, with a shader used to draw SDF fonts
-	BeginTextureMode(m_target);
-	BeginShaderMode(shader);
+	BeginTextureMode(secondaryTex);
+	BeginShaderMode(SDFShader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
 	ClearBackground(bgColor);
 	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	EndShaderMode();
+	EndTextureMode();
+	//Second pass. Draw texture with outline shader enabled.
+	BeginTextureMode(m_target);
+	BeginShaderMode(outlineShader);
+	DrawTextureRec(secondaryTex.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
 	EndShaderMode();
 	EndTextureMode();
 }

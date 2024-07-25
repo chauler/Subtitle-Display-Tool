@@ -51,11 +51,12 @@ btn3 = Button(app, text = "Create a transparent window with a custom font", fg =
         "data": {
             "dialogue": "This string was sent from the Tkinter Host App",
             "styles": {
-                "fontSize": 36,
+                "fontSize": 500,
                 "position": [250, 250],
 			    "fontColor": [255, 255, 255, 255],
 			    "bgColor": [102, 0, 51, 0],
 			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
+                "lifetime": 0.0
             }
         }
     }))
@@ -75,9 +76,29 @@ btn4 = Button(app, text = "Create a window which lasts 0.5 seconds", fg = "black
         }
     }))
 
+btn5 = Button(app, text = "Create a window showcasing the outline and dropshadow shaders", fg = "black", command=lambda: clicked({
+        "mode": "advanced",
+        "data": {
+            "dialogue": "This string was sent from the Tkinter Host App",
+            "styles": {
+                "fontSize": 100,
+                "position": [250, 250],
+			    "fontColor": [255, 255, 255, 255],
+			    "bgColor": [102, 0, 51, 0],
+			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
+                "lifetime": 0.0,
+                "outline": {
+                    "size": 2.0,
+                    "color": [0.0, 0.0, 0.0, 1.0]
+                    }
+            }
+        }
+    }))
+
 btn.grid(column=0, row=0)
 btn2.grid(column=0, row=1)
 btn3.grid(column=0, row=2)
 btn4.grid(column=0, row=3)
+btn5.grid(column=0, row=4)
 
 app.mainloop()
