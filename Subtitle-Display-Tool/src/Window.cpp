@@ -7,9 +7,9 @@
 #define SDF_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/sdf.fs"
 #define OUTLINE_SHADER_PATH "../../Subtitle-Display-Tool/res/shaders/outline.fs"
 
-Window::Window(std::string dialogue) : Window(Subtitle{dialogue}) {}
+Window::Window(std::string dialogue, double creationTime) : Window(Subtitle{ dialogue, {}, creationTime }) {}
 
-Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), m_startTime(GetTime())
+Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), m_creationTime(GetTime())
 {
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
@@ -51,7 +51,7 @@ Window::Window(const Window& other): Window(other.m_subtitle)
 
 //If we copy a temporary over, we don't want the texture to be unloaded when the temporary is destroyed.
 // So, remove the temporary's render target.
-Window::Window(Window&& other) noexcept : m_subtitle(other.m_subtitle), m_target(other.m_target), m_startTime(other.m_startTime)
+Window::Window(Window&& other) noexcept : m_subtitle(other.m_subtitle), m_target(other.m_target), m_creationTime(other.m_creationTime)
 {
 	other.m_target = {};
 }
@@ -84,16 +84,13 @@ Vec2f Window::GetWindowDimensions() const
 
 void Window::Draw() const
 {
-	if (!IsExpired()) {
+	if (IsVisible()) {
 		DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { (float)m_subtitle.GetPosition().x, (float)m_subtitle.GetPosition().y }, WHITE);
 	}
 }
 
-bool Window::IsExpired() const
-{
-	//Not sure if this will be permanent - treat a lifetime of 0 as permanent
-	if (m_subtitle.GetLifetime() < 0.01 && m_subtitle.GetLifetime() > -0.01) {
-		return false;
-	}
-	return GetTime() - m_startTime > m_subtitle.GetLifetime();
+bool Window::IsVisible() const {
+	double currentTime = GetTime();
+	double subtitleStartTime = m_creationTime + m_subtitle.GetStartTime();
+	return currentTime >= subtitleStartTime && currentTime < subtitleStartTime + m_subtitle.GetLifetime();
 }

@@ -4,7 +4,7 @@
 
 class Window {
 public:
-	Window(std::string dialogue);
+	Window(std::string dialogue, double creationTime);
 	Window(Subtitle subtitle);
 	Window(const Window& other);
 	Window(Window&& other) noexcept;
@@ -13,10 +13,11 @@ public:
 	~Window();
 	Vec2f GetWindowDimensions() const;
 	void Draw() const;
-	bool IsExpired() const;
+	bool IsVisible() const;
+
 private:
 	Window();
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
-	double m_startTime;
+	double m_creationTime;
 };
