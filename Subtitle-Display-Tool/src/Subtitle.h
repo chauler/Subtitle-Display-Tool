@@ -49,14 +49,14 @@ struct DropShadowSettings {
 			float b;
 		};
 		float values[3] = { 0.0, 0.0, 0.0 };
-	} shadowColor;
+	} color;
 	union {
 		struct {
 			int x;
 			int y;
 		};
 		int values[2] = { 1, 1 };
-	} shadowOffset;
+	} offset;
 	int blurStrength = 1;
 };
 
@@ -68,6 +68,7 @@ struct Styles {
 	std::string fontPath = "";
 	double lifetime = 5.0;
 	OutlineSettings outline = {};
+	DropShadowSettings shadow = {};
 };
 
 class Subtitle {
