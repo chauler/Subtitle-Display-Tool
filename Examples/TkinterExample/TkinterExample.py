@@ -58,7 +58,7 @@ btn2 = Button(app, text = "Create a stylized window with our API", fg = "black",
                 "position": [250, 250],
 			    "fontColor": [51, 255, 255, 255],
 			    "bgColor": [102, 0, 51, 255],
-                "lifetime": 0
+                "lifetime": 5
             }
         }
     }))
@@ -73,7 +73,7 @@ btn3 = Button(app, text = "Create a transparent window with a custom font", fg =
 			    "fontColor": [255, 255, 255, 255],
 			    "bgColor": [102, 0, 51, 0],
 			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
-                "lifetime": 0.0
+                "lifetime": 5.0
             }
         }
     }))
@@ -103,7 +103,7 @@ btn5 = Button(app, text = "Create a window showcasing the outline and dropshadow
 			    "fontColor": [0, 255, 0, 200],
 			    "bgColor": [0, 0, 255, 255],
 			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
-                "lifetime": 0.0,
+                "lifetime": 5.0,
                 "outline": {
                     "size": 2,
                     "color": [0.0, 0.4, 0.3, 1.0]
