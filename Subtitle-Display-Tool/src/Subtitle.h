@@ -38,7 +38,26 @@ struct OutlineSettings {
 		};
 		float values[4] = {1.0, 0.0, 0.0, 1.0};
 	} outlineColor;
-	float outlineSize = 2.0f;
+	int outlineSize = 2;
+};
+
+struct DropShadowSettings {
+	union {
+		struct {
+			float r;
+			float g;
+			float b;
+		};
+		float values[3] = { 0.0, 0.0, 0.0 };
+	} color;
+	union {
+		struct {
+			int x;
+			int y;
+		};
+		int values[2] = { 1, 1 };
+	} offset;
+	int blurStrength = 1;
 };
 
 struct Styles {
@@ -49,6 +68,7 @@ struct Styles {
 	std::string fontPath = "";
 	double lifetime = 5.0;
 	OutlineSettings outline = {};
+	DropShadowSettings shadow = {};
 };
 
 class Subtitle {

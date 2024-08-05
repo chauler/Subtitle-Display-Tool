@@ -98,14 +98,14 @@ btn5 = Button(app, text = "Create a window showcasing the outline and dropshadow
         "data": {
             "dialogue": "This string was sent from the Tkinter Host App",
             "styles": {
-                "fontSize": 100,
+                "fontSize": 500,
                 "position": [250, 250],
-			    "fontColor": [255, 255, 255, 255],
-			    "bgColor": [102, 0, 51, 0],
+			    "fontColor": [0, 255, 0, 200],
+			    "bgColor": [0, 0, 255, 255],
 			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
                 "lifetime": 0.0,
                 "outline": {
-                    "size": 2.0,
+                    "size": 2,
                     "color": [0.0, 0.4, 0.3, 1.0]
                     }
             }
