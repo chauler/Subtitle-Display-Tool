@@ -2,11 +2,14 @@ import socket
 from tkinter import *
 import subprocess
 import json
+import os
+import signal
+
 HOST = "localhost"
 PORT = 9999
 
 args = ['..\\..\\bin\\Debug\\Subtitle-Display-Tool.exe', str(PORT)]
-subprocess.Popen(args)
+proc = subprocess.Popen(args)
 
 app = Tk()
 app.title("Example Tkinter Host App")
@@ -24,6 +27,20 @@ def clicked(data):
         sock.close()
         
     print("Sent:     {}".format(data))
+
+def restart_connection():
+    global proc
+    if(proc):
+        # Terminates current process
+        os.kill(proc.pid, signal.SIGTERM)
+    # Starts a new process to establish a fresh connection
+    proc = subprocess.Popen(args)
+    print("Connection restated")
+
+def on_closing():
+    if proc:
+        os.kill(proc.pid, signal.SIGTERM)
+    app.destroy()
  
 btn = Button(app, text = "Create window using simple mode", fg = "black", command=lambda: clicked({
         "mode": "simple",
@@ -51,11 +68,12 @@ btn3 = Button(app, text = "Create a transparent window with a custom font", fg =
         "data": {
             "dialogue": "This string was sent from the Tkinter Host App",
             "styles": {
-                "fontSize": 36,
+                "fontSize": 500,
                 "position": [250, 250],
 			    "fontColor": [255, 255, 255, 255],
 			    "bgColor": [102, 0, 51, 0],
 			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
+                "lifetime": 0.0
             }
         }
     }))
@@ -75,9 +93,35 @@ btn4 = Button(app, text = "Create a window which lasts 0.5 seconds", fg = "black
         }
     }))
 
+btn5 = Button(app, text = "Create a window showcasing the outline and dropshadow shaders", fg = "black", command=lambda: clicked({
+        "mode": "advanced",
+        "data": {
+            "dialogue": "This string was sent from the Tkinter Host App",
+            "styles": {
+                "fontSize": 500,
+                "position": [250, 250],
+			    "fontColor": [0, 255, 0, 200],
+			    "bgColor": [0, 0, 255, 255],
+			    "fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
+                "lifetime": 0.0,
+                "outline": {
+                    "size": 2,
+                    "color": [0.0, 0.4, 0.3, 1.0]
+                    }
+            }
+        }
+    }))
+
+# Temporary workaround to reset the socket connection
+btn_restart = Button(app, text="Restart Connection", fg="black", command=restart_connection)
+
 btn.grid(column=0, row=0)
 btn2.grid(column=0, row=1)
 btn3.grid(column=0, row=2)
 btn4.grid(column=0, row=3)
+btn5.grid(column=0, row=4)
 
+btn_restart.grid(column=0, row=5)
+
+app.protocol("WM_DELETE_WINDOW", on_closing)
 app.mainloop()
