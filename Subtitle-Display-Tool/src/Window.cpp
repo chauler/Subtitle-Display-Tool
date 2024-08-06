@@ -127,3 +127,10 @@ bool Window::IsVisible() const {
 	double subtitleStartTime = m_creationTime + m_subtitle.GetStartTime();
 	return currentTime >= subtitleStartTime && currentTime < subtitleStartTime + m_subtitle.GetLifetime();
 }
+
+void Window::Play(double timestamp)
+{
+	if (IsVisible()) {
+		Draw();
+	}
+}

@@ -164,6 +164,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Parser.cpp" />
     <ClCompile Include="src\Subtitle.cpp" />
+    <ClCompile Include="src\Timeline.cpp" />
     <ClCompile Include="src\Window.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="src\InputManager.h" />
     <ClInclude Include="src\Parser.h" />
     <ClInclude Include="src\Subtitle.h" />
+    <ClInclude Include="src\Timeline.h" />
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\WindowManager.h" />
     <ClInclude Include="vendor\nlohmann\json.hpp" />

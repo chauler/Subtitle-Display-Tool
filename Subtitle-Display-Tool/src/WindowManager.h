@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "Window.h"
+#include "Timeline.h"
+#include "Timer.h"
 
 class WindowManager {
 public:
@@ -9,4 +11,6 @@ public:
 	void DrawWindows();
 private:
 	std::vector<Window> m_windows;
+	Timeline masterTimeline;
+	Timer timer;
 };

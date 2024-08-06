@@ -1,8 +1,9 @@
 #pragma once
 #include "raylib.h"
 #include "Subtitle.h"
+#include "Timeline.h"
 
-class Window {
+class Window : public Timeline {
 public:
 	Window(std::string dialogue, double creationTime);
 	Window(Subtitle subtitle);
@@ -14,6 +15,7 @@ public:
 	Vec2f GetWindowDimensions() const;
 	void Draw() const;
 	bool IsVisible() const;
+	void Play(double timestamp) override;
 
 private:
 	Window();
