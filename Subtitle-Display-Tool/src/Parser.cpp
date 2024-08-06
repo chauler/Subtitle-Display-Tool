@@ -159,6 +159,21 @@ Styles Parser::ParseStyles(const json& stylesData) {
 			styles.outline.outlineSize = outlineData["size"];
 		}
 	}
+	if (stylesData.contains("shadow") && stylesData["shadow"].is_object()) {
+		json outlineData = stylesData["shadow"];
+		if (outlineData.contains("color") && outlineData["color"].is_array() && outlineData["color"].size() == 3) {
+			styles.shadow.color.r = outlineData["color"][0];
+			styles.shadow.color.g = outlineData["color"][1];
+			styles.shadow.color.b = outlineData["color"][2];
+		}
+		if (outlineData.contains("offset") && outlineData["offset"].is_array() && outlineData["color"].size() == 2) {
+			styles.shadow.offset.x = outlineData["offset"][0];
+			styles.shadow.offset.y = outlineData["offset"][1];
+		}
+		if (outlineData.contains("blurStrength") && outlineData["blurStrength"].is_number()) {
+			styles.shadow.blurStrength = outlineData["blurStrength"];
+		}
+	}
 	return styles;
 }
 

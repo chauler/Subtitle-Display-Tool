@@ -64,7 +64,7 @@ struct Styles {
 	float fontSize = 50;
 	Vec2i position = {100, 100};
 	Vec4i fontColor = {255, 255, 255, 255};
-	Vec4i bgColor = {0, 0, 0, 255};
+	Vec4i bgColor = {0, 0, 0, 0};
 	std::string fontPath = "";
 	double lifetime = 5.0;
 	OutlineSettings outline = {};
