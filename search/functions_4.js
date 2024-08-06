@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['data_1202',['data',['../classbasic__json.html#ab4b684342f67317a21b2d9e33ec8feb0',1,'basic_json::data(const value_t v)'],['../classbasic__json.html#a2430d63f0ffd335f276c085c33c11b17',1,'basic_json::data(size_type cnt, const basic_json &amp;val)'],['../classbasic__json.html#ac8aaf6afe755ea6c586ab9920389d6bf',1,'basic_json::data() noexcept=default'],['../classbasic__json.html#a08ad05755736ab9e3416f0556bb47a6a',1,'basic_json::data(data &amp;&amp;) noexcept=default'],['../classbasic__json.html#a416abf41e6c61061dd2be762a88cceb8',1,'basic_json::data(const data &amp;) noexcept=delete']]],
-  ['diagnostics_1203',['diagnostics',['../classdetail_1_1exception.html#a6b4a786b5c1c25dd3edaceb1bf2d5120',1,'detail::exception::diagnostics(std::nullptr_t)'],['../classdetail_1_1exception.html#af3739c53fe56a1712754d13dfa561f80',1,'detail::exception::diagnostics(const BasicJsonType *leaf_element)']]],
-  ['diff_1204',['diff',['../classbasic__json.html#a699ef418df577e75f28dfce6b04d6c2f',1,'basic_json']]],
-  ['diyfp_1205',['diyfp',['../structdetail_1_1dtoa__impl_1_1diyfp.html#a7c8377d2b931fcb3088d54c41b99c53b',1,'detail::dtoa_impl::diyfp']]],
-  ['draw_1206',['Draw',['../classWindow.html#a0c69a30bb28375e7a67b9d87ad0dc6fe',1,'Window']]],
-  ['drawwindows_1207',['DrawWindows',['../classWindowManager.html#af529aaef6b61fe2c90955c1561957e19',1,'WindowManager']]],
-  ['dump_1208',['dump',['../classdetail_1_1serializer.html#ae73c1bac64bcc810923b9f1261af8b09',1,'detail::serializer::dump()'],['../classbasic__json.html#a85df48caed9e341bb14d98ab88891d1e',1,'basic_json::dump()']]]
+  ['get_5fstyle_5fdata_180',['get_style_data',['../namespaceTkinterExample.html#ae3cd4c6a39b7c7b978ac1f8f86f212c8',1,'TkinterExample']]],
+  ['getbackgroundcolor_181',['GetBackgroundColor',['../classSubtitle.html#ab53d55263cf9b2e53ffe305ff449d571',1,'Subtitle']]],
+  ['getcolor_182',['GetColor',['../classSubtitle.html#af00fc543d8a1d99e44b42713f61ef630',1,'Subtitle']]],
+  ['getdata_183',['GetData',['../classInputManager.html#af01f23eaa181caec715bf506b32760db',1,'InputManager']]],
+  ['getdialogue_184',['GetDialogue',['../classSubtitle.html#add55c9a66203b21d02962d06c7557d8f',1,'Subtitle']]],
+  ['getfont_185',['GetFont',['../classSubtitle.html#a5c7e907150a669441f709343f76965e4',1,'Subtitle']]],
+  ['getfontsize_186',['GetFontSize',['../classSubtitle.html#af914a6b8f0312c6fb8c93381b03a9e66',1,'Subtitle']]],
+  ['getlifetime_187',['GetLifetime',['../classSubtitle.html#a1c93d7b451d47341bde07c0fcdddf3ab',1,'Subtitle']]],
+  ['getposition_188',['GetPosition',['../classSubtitle.html#a731434d5fc890e369454aa69025b0d8f',1,'Subtitle']]],
+  ['getstarttime_189',['GetStartTime',['../classSubtitle.html#ab0788c78fe970b79edb6a0c27d2a65ba',1,'Subtitle']]],
+  ['getstyles_190',['GetStyles',['../classSubtitle.html#a2987a50d22e094f555957df4ee822e42',1,'Subtitle']]],
+  ['getwindowdimensions_191',['GetWindowDimensions',['../classWindow.html#a27065f59bdca328516cd60661573ca4c',1,'Window']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['id_1496',['id',['../classdetail_1_1exception.html#a63b819fbb2ef34df9dad1e309207fa24',1,'detail::exception']]],
-  ['indent_5fchar_1497',['indent_char',['../classdetail_1_1serializer.html#acf6f783e3299d8b18ce4b5d9746f39f6',1,'detail::serializer']]],
-  ['indent_5fstring_1498',['indent_string',['../classdetail_1_1serializer.html#a7f6f1d36859514ab42984deb28d2521e',1,'detail::serializer']]],
-  ['inverse_1499',['inverse',['../classbasic__json.html#a54aba2f4314135e3ccf511fb17ca45a5',1,'basic_json']]]
+  ['offset_254',['offset',['../structDropShadowSettings.html#a96e4cfd2133dffa342faea9ec6c58cf8',1,'DropShadowSettings']]],
+  ['outline_255',['outline',['../structStyles.html#afaf21911dcf0aae138ce02d37b3c4b57',1,'Styles']]],
+  ['outlinecolor_256',['outlineColor',['../structOutlineSettings.html#a3be5090767ad5e81d0ccdb30e70d3235',1,'OutlineSettings']]],
+  ['outlinesize_257',['outlineSize',['../structOutlineSettings.html#af88b99bfa387d02265dd83b28d44f89b',1,'OutlineSettings']]]
 ];

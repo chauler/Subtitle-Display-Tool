@@ -1,8 +1,14 @@
 var searchData=
 [
-  ['_5f_5finit_5f_5f_9',['__init__',['../classTkinterExample_1_1CollapsibleFrame.html#ae3505074a7c0b602b2d23a11cfdb5d31',1,'TkinterExample::CollapsibleFrame']]],
-  ['_5f_5fpad0_5f_5f_10',['__pad0__',['../classdetail_1_1iter__impl.html#ae146c1c7a0b8a46e353b1bbe181f7743',1,'detail::iter_impl::__pad0__()'],['../classdetail_1_1serializer.html#aae0aca92f2f35e72aac9c7d22e01312b',1,'detail::serializer::__pad0__()']]],
-  ['_5f_5fpad1_5f_5f_11',['__pad1__',['../classdetail_1_1iter__impl.html#a392b5af6ea3449fe31ab7aafa5db4774',1,'detail::iter_impl']]],
-  ['_5f_5fpad3_5f_5f_12',['__pad3__',['../classbasic__json.html#a7dd56e6dab5328365a3c9b9d15f98e1b',1,'basic_json']]],
-  ['_5f_5fpad4_5f_5f_13',['__pad4__',['../classbasic__json.html#a27054edf6738852b42e0218fe4337e1c',1,'basic_json']]]
+  ['a_1',['a',['../structOutlineSettings.html#a1c04be55e78e8597322a8eab2b96a7bc',1,'OutlineSettings']]],
+  ['about_2',['About',['../md_README.html',1,'']]],
+  ['addwindow_3',['AddWindow',['../classWindowManager.html#a60d11145a64aea022064d01483902734',1,'WindowManager::AddWindow(const Window &amp;window)'],['../classWindowManager.html#adb8461577b867cb9cd052050d99f3d73',1,'WindowManager::AddWindow(Window &amp;&amp;window)']]],
+  ['advanced_5fbtn_4',['advanced_btn',['../namespaceTkinterExample.html#ac7bed22d269a652b4d0565c8a39bfb10',1,'TkinterExample']]],
+  ['advanced_5fdialogue_5fentry_5',['advanced_dialogue_entry',['../namespaceTkinterExample.html#a8d071c327cb720f713a82887edcdaf6b',1,'TkinterExample']]],
+  ['advanced_5fdialogue_5flabel_6',['advanced_dialogue_label',['../namespaceTkinterExample.html#af62e461ba58144fab937a7cb7e402859',1,'TkinterExample']]],
+  ['advanced_5ffields_7',['advanced_fields',['../namespaceTkinterExample.html#a6b215df9abdb7a7a79a3a88fec6d501c',1,'TkinterExample']]],
+  ['advanced_5fframe_8',['advanced_frame',['../namespaceTkinterExample.html#a9a67ef6c7b6f2e86a4c46188b8e286ff',1,'TkinterExample']]],
+  ['advanced_5flifetime_5fentry_9',['advanced_lifetime_entry',['../namespaceTkinterExample.html#afcd64958d5a7198f0a415b233c474414',1,'TkinterExample']]],
+  ['advanced_5flifetime_5flabel_10',['advanced_lifetime_label',['../namespaceTkinterExample.html#a34573f74b5adc0925d1c6016ca4ae2af',1,'TkinterExample']]],
+  ['app_11',['app',['../namespaceTkinterExample.html#a13cf11c70a5fa4b1c75a4dd848fba9c9',1,'TkinterExample']]]
 ];

@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['ubjson_893',['ubjson',['../namespacedetail.html#a0ab3b338d0eadc6890b72cccef0ea04fa4537f20910e85437f6d07701864084e8',1,'detail']]],
-  ['uncvref_5ft_894',['uncvref_t',['../namespacedetail.html#ad76afb2c3a23eb88e7efb7c5d5499574',1,'detail']]],
-  ['undumped_5fchars_895',['undumped_chars',['../classdetail_1_1serializer.html#a44a05646a5ac7caec54f97ba17cb893b',1,'detail::serializer']]],
-  ['uninitialized_896',['uninitialized',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540a42dd1a73d072bb6bf3f494f22b15db8e',1,'detail::lexer_base']]],
-  ['update_897',['update',['../classbasic__json.html#a3819f393e82396782ccc22785575b01d',1,'basic_json::update(const_reference j, bool merge_objects=false)'],['../classbasic__json.html#a4ea2b8cef5e4aba5b92d14e6ebe25936',1,'basic_json::update(const_iterator first, const_iterator last, bool merge_objects=false)']]],
-  ['update_5fformat_5foptions_898',['update_format_options',['../namespaceTkinterExample.html#a1ed59f643a888d141f8d17421fcf64b8',1,'TkinterExample']]]
+  ['x_139',['x',['../structVec2f.html#a6d9e939be74a9bce0bd025cffb7cd958',1,'Vec2f::x()'],['../structVec4f.html#ab1956fd0918f9ecc5e47420874b17ec2',1,'Vec4f::x()'],['../structVec2i.html#a1a17dc75854bdc0e28194f006cb4c1b8',1,'Vec2i::x()'],['../structVec4i.html#a88d245286c4f8aabc26285b8750c582d',1,'Vec4i::x()'],['../structDropShadowSettings.html#a40f5251a9baef7d41854e2438bc4a3c2',1,'DropShadowSettings::x()']]]
 ];

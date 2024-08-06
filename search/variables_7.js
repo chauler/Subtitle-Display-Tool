@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_1494',['g',['../structOutlineSettings.html#a35060ccde9db70000e0e1eff26155f5e',1,'OutlineSettings::g()'],['../structDropShadowSettings.html#af0adba9b6dabd162b77c20f1a2e6c7a3',1,'DropShadowSettings::g()']]]
+  ['host_251',['HOST',['../namespaceTkinterExample.html#aede0dd9126dcd8f3c9a53a592c943a4e',1,'TkinterExample']]]
 ];

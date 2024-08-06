@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['gen_1002',['Gen',['../structdetail_1_1utility__internal_1_1Gen.html',1,'detail::utility_internal']]],
-  ['gen_3c_20t_2c_200_20_3e_1003',['Gen&lt; T, 0 &gt;',['../structdetail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html',1,'detail::utility_internal']]]
+  ['vec2f_151',['Vec2f',['../structVec2f.html',1,'']]],
+  ['vec2i_152',['Vec2i',['../structVec2i.html',1,'']]],
+  ['vec4f_153',['Vec4f',['../structVec4f.html',1,'']]],
+  ['vec4i_154',['Vec4i',['../structVec4i.html',1,'']]]
 ];

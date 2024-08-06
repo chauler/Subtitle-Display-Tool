@@ -32,15 +32,12 @@ var NAVTREE =
         [ "Milestone 2", "md_README.html#autotoc_md4", null ]
       ] ]
     ] ],
-    [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Variables", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -48,23 +45,19 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
+        [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
-        [ "Macros", "globals_defs.html", "globals_defs" ]
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -73,13 +66,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "InputManager_8cpp.html",
-"classbasic__json.html#abdcb15d025676b4d3db0f32a50f4393f",
-"classdetail_1_1json__sax__dom__callback__parser.html#ad239d9098e2985b3b5a296252b3fd43f",
-"globals_defs_s.html",
-"json_8hpp.html#a8e60ec97eaa2afdff62c6217cbbbd747",
-"namespaceTkinterExample.html#a5f88f921343e956162826ec7e0ec8788",
-"namespacemembers_s.html",
-"structdetail_1_1value__in__range__of__impl1_3_01OfType_00_01T_00_01false_01_4.html"
+"structVec4i.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

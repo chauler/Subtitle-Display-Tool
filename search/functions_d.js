@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['main_1308',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['make_5farray_1309',['make_array',['../namespacedetail.html#a1eaaea1f10ec7d9b6eb031f399098663',1,'detail']]],
-  ['merge_5fpatch_1310',['merge_patch',['../classbasic__json.html#a8676ac2433fe299b8d420f00a0741395',1,'basic_json']]],
-  ['meta_1311',['meta',['../classbasic__json.html#a7b435c2ed2db99cb1daa78ae3c6c4580',1,'basic_json']]],
-  ['moved_5for_5fcopied_1312',['moved_or_copied',['../classdetail_1_1json__ref.html#ad37b535229db57173a6cd57aadba9662',1,'detail::json_ref']]],
-  ['mul_1313',['mul',['../structdetail_1_1dtoa__impl_1_1diyfp.html#a046c61f2c13411677eedfb5b9b7a8226',1,'detail::dtoa_impl::diyfp']]]
+  ['window_205',['Window',['../classWindow.html#a32731f3baacbf6254006363452c8684b',1,'Window::Window(std::string dialogue, double creationTime)'],['../classWindow.html#a48caa2730c3bc768420d3cf4d03596c0',1,'Window::Window(Subtitle subtitle)'],['../classWindow.html#a51219ab9188d3eeef69a8f597cc8919e',1,'Window::Window(const Window &amp;other)'],['../classWindow.html#a493ef00d0bef6b2c3cd4f8acfde4e32d',1,'Window::Window(Window &amp;&amp;other) noexcept']]]
 ];

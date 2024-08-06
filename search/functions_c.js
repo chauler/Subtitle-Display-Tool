@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lexer_1307',['lexer',['../classdetail_1_1lexer.html#a384af885c37d58c963b902008c279fd6',1,'detail::lexer::lexer(InputAdapterType &amp;&amp;adapter, bool ignore_comments_=false) noexcept'],['../classdetail_1_1lexer.html#a963dce44c9d66c9a7c9d3206e1cff2ed',1,'detail::lexer::lexer(const lexer &amp;)=delete'],['../classdetail_1_1lexer.html#a79ce2eb7f127977f1d2499a1f10aa262',1,'detail::lexer::lexer(lexer &amp;&amp;)=default']]]
+  ['update_5fformat_5foptions_204',['update_format_options',['../namespaceTkinterExample.html#a1ed59f643a888d141f8d17421fcf64b8',1,'TkinterExample']]]
 ];

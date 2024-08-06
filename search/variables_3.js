@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['chars_5fread_5fcurrent_5fline_1457',['chars_read_current_line',['../structdetail_1_1position__t.html#a6548d584bd03d1d47bfcd7cf8b1fb0c6',1,'detail::position_t']]],
-  ['chars_5fread_5ftotal_1458',['chars_read_total',['../structdetail_1_1position__t.html#ac4d220d61ce61eeffbea40985727a3b0',1,'detail::position_t']]],
-  ['color_1459',['color',['../structDropShadowSettings.html#a4fae8e6d305df80244c531829213e410',1,'DropShadowSettings']]],
-  ['column_1460',['column',['../namespaceTkinterExample.html#a230aea4097f4f53b9f8ec72838a38156',1,'TkinterExample']]]
+  ['default_5fbg_5fcolor_223',['DEFAULT_BG_COLOR',['../namespaceTkinterExample.html#a3e757431129ca3f321f514a62996b697',1,'TkinterExample']]],
+  ['default_5fdrop_5fshadow_5fblur_5fstrength_224',['DEFAULT_DROP_SHADOW_BLUR_STRENGTH',['../namespaceTkinterExample.html#a6b2bc79fe38fd1d92ee0e6d163f0736b',1,'TkinterExample']]],
+  ['default_5fdrop_5fshadow_5fcolor_225',['DEFAULT_DROP_SHADOW_COLOR',['../namespaceTkinterExample.html#aa78c4f2b7574048f7fb4f1ec47881afd',1,'TkinterExample']]],
+  ['default_5fdrop_5fshadow_5foffset_226',['DEFAULT_DROP_SHADOW_OFFSET',['../namespaceTkinterExample.html#a67329ed96688436d468a4604eff6a68a',1,'TkinterExample']]],
+  ['default_5ffont_5fcolor_227',['DEFAULT_FONT_COLOR',['../namespaceTkinterExample.html#ac8135337b8e32708c04d2bef6002df53',1,'TkinterExample']]],
+  ['default_5ffont_5fsize_228',['DEFAULT_FONT_SIZE',['../namespaceTkinterExample.html#a1559c8568320eedf5be49af7d2bc510f',1,'TkinterExample']]],
+  ['default_5foutline_5fcolor_229',['DEFAULT_OUTLINE_COLOR',['../namespaceTkinterExample.html#a6910de4832b72bbefe7612788167219b',1,'TkinterExample']]],
+  ['default_5foutline_5fsize_230',['DEFAULT_OUTLINE_SIZE',['../namespaceTkinterExample.html#a35ea1df22b884d6f3359d68f83da4d4d',1,'TkinterExample']]],
+  ['default_5fposition_231',['DEFAULT_POSITION',['../namespaceTkinterExample.html#a51055aba51d6785c18394fae9935d043',1,'TkinterExample']]]
 ];

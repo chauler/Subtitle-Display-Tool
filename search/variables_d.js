@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['number_5fbuffer_1512',['number_buffer',['../classdetail_1_1serializer.html#ace18a55b8304310fee309d31e54a3e27',1,'detail::serializer']]]
+  ['title_5fframe_276',['title_frame',['../classTkinterExample_1_1CollapsibleFrame.html#a57eee9bdb6d886f509ef8922271ad03c',1,'TkinterExample::CollapsibleFrame']]],
+  ['toggle_5fbutton_277',['toggle_button',['../classTkinterExample_1_1CollapsibleFrame.html#a513b7f71585ffdd8739ad2055888ea4b',1,'TkinterExample::CollapsibleFrame']]]
 ];

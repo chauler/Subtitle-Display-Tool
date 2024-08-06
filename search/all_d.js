@@ -1,17 +1,11 @@
 var searchData=
 [
-  ['json_5fliterals_568',['json_literals',['../namespaceliterals_1_1json__literals.html',1,'literals']]],
-  ['laundered_5ftype_569',['laundered_type',['../structdetail_1_1is__constructible__string__type.html#a100e49fd7347418eb9756dc859f04ec9',1,'detail::is_constructible_string_type']]],
-  ['left_570',['LEFT',['../namespaceTkinterExample.html#a0377d392090e361c6879d3658bfae976',1,'TkinterExample']]],
-  ['less_3c_20_3a_3anlohmann_3a_3adetail_3a_3avalue_5ft_20_3e_571',['less&lt; ::nlohmann::detail::value_t &gt;',['../structstd_1_1less_3_01_1_1nlohmann_1_1detail_1_1value__t_01_4.html',1,'std']]],
-  ['lexer_572',['lexer',['../classdetail_1_1lexer.html',1,'detail::lexer&lt; BasicJsonType, InputAdapterType &gt;'],['../classdetail_1_1lexer.html#a384af885c37d58c963b902008c279fd6',1,'detail::lexer::lexer(InputAdapterType &amp;&amp;adapter, bool ignore_comments_=false) noexcept'],['../classdetail_1_1lexer.html#a963dce44c9d66c9a7c9d3206e1cff2ed',1,'detail::lexer::lexer(const lexer &amp;)=delete'],['../classdetail_1_1lexer.html#a79ce2eb7f127977f1d2499a1f10aa262',1,'detail::lexer::lexer(lexer &amp;&amp;)=default']]],
-  ['lexer_5fbase_573',['lexer_base',['../classdetail_1_1lexer__base.html',1,'detail']]],
-  ['lifetime_574',['lifetime',['../structStyles.html#af8d089e0fd7e665860c1e49c6587a0b3',1,'Styles']]],
-  ['lines_5fread_575',['lines_read',['../structdetail_1_1position__t.html#a9ec1ac6600d1364f4d1c9f67de6a670b',1,'detail::position_t']]],
-  ['literal_5ffalse_576',['literal_false',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540afab1694b1b3937a079f4625fe0b6108b',1,'detail::lexer_base']]],
-  ['literal_5fnull_577',['literal_null',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540ab7ae4c0e46d86f884677768160b26e9e',1,'detail::lexer_base']]],
-  ['literal_5for_5fvalue_578',['literal_or_value',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540ad2a8e6f6721cccec0b466301dd9495a5',1,'detail::lexer_base']]],
-  ['literal_5ftrue_579',['literal_true',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540a85cc1a37b0aaa52de40e72f0ed4e0c0d',1,'detail::lexer_base']]],
-  ['literals_580',['literals',['../namespaceliterals.html',1,'']]],
-  ['loc_581',['loc',['../classdetail_1_1serializer.html#a80ca90565eec446d377ab65a023297ab',1,'detail::serializer']]]
+  ['offset_78',['offset',['../structDropShadowSettings.html#a96e4cfd2133dffa342faea9ec6c58cf8',1,'DropShadowSettings']]],
+  ['on_5fclosing_79',['on_closing',['../namespaceTkinterExample.html#a48e9d2a28d2a1691536d13eff2672fa0',1,'TkinterExample']]],
+  ['operator_3d_80',['operator=',['../classWindow.html#a4ac87eae37bb12194243b4bea906d396',1,'Window::operator=(const Window &amp;other)'],['../classWindow.html#ad15770fee0a78a710766d422eb21d2e1',1,'Window::operator=(Window &amp;&amp;other) noexcept']]],
+  ['outline_81',['outline',['../structStyles.html#afaf21911dcf0aae138ce02d37b3c4b57',1,'Styles']]],
+  ['outline_5fshader_5fpath_82',['OUTLINE_SHADER_PATH',['../Window_8cpp.html#a2dbfe16bd755c9bd528f464c25a6691c',1,'Window.cpp']]],
+  ['outlinecolor_83',['outlineColor',['../structOutlineSettings.html#a3be5090767ad5e81d0ccdb30e70d3235',1,'OutlineSettings']]],
+  ['outlinesettings_84',['OutlineSettings',['../structOutlineSettings.html',1,'']]],
+  ['outlinesize_85',['outlineSize',['../structOutlineSettings.html#af88b99bfa387d02265dd83b28d44f89b',1,'OutlineSettings']]]
 ];
