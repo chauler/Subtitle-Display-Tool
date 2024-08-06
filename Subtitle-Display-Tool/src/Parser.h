@@ -1,6 +1,6 @@
 #pragma once
 #include "WindowManager.h"
-#include "nlohmann\json.hpp"
+#include "nlohmann/json.hpp"
 #include <iostream>
 #include <fstream>
 
