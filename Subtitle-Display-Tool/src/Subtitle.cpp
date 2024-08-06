@@ -1,10 +1,9 @@
 #include "Subtitle.h"
 
-Subtitle::Subtitle(std::string dialogue, Styles styles, double startTime) :
+Subtitle::Subtitle(std::string dialogue, Styles styles): 
 	m_dialogue(dialogue),
 	m_styles(styles),
-	m_font(m_styles.fontPath.empty() ? GetFontDefault() : ConvertFontToSDF(m_styles.fontPath.c_str())),
-	m_startTime(startTime)
+	m_font(m_styles.fontPath.empty() ? GetFontDefault() : ConvertFontToSDF(m_styles.fontPath.c_str()))
 {
 }
 

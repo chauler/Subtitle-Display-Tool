@@ -19,10 +19,6 @@ void main()
     float distanceChangePerFragment = length(vec2(dFdx(distanceFromOutline), dFdy(distanceFromOutline)));
     float alpha = smoothstep(-distanceChangePerFragment, distanceChangePerFragment, distanceFromOutline);
 
-    if(alpha != 1.0) {
-        alpha = 0.0;
-    }
-
     // Calculate final fragment color
     finalColor = vec4(fragColor.rgb, fragColor.a*alpha);
 }

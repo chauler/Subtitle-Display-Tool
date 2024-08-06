@@ -56,7 +56,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\sdf.fs" />
-    <None Include="res\shaders\outline.fs" />
-    <None Include="res\shaders\shadow.fs" />
   </ItemGroup>
 </Project>
