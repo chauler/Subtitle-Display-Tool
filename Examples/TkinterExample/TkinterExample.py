@@ -132,7 +132,7 @@ def get_style_data(fields):
                 float(fields['outline_color_a'].get())
                 ]
         },
-        "dropShadow": {
+        "shadow": {
             "color": [
                 float(fields['drop_shadow_color_r'].get()),
                 float(fields['drop_shadow_color_g'].get()),

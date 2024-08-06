@@ -166,7 +166,7 @@ Styles Parser::ParseStyles(const json& stylesData) {
 			styles.shadow.color.g = outlineData["color"][1];
 			styles.shadow.color.b = outlineData["color"][2];
 		}
-		if (outlineData.contains("offset") && outlineData["offset"].is_array() && outlineData["color"].size() == 2) {
+		if (outlineData.contains("offset") && outlineData["offset"].is_array() && outlineData["offset"].size() == 2) {
 			styles.shadow.offset.x = outlineData["offset"][0];
 			styles.shadow.offset.y = outlineData["offset"][1];
 		}
