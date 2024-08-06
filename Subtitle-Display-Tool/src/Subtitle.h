@@ -64,7 +64,7 @@ struct Styles {
 	float fontSize = 50;
 	Vec2i position = {100, 100};
 	Vec4i fontColor = {255, 255, 255, 255};
-	Vec4i bgColor = {0, 0, 0, 255};
+	Vec4i bgColor = {0, 0, 0, 0};
 	std::string fontPath = "";
 	double lifetime = 5.0;
 	OutlineSettings outline = {};
@@ -73,7 +73,7 @@ struct Styles {
 
 class Subtitle {
 public:
-	Subtitle(std::string dialogue, Styles styles = {});
+	Subtitle(std::string dialogue, Styles styles = {}, double startTime = 0.0);
 	float GetFontSize() const { return m_styles.fontSize; }
 	std::string GetDialogue() const { return m_dialogue; }
 	Vec2i GetPosition() const { return m_styles.position; }
@@ -81,10 +81,12 @@ public:
 	Vec4i GetBackgroundColor() const { return m_styles.bgColor; }
 	Font GetFont() const { return m_font; }
 	double GetLifetime() const { return m_styles.lifetime; }
+	double GetStartTime() const { return m_startTime; }
 	Styles GetStyles() const { return m_styles; }
 private:
 	Font ConvertFontToSDF(std::string fontPath);
 	std::string m_dialogue;
 	Styles m_styles;
 	Font m_font;
+	double m_startTime;
 };
