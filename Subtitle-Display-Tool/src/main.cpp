@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <asio/io_context.hpp>
 #include "raylib.h"
 #include "WindowManager.h"
 #include "Window.h"
 #include "Subtitle.h"
 #include "Parser.h"
 #include "InputManager.h"
+
 
 std::string SAMPLE_JSON = R"({
     "mode": "advanced",
@@ -31,7 +33,7 @@ int main(int argc, char * argv[]) {
 	//The below AddWindow() calls are temporary to showcase how to create Windows and add them to the manager. These should be located within the parser at some point.
 	WindowManager wm{};
 	Parser parser{wm};
-	InputManager im{};
+	
 	
 	//This is one standard way to create a window - the first set of braces is the initializer list for the Subtitle object. Everything inside of it are the arguments for that constructor.
 	//wm.AddWindow(Window({ "Test String", {50, {300, 300}, {0, 255, 0, 0}, {102, 0, 51, 255}, "", 0.}}));
@@ -46,11 +48,13 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 	int portNum = std::stoi(argv[1]);
-
-	std::string input_data = im.GetData(portNum);
-	std::cout << input_data;
+	//set up input manager and io_context with user-defined port
+	asio::io_context io_context;
+	InputManager im{portNum, io_context};
+	io_context.run();
 
 	while (!WindowShouldClose()) {
+		std::string input_data = im.getData();
 		//Just using this to test the parser - this should eventually be called by the Input Manager with whatever messages were received
 		if (SAMPLE_JSON != "") {
 			parser.Parse(input_data);
