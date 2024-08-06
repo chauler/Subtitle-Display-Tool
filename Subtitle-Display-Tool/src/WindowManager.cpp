@@ -16,3 +16,4 @@ void WindowManager::DrawWindows()
 		window.Draw();
 	}
 }
+
