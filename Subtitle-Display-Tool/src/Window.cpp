@@ -21,7 +21,7 @@ Window::Window(Subtitle subtitle) : m_subtitle(subtitle), m_target(LoadRenderTex
 	BeginShaderMode(shader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
 	ClearBackground(bgColor);
-	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	rlDrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), {0, 0}, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
 	EndShaderMode();
 	EndTextureMode();
 }
