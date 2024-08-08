@@ -4,6 +4,7 @@
 #include<asio.hpp>
 #include<iostream>
 #include<string>
+#include <stack>
 
 //convenience for socket
 using asio::ip::tcp;
@@ -24,11 +25,42 @@ void InputManager::startAccept() {
 void InputManager::handleAccept(TcpConnection::pointer new_connection, const std::error_code& error) {
 	if (!error) {
 		new_connection->start();
-		current_data = new_connection->message;
 	}
 	startAccept();
 }
 
 std::string InputManager::getData() {
-	return current_data;
+	std::stack<char> opening;
+	if (current_data.length() == 0 || current_data[0] != '{') {
+		return "";
+	}
+
+	//First char is an opening brace, proceed to match braces
+	opening.push(current_data[0]);
+	int closingPos = 0;
+	for (int i = 1; i < current_data.length(); i++) {
+		if (current_data[i] == '{') {
+			opening.push(current_data[i]);
+		}
+		else if (current_data[i] == '}') {
+			opening.pop();
+		}
+
+		//Last brace was popped: this is a complete JSON message
+		if (opening.size() == 0) {
+			closingPos = i;
+			break;
+		}
+	}
+
+	//Last closing brace was never found, invalid JSON (so far)
+	if (closingPos == 0) {
+		std::cout << "Incomplete JSON message" << std::endl;
+		return "";
+	}
+
+	std::string output = current_data.substr(0, closingPos+1);
+	current_data.erase(0, closingPos+1);
+
+	return output;
 }

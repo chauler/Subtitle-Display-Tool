@@ -8,10 +8,10 @@ public:
 	static pointer create(asio::io_context&);
 	asio::ip::tcp::socket& socket();
 	void start();
-	std::string message;
+	std::vector<char> message;
 private:
 	TcpConnection(asio::io_context&);
-	void handle_read();
+	void handle_read(std::error_code, std::size_t);
 	asio::ip::tcp::socket socket_;
 };
 
