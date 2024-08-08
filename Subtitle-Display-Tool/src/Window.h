@@ -2,6 +2,13 @@
 #include "raylib.h"
 #include "Subtitle.h"
 
+struct DrawConfig {
+	int hostX;
+	int hostY;
+	int hostWidth;
+	int hostHeight;
+};
+
 class Window {
 public:
 	Window(std::string dialogue, double creationTime);
@@ -12,7 +19,7 @@ public:
 	Window& operator=(Window&& other) noexcept;
 	~Window();
 	Vec2f GetWindowDimensions() const;
-	void Draw() const;
+	void Draw(DrawConfig) const;
 	bool IsVisible() const;
 
 private:

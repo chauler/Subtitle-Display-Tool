@@ -13,7 +13,7 @@ void WindowManager::AddWindow(Window&& window)
 void WindowManager::DrawWindows()
 {
 	for (const auto& window : m_windows) {
-		window.Draw();
+		window.Draw({ .hostX{hostX}, .hostY{hostY}, .hostWidth{hostWidth}, .hostHeight{hostHeight} });
 	}
 }
 
