@@ -9,4 +9,8 @@ public:
 	void DrawWindows();
 private:
 	std::vector<Window> m_windows;
+
+#ifdef UNIT_TEST
+	friend std::vector<Window>& GetWindows(WindowManager& wm);
+#endif
 };
