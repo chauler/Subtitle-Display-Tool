@@ -45,13 +45,13 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -63,13 +63,13 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -80,15 +80,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -99,15 +99,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Subtitle-Display-Tool\src;$(SolutionDir)Subtitle-Display-Tool\vendor;$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
