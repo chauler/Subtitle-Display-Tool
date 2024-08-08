@@ -1,48 +1,66 @@
 #include"InputManager.h"
-#include<iostream>
-#include<string>
+#include"TcpConnection.h"
 #include<array>
 #include<asio.hpp>
+#include<iostream>
+#include<string>
+#include <stack>
 
+//convenience for socket
 using asio::ip::tcp;
-/*------------------------------------------------------------------------
-* Return a string that is a a json file read from the buffer as a string
--------------------------------------------------------------------------*/
-std::string InputManager::GetData(int portNum) {
-	try {
-		std::string in_data;
-		std::size_t limit = 1000;
-		// create asio context
-		asio::io_context io_context;
+std::string current_data;
 
-		// initialize acceptor to listen on the specified portnumber
-		tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), portNum));
+/*--------------------------------------------------------------------------------
+* Constructor for InputManager
+----------------------------------------------------------------------------------*/
+InputManager::InputManager(int portNum, asio::io_context& io_context) : m_portNum(portNum), io_context_(io_context), acceptor_(io_context, tcp::endpoint(tcp::v4(), portNum)) {
+	startAccept();
+}
 
-		// initialize buffer and put that data into a string
-		asio::dynamic_string_buffer in_buf(in_data, limit);
-		//read data from connection
-		for (;;) {
-			tcp::socket socket(io_context);
-			//listen for file:
-			acceptor.accept(socket);
+void InputManager::startAccept() {
+	TcpConnection::pointer new_connection = TcpConnection::create(io_context_);
+	acceptor_.async_accept(new_connection->socket(), std::bind(&InputManager::handleAccept, this, new_connection, asio::placeholders::error));
+}
 
-			std::error_code error;
-			//read into the buffer
-			asio::read(socket, in_buf);
+void InputManager::handleAccept(TcpConnection::pointer new_connection, const std::error_code& error) {
+	if (!error) {
+		new_connection->start();
+	}
+	startAccept();
+}
 
-			//break out of loop at the end
-			if (error == asio::error::eof) {
-				break;
-			}
-			else if (error) {
-				throw std::system_error(error);
-			}
+std::string InputManager::getData() {
+	std::stack<char> opening;
+	if (current_data.length() == 0 || current_data[0] != '{') {
+		return "";
+	}
 
+	//First char is an opening brace, proceed to match braces
+	opening.push(current_data[0]);
+	int closingPos = 0;
+	for (int i = 1; i < current_data.length(); i++) {
+		if (current_data[i] == '{') {
+			opening.push(current_data[i]);
 		}
-		return in_data;
+		else if (current_data[i] == '}') {
+			opening.pop();
+		}
+
+		//Last brace was popped: this is a complete JSON message
+		if (opening.size() == 0) {
+			closingPos = i;
+			break;
+		}
 	}
-	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+
+	//Last closing brace was never found, invalid JSON (so far)
+	if (closingPos == 0) {
+		std::cout << "Incomplete JSON message" << std::endl;
+		return "";
 	}
-	
+
+	std::string output = current_data.substr(0, closingPos+1);
+	current_data.erase(0, closingPos+1);
+
+	return output;
 }
