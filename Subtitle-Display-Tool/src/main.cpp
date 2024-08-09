@@ -1,37 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <asio/io_context.hpp>
 #include "raylib.h"
 #include "WindowManager.h"
 #include "Window.h"
 #include "Subtitle.h"
 #include "Parser.h"
 #include "InputManager.h"
-
-std::string SAMPLE_JSON = R"({
-    "mode": "advanced",
-    "data": {
-        "dialogue": "This is a test string for the parser's advanced mode - it will disappear after 5 seconds",
-        "styles": {
-            "fontSize": 54,
-            "position": [250, 250],
-			"fontColor": [255, 255, 255, 255],
-			"bgColor": [0, 0, 0, 0],
-			"fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
-			"lifetime": 50.0,
-			"outline": {
-				"size": 0.0, 
-				"color": [0.0, 0.0, 0.0, 0.0]
-			}, 
-			"dropShadow": {
-				"color": [0, 0, 0], 
-				"offset": [0, 0], 
-				"blurStrength": 0
-			}
-        }
-    }
-})";
-
+#include <thread>
 
 int main(int argc, char * argv[]) {
 	SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED | FLAG_WINDOW_UNFOCUSED | FLAG_WINDOW_MOUSE_PASSTHROUGH | FLAG_VSYNC_HINT);
@@ -40,22 +17,26 @@ int main(int argc, char * argv[]) {
 	//The below AddWindow() calls are temporary to showcase how to create Windows and add them to the manager. These should be located within the parser at some point.
 	WindowManager wm{};
 	Parser parser{wm};
-	InputManager im{};
+	
 	
 	if (argc < 2) {
 		std::cout << "Usage: " << argv[0] << "PORT" << std::endl;
 		return 1;
 	}
 	int portNum = std::stoi(argv[1]);
-
-	std::string input_data = im.GetData(portNum);
-	std::cout << input_data;
-	
+	//set up input manager and io_context with user-defined port
+	asio::io_context io_context;
+	InputManager im{portNum, io_context};
+	//For async work, io_context has to be run in a separate thread
+	//It returns if there is no work queued, so we queue idleWork to keep it active until real work arrives
+	asio::io_context::work idleWork(io_context);
+	std::thread ioThread = std::thread([&]() { io_context.run(); });
+  
 	while (!WindowShouldClose()) {
+		std::string input_data = im.getData();
 		//Just using this to test the parser - this should eventually be called by the Input Manager with whatever messages were received
-		if (SAMPLE_JSON != "") {
+		if (input_data != "") {
 			parser.Parse(input_data);
-			SAMPLE_JSON = "";
 		}
 
 		BeginDrawing();
