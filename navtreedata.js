@@ -68,7 +68,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "InputManager_8cpp.html",
-"structDropShadowSettings.html#a4fae8e6d305df80244c531829213e410"
+"structVec2i.html#a8e2694b04ea12a10ffc260abdc04e860"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

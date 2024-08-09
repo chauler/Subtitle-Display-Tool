@@ -9,12 +9,6 @@ var hierarchy =
     [ "Parser", "classParser.html", null ],
     [ "Styles", "structStyles.html", null ],
     [ "Subtitle", "classSubtitle.html", null ],
-    [ "testing::Test", null, [
-      [ "ParserTest", "classParserTest.html", null ],
-      [ "SubtitleTest", "classSubtitleTest.html", null ],
-      [ "WindowManagerTest", "classWindowManagerTest.html", null ],
-      [ "WindowTest", "classWindowTest.html", null ]
-    ] ],
     [ "Vec2f", "structVec2f.html", null ],
     [ "Vec2i", "structVec2i.html", null ],
     [ "Vec4f", "structVec4f.html", null ],

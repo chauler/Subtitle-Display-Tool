@@ -12,6 +12,5 @@ var searchData=
   ['getposition_66',['GetPosition',['../classSubtitle.html#a731434d5fc890e369454aa69025b0d8f',1,'Subtitle']]],
   ['getstarttime_67',['GetStartTime',['../classSubtitle.html#ab0788c78fe970b79edb6a0c27d2a65ba',1,'Subtitle']]],
   ['getstyles_68',['GetStyles',['../classSubtitle.html#a2987a50d22e094f555957df4ee822e42',1,'Subtitle']]],
-  ['getwindowdimensions_69',['GetWindowDimensions',['../classWindow.html#a27065f59bdca328516cd60661573ca4c',1,'Window']]],
-  ['getwindows_70',['GetWindows',['../WindowManagerTest_8cpp.html#ad981fa5ae605a1471c0e419f1014e404',1,'WindowManagerTest.cpp']]]
+  ['getwindowdimensions_69',['GetWindowDimensions',['../classWindow.html#a27065f59bdca328516cd60661573ca4c',1,'Window']]]
 ];

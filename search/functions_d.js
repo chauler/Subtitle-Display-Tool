@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['window_236',['Window',['../classWindow.html#a32731f3baacbf6254006363452c8684b',1,'Window::Window(std::string dialogue, double creationTime)'],['../classWindow.html#a48caa2730c3bc768420d3cf4d03596c0',1,'Window::Window(Subtitle subtitle)'],['../classWindow.html#a51219ab9188d3eeef69a8f597cc8919e',1,'Window::Window(const Window &amp;other)'],['../classWindow.html#a493ef00d0bef6b2c3cd4f8acfde4e32d',1,'Window::Window(Window &amp;&amp;other) noexcept']]],
-  ['windowmanagertest_237',['WindowManagerTest',['../classWindowManagerTest.html#aeede63bf5dcb4a0eb54e8881eee6a546',1,'WindowManagerTest']]],
-  ['windowtest_238',['WindowTest',['../classWindowTest.html#ab434868a68771cfdbeed5ae7930592a9',1,'WindowTest']]]
+  ['window_211',['Window',['../classWindow.html#a32731f3baacbf6254006363452c8684b',1,'Window::Window(std::string dialogue, double creationTime)'],['../classWindow.html#a48caa2730c3bc768420d3cf4d03596c0',1,'Window::Window(Subtitle subtitle)'],['../classWindow.html#a51219ab9188d3eeef69a8f597cc8919e',1,'Window::Window(const Window &amp;other)'],['../classWindow.html#a493ef00d0bef6b2c3cd4f8acfde4e32d',1,'Window::Window(Window &amp;&amp;other) noexcept']]]
 ];
