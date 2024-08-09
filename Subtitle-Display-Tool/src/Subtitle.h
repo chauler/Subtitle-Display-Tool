@@ -60,6 +60,9 @@ struct DropShadowSettings {
 	int blurStrength = 1;
 };
 
+/**
+* Used to hold all data determining how a given piece of dialogue is displayed.
+*/
 struct Styles {
 	float fontSize = 50;
 	Vec2i position = {100, 100};
@@ -71,6 +74,9 @@ struct Styles {
 	DropShadowSettings shadow = {};
 };
 
+/**
+* Data class used to store dialogue and all the styling information for that piece of dialogue.
+*/
 class Subtitle {
 public:
 	Subtitle(std::string dialogue, Styles styles = {}, double startTime = 0.0);
