@@ -100,7 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af529aaef6b61fe2c90955c1561957e19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindowManager.html#af529aaef6b61fe2c90955c1561957e19">DrawWindows</a> ()</td></tr>
 <tr class="separator:af529aaef6b61fe2c90955c1561957e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High-level management of <a class="el" href="classWindow.html">Window</a> objects. Stores them, controls their lifetime, and displays them. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a60d11145a64aea022064d01483902734"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60d11145a64aea022064d01483902734">&#9670;&nbsp;</a></span>AddWindow() <span class="overload">[1/2]</span></h2>
 
@@ -116,6 +118,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pushes window into the <a class="el" href="classWindowManager.html">WindowManager</a>'s internal list of windows. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The window to be pushed - is copied before being pushed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="WindowManagerTest_8cpp.html#a8886b5a3994a946cb00342f6a87f40a1">TEST_F()</a>.</p>
 
 </div>
 </div>
@@ -134,6 +144,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Takes a temporary window and moves it into the <a class="el" href="classWindowManager.html">WindowManager</a>'s internal list of windows. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The window to be pushed - the object provided will be invalid after calling this function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -151,6 +167,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Iterates through the list of Windows and calls the Draw() method of each visible one. </p>
 
 </div>
 </div>

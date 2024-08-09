@@ -1,6 +1,6 @@
 var dir_82b4cd8121559fc5c95b1a583c93ba4f =
 [
-    [ "InputManager.cpp", "InputManager_8cpp.html", null ],
+    [ "InputManager.cpp", "InputManager_8cpp.html", "InputManager_8cpp" ],
     [ "InputManager.h", "InputManager_8h.html", [
       [ "InputManager", "classInputManager.html", "classInputManager" ]
     ] ],
@@ -19,6 +19,10 @@ var dir_82b4cd8121559fc5c95b1a583c93ba4f =
       [ "DropShadowSettings", "structDropShadowSettings.html", "structDropShadowSettings" ],
       [ "Styles", "structStyles.html", "structStyles" ],
       [ "Subtitle", "classSubtitle.html", "classSubtitle" ]
+    ] ],
+    [ "TcpConnection.cpp", "TcpConnection_8cpp.html", "TcpConnection_8cpp" ],
+    [ "TcpConnection.h", "TcpConnection_8h.html", [
+      [ "TcpConnection", "classTcpConnection.html", "classTcpConnection" ]
     ] ],
     [ "Window.cpp", "Window_8cpp.html", "Window_8cpp" ],
     [ "Window.h", "Window_8h.html", [

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['p1_258',['p1',['../classParserTest.html#a38dff3e47e7c1deb06d770f563bc4513',1,'ParserTest']]],
-  ['padx_259',['padx',['../namespaceTkinterExample.html#a48b3134bc5c9612e9670958444faa753',1,'TkinterExample']]],
-  ['pady_260',['pady',['../namespaceTkinterExample.html#a0e15ecf283c010bf4896855cab376581',1,'TkinterExample']]],
-  ['port_261',['PORT',['../namespaceTkinterExample.html#a561e746e8e30129c7e2e7cf3e9325adc',1,'TkinterExample']]],
-  ['position_262',['position',['../structStyles.html#aa92ad37651dce2368d1067ba1fd67d91',1,'Styles']]],
-  ['proc_263',['proc',['../namespaceTkinterExample.html#ae7aaa6ab1d5361560c9bca39731c7756',1,'TkinterExample']]]
+  ['offset_289',['offset',['../structDropShadowSettings.html#a96e4cfd2133dffa342faea9ec6c58cf8',1,'DropShadowSettings']]],
+  ['outline_290',['outline',['../structStyles.html#afaf21911dcf0aae138ce02d37b3c4b57',1,'Styles']]],
+  ['outlinecolor_291',['outlineColor',['../structOutlineSettings.html#a3be5090767ad5e81d0ccdb30e70d3235',1,'OutlineSettings']]],
+  ['outlinesize_292',['outlineSize',['../structOutlineSettings.html#af88b99bfa387d02265dd83b28d44f89b',1,'OutlineSettings']]]
 ];

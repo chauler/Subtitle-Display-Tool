@@ -89,28 +89,28 @@ $(document).ready(function(){initNavTree('Window_8h_source.html',''); initResiza
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;raylib.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Subtitle_8h.html">Subtitle.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classWindow.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWindow.html">Window</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="classWindow.html">Window</a>(std::string dialogue, <span class="keywordtype">double</span> creationTime);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<a class="code" href="classSubtitle.html">Subtitle</a> subtitle);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>&amp; other);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<a class="code" href="classWindow.html">Window</a>&amp;&amp; other) noexcept;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classWindow.html">Window</a>&amp; <a class="code" href="classWindow.html#a4ac87eae37bb12194243b4bea906d396">operator=</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>&amp; other);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classWindow.html">Window</a>&amp; <a class="code" href="classWindow.html#a4ac87eae37bb12194243b4bea906d396">operator=</a>(<a class="code" href="classWindow.html">Window</a>&amp;&amp; other) noexcept;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="structVec2f.html">Vec2f</a> <a class="code" href="classWindow.html#a27065f59bdca328516cd60661573ca4c">GetWindowDimensions</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWindow.html#a0c69a30bb28375e7a67b9d87ad0dc6fe">Draw</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classWindow.html#ad2ea8494d39e4a56bfda30dbd789ab6d">IsVisible</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classWindow.html">Window</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classSubtitle.html">Subtitle</a> m_subtitle;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    RenderTexture2D m_target;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> m_creationTime;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classWindow.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWindow.html">Window</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classWindow.html">Window</a>(std::string dialogue, <span class="keywordtype">double</span> creationTime);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<a class="code" href="classSubtitle.html">Subtitle</a> subtitle);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>&amp; other);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classWindow.html">Window</a>(<a class="code" href="classWindow.html">Window</a>&amp;&amp; other) noexcept;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classWindow.html">Window</a>&amp; <a class="code" href="classWindow.html#a4ac87eae37bb12194243b4bea906d396">operator=</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>&amp; other);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classWindow.html">Window</a>&amp; <a class="code" href="classWindow.html#a4ac87eae37bb12194243b4bea906d396">operator=</a>(<a class="code" href="classWindow.html">Window</a>&amp;&amp; other) noexcept;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structVec2f.html">Vec2f</a> <a class="code" href="classWindow.html#a27065f59bdca328516cd60661573ca4c">GetWindowDimensions</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWindow.html#a0c69a30bb28375e7a67b9d87ad0dc6fe">Draw</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classWindow.html#ad2ea8494d39e4a56bfda30dbd789ab6d">IsVisible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classWindow.html">Window</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classSubtitle.html">Subtitle</a> m_subtitle;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    RenderTexture2D m_target;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> m_creationTime;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
 <div class="ttc" id="aSubtitle_8h_html"><div class="ttname"><a href="Subtitle_8h.html">Subtitle.h</a></div></div>
-<div class="ttc" id="aclassSubtitle_html"><div class="ttname"><a href="classSubtitle.html">Subtitle</a></div><div class="ttdef"><b>Definition:</b> Subtitle.h:74</div></div>
-<div class="ttc" id="aclassWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:5</div></div>
+<div class="ttc" id="aclassSubtitle_html"><div class="ttname"><a href="classSubtitle.html">Subtitle</a></div><div class="ttdef"><b>Definition:</b> Subtitle.h:80</div></div>
+<div class="ttc" id="aclassWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:8</div></div>
 <div class="ttc" id="aclassWindow_html_a0c69a30bb28375e7a67b9d87ad0dc6fe"><div class="ttname"><a href="classWindow.html#a0c69a30bb28375e7a67b9d87ad0dc6fe">Window::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdef"><b>Definition:</b> Window.cpp:118</div></div>
 <div class="ttc" id="aclassWindow_html_a245d821e6016fa1f6970ccbbedd635f6"><div class="ttname"><a href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdef"><b>Definition:</b> Window.cpp:106</div></div>
 <div class="ttc" id="aclassWindow_html_a27065f59bdca328516cd60661573ca4c"><div class="ttname"><a href="classWindow.html#a27065f59bdca328516cd60661573ca4c">Window::GetWindowDimensions</a></div><div class="ttdeci">Vec2f GetWindowDimensions() const</div><div class="ttdef"><b>Definition:</b> Window.cpp:110</div></div>

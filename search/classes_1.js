@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dropshadowsettings_144',['DropShadowSettings',['../structDropShadowSettings.html',1,'']]]
+  ['dropshadowsettings_160',['DropShadowSettings',['../structDropShadowSettings.html',1,'']]]
 ];

@@ -114,7 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2ea8494d39e4a56bfda30dbd789ab6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ad2ea8494d39e4a56bfda30dbd789ab6d">IsVisible</a> () const</td></tr>
 <tr class="separator:ad2ea8494d39e4a56bfda30dbd789ab6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Container for a subtitle and the data and methods needed to draw that subtitle to the screen. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a32731f3baacbf6254006363452c8684b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32731f3baacbf6254006363452c8684b">&#9670;&nbsp;</a></span>Window() <span class="overload">[1/4]</span></h2>
 
@@ -247,6 +249,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Draws the <a class="el" href="classWindow.html">Window</a>'s associated texture to whatever texture is active at the time of call (in general, the main framebuffer). </p>
 
 <p class="reference">References <a class="el" href="classWindow.html#ad2ea8494d39e4a56bfda30dbd789ab6d">IsVisible()</a>.</p>
 
@@ -266,6 +269,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the width and height of the window, calculated to the exact size of the text + any graphical effects. </p>
 
 <p class="reference">References <a class="el" href="Window_8cpp.html#aa79906fbd4977ebca65ff3f53e7e5f30">DEFAULT_SPACING</a>, <a class="el" href="classSubtitle.html#add55c9a66203b21d02962d06c7557d8f">Subtitle::GetDialogue()</a>, <a class="el" href="classSubtitle.html#a5c7e907150a669441f709343f76965e4">Subtitle::GetFont()</a>, <a class="el" href="classSubtitle.html#af914a6b8f0312c6fb8c93381b03a9e66">Subtitle::GetFontSize()</a>, <a class="el" href="classSubtitle.html#a2987a50d22e094f555957df4ee822e42">Subtitle::GetStyles()</a>, <a class="el" href="structStyles.html#afaf21911dcf0aae138ce02d37b3c4b57">Styles::outline</a>, and <a class="el" href="structOutlineSettings.html#af88b99bfa387d02265dd83b28d44f89b">OutlineSettings::outlineSize</a>.</p>
 
@@ -287,6 +291,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns a bool describing whether the window should be drawn at the current time, depending on time of creation and lifetime. </p>
 
 <p class="reference">References <a class="el" href="classSubtitle.html#a1c93d7b451d47341bde07c0fcdddf3ab">Subtitle::GetLifetime()</a>, and <a class="el" href="classSubtitle.html#ab0788c78fe970b79edb6a0c27d2a65ba">Subtitle::GetStartTime()</a>.</p>
 
