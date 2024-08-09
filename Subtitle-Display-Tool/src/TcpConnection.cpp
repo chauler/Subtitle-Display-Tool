@@ -21,7 +21,7 @@ void TcpConnection::start() {
 			std::placeholders::_1, std::placeholders::_2));
 }
 
-TcpConnection::TcpConnection(asio::io_context& io_context) : message(1 * 1024), socket_(io_context) {
+TcpConnection::TcpConnection(asio::io_context& io_context) : message(10 * 1024), socket_(io_context) {
 }
 
 void TcpConnection::handle_read(std::error_code ec, std::size_t bytes) {
@@ -29,7 +29,7 @@ void TcpConnection::handle_read(std::error_code ec, std::size_t bytes) {
 			std::cout << "Read " << bytes << " bytes\n\n";
 
 			for (int i = 0; i < bytes; i++) {
-				std::cout << message[i];
+				//std::cout << message[i];
 				current_data += message[i];
 			}
 

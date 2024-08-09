@@ -33,6 +33,9 @@ void Parser::Parse(const std::string& input) {
 	else if (mode == "file") {
 		HandleFileMode(data);
 	}
+	else if (mode == "command") {
+		HandleCommandMode(data);
+	}
 	else {
 		std::cout << "Unknown mode: " << mode << std::endl;
 	}
@@ -124,6 +127,18 @@ void Parser::HandleFileMode(const json& data) {
 		Window window(sub);
 		m_windowManager.AddWindow(std::move(window));
 	}	
+}
+
+void Parser::HandleCommandMode(const nlohmann::json& data)
+{
+	if (!ValidateDataString(data, "command")) return;
+	
+	if (data["command"] == "UpdateWindowTransform") {
+		m_windowManager.hostX = data["x"].get<int>();
+		m_windowManager.hostY = data["y"].get<int>();
+		m_windowManager.hostWidth = data["width"].get<int>();
+		m_windowManager.hostHeight = data["height"].get<int>();
+	}
 }
 
 Styles Parser::ParseStyles(const json& stylesData) {

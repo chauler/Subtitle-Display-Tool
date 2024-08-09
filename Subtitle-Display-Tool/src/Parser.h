@@ -13,6 +13,7 @@ private:
 	void HandleSimpleMode(const nlohmann::json& data);
 	void HandleAdvancedMode(const nlohmann::json& data);
 	void HandleFileMode(const nlohmann::json& data);
+	void HandleCommandMode(const nlohmann::json& data);
 	Styles ParseStyles(const nlohmann::json& data);
 	double ParseTimeStamp(const std::string& timestamp);
 	bool ValidateDataString(const nlohmann::json& data, const std::string& key);

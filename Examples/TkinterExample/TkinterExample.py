@@ -4,6 +4,7 @@ import subprocess
 import json
 import os
 import signal
+import time
 
 HOST = "localhost"
 PORT = 9999
@@ -26,14 +27,45 @@ app = Tk()
 app.title("Subtitle Display Tool")
 app.geometry('450x850')
 
-def clicked(data):
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((HOST, PORT))
+
+def limit_rate( delay=1.0 ):
+    """ produces a decorator that will call a function only once per `delay` """
+    def wrapper( func ): # the actual decorator
+        cache = dict( next = 0 ) # cache the result and time
+        def limited( *args, **kwargs):
+            if time.time() > cache['next']: # is it time to call again
+                cache['result'] = func( *args, **kwargs) # do the function
+                cache['next'] = time.time() + delay # dont call before this time
+            return cache['result']
+        return limited
+    return wrapper
+
+@limit_rate(0.007)
+def onResize(event):
+    if event.widget is not app:
+        return
+    data = {
+        "mode": "command",
+        "data": {
+            "command": "UpdateWindowTransform",
+            "x": event.x,
+            "y": event.y,
+            "width": event.width,
+            "height": event.height
+            }
+        }
     try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.connect((HOST, PORT))
         sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
     finally:
-        sock.close()
-    print("Sent: {}".format(data))
+        print("Sent: {}".format(data))
+
+def clicked(data):
+    try:
+        sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
+    finally:
+        print("Sent: {}".format(data))
 
 def restart_connection():
     global proc
@@ -255,6 +287,8 @@ btn_restart = Button(app, text="Restart Connection", command=restart_connection)
 btn_restart.grid(column=0, row=3, padx=10, pady=10)
 
 simple_frame.grid(column=0, row=2, padx=10, pady=10, sticky='ew')
+
+app.bind("<Configure>", onResize)
 
 app.protocol("WM_DELETE_WINDOW", on_closing)
 
