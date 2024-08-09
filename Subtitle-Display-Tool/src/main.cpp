@@ -10,32 +10,6 @@
 #include "InputManager.h"
 #include <thread>
 
-
-std::string SAMPLE_JSON = R"({
-    "mode": "advanced",
-    "data": {
-        "dialogue": "This is a test string for the parser's advanced mode - it will disappear after 5 seconds",
-        "styles": {
-            "fontSize": 54,
-            "position": [250, 250],
-			"fontColor": [255, 255, 255, 255],
-			"bgColor": [0, 0, 0, 0],
-			"fontPath": "C:\\Windows\\Fonts\\Calibri.ttf",
-			"lifetime": 50.0,
-			"outline": {
-				"size": 0.0, 
-				"color": [0.0, 0.0, 0.0, 0.0]
-			}, 
-			"dropShadow": {
-				"color": [0, 0, 0], 
-				"offset": [0, 0], 
-				"blurStrength": 0
-			}
-        }
-    }
-})";
-
-
 int main(int argc, char * argv[]) {
 	SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED | FLAG_WINDOW_UNFOCUSED | FLAG_WINDOW_MOUSE_PASSTHROUGH | FLAG_VSYNC_HINT);
 	InitWindow(0, 0, "Subtitle Display Tool");
