@@ -27,5 +27,5 @@ TEST_F(WindowTest, CheckNotExpired) {
 
 TEST_F(WindowTest, Draw) {
 	Window testWindow{ {""} };
-	EXPECT_NO_THROW(testWindow.Draw(););
+	EXPECT_NO_THROW(testWindow.Draw({}););
 }
