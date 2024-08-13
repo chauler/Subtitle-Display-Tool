@@ -28,7 +28,7 @@ public:
 	/**
 	* Draws the Window's associated texture to whatever texture is active at the time of call (in general, the main framebuffer).
 	*/
-	void Draw(DrawConfig) const;
+	void Draw(DrawConfig);
 	/**
 	* Returns a bool describing whether the window should be drawn at the current time, depending on time of creation and lifetime.
 	*/
@@ -36,7 +36,9 @@ public:
 
 private:
 	Window();
+	void RenderTexture();
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
 	double m_creationTime;
+	bool m_textureRendered;
 };

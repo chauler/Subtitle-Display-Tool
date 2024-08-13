@@ -44,6 +44,7 @@ def limit_rate( delay=1.0 ):
 
 @limit_rate(0.007)
 def onResize(event):
+    global sock
     if event.widget is not app:
         return
     data = {
@@ -58,11 +59,20 @@ def onResize(event):
         }
     try:
         sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
+    except ConnectionResetError:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((HOST, PORT))
+        sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
     finally:
         print("Sent: {}".format(data))
 
 def clicked(data):
+    global sock
     try:
+        sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
+    except ConnectionResetError:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((HOST, PORT))
         sock.sendall(bytes(json.dumps(data), encoding="utf-8"))
     finally:
         print("Sent: {}".format(data))
@@ -130,7 +140,7 @@ def create_font_path_combobox(parent, text):
     return combobox
 
 def select_file(entry):
-    file_path = filedialog.askopenfilename(filetypes=[("Subtitle Files(*.vtt)", "*.vtt")])#;*.srt;*.ssa")])
+    file_path = filedialog.askopenfilename(filetypes=[("Subtitle Files(*.vtt)", "*.vtt"), ("Subtitle Files(*.ssa)", "*.ssa"), ("Subtitle Files(*.ass)", "*.ass"), ("Subtitle Files(*.srt)", "*.srt")])#;*.srt;*.ssa")])
     if file_path:
         entry.delete(0, END)
         entry.insert(0, file_path)
