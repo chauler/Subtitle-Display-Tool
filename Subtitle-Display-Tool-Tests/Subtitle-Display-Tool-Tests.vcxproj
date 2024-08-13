@@ -51,7 +51,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>TcpConnection.obj;InputManager.obj;raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -70,7 +70,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>TcpConnection.obj;InputManager.obj;raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -90,7 +90,7 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>TcpConnection.obj;InputManager.obj;raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -110,11 +110,12 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>TcpConnection.obj;InputManager.obj;raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Release;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InputManagerTest.cpp" />
     <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="SubtitleTest.cpp" />
     <ClCompile Include="WindowManagerTest.cpp" />

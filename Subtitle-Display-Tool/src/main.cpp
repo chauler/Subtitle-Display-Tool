@@ -24,6 +24,10 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 	int portNum = std::stoi(argv[1]);
+	if (portNum >= 0 && portNum <= 1023) {
+		std::cout << "Selected Port: " << argv[1] << " is not a valid TCP port" << std::endl;
+		return 1;
+	}
 	//set up input manager and io_context with user-defined port
 	asio::io_context io_context;
 	InputManager im{portNum, io_context};
