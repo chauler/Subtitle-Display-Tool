@@ -51,7 +51,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Timeline.obj;Timer.obj;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -70,7 +70,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>raylib.lib;winmm.lib;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>raylib.lib;winmm.lib;Timeline.obj;Timer.obj;Parser.obj;Subtitle.obj;Window.obj;WindowManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\intermediates\Debug;%(AdditionalLibraryDirectories);$(SolutionDir)Subtitle-Display-Tool\vendor\raylib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
