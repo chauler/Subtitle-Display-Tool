@@ -33,6 +33,9 @@ void Parser::Parse(const std::string& input) {
 	else if (mode == "file") {
 		HandleFileMode(data);
 	}
+	else if (mode == "command") {
+		HandleCommandMode(data);
+	}
 	else {
 		std::cout << "Unknown mode: " << mode << std::endl;
 	}
@@ -126,6 +129,18 @@ void Parser::HandleFileMode(const json& data) {
 	}	
 }
 
+void Parser::HandleCommandMode(const nlohmann::json& data)
+{
+	if (!ValidateDataString(data, "command")) return;
+	
+	if (data["command"] == "UpdateWindowTransform") {
+		m_windowManager.hostX = data["x"].get<int>();
+		m_windowManager.hostY = data["y"].get<int>();
+		m_windowManager.hostWidth = data["width"].get<int>();
+		m_windowManager.hostHeight = data["height"].get<int>();
+	}
+}
+
 Styles Parser::ParseStyles(const json& stylesData) {
 	Styles styles;
 
@@ -157,6 +172,21 @@ Styles Parser::ParseStyles(const json& stylesData) {
 		}
 		if (outlineData.contains("size") && outlineData["size"].is_number()) {
 			styles.outline.outlineSize = outlineData["size"];
+		}
+	}
+	if (stylesData.contains("shadow") && stylesData["shadow"].is_object()) {
+		json outlineData = stylesData["shadow"];
+		if (outlineData.contains("color") && outlineData["color"].is_array() && outlineData["color"].size() == 3) {
+			styles.shadow.color.r = outlineData["color"][0];
+			styles.shadow.color.g = outlineData["color"][1];
+			styles.shadow.color.b = outlineData["color"][2];
+		}
+		if (outlineData.contains("offset") && outlineData["offset"].is_array() && outlineData["offset"].size() == 2) {
+			styles.shadow.offset.x = outlineData["offset"][0];
+			styles.shadow.offset.y = outlineData["offset"][1];
+		}
+		if (outlineData.contains("blurStrength") && outlineData["blurStrength"].is_number()) {
+			styles.shadow.blurStrength = outlineData["blurStrength"];
 		}
 	}
 	return styles;

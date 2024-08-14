@@ -47,7 +47,7 @@ Window::Window(Subtitle subtitle) :
 	BeginShaderMode(SDFShader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
 	ClearBackground(BLANK);
-	DrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), { (float)m_subtitle.GetStyles().outline.outlineSize, (float)m_subtitle.GetStyles().outline.outlineSize }, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	rlDrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), { (float)m_subtitle.GetStyles().outline.outlineSize, (float)m_subtitle.GetStyles().outline.outlineSize }, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
 	EndShaderMode();
 	EndTextureMode();
 	
@@ -115,10 +115,15 @@ Vec2f Window::GetWindowDimensions() const
 	return { dims.x, dims.y };
 }
 
-void Window::Draw() const
+void Window::Draw(DrawConfig configuration) const
 {
+	float finalXPosition = configuration.hostX + m_subtitle.GetPosition().x;
+	float finalYPosition = configuration.hostY + m_subtitle.GetPosition().y;
 	if (IsVisible()) {
-		DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { (float)m_subtitle.GetPosition().x, (float)m_subtitle.GetPosition().y }, WHITE);
+		DrawTextureRec(m_target.texture,
+			{ 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y },
+			{ finalXPosition, finalYPosition },
+			WHITE);
 	}
 }
 
