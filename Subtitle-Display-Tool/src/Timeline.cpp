@@ -22,15 +22,25 @@ Timeline::Timeline(double timestamp):
 */
 void Timeline::Play(double timestamp)
 {
-	m_children.erase(std::remove_if(m_children.begin(),
-		m_children.end(),
-		[]() {}));
+	//m_children.erase(std::remove_if(m_children.begin(),
+	//	m_children.end(),
+	//	[]() {}));
 	for (const auto& child : m_children) {
-		if (child->GetStartTime() < timestamp && child->GetEndTime() > ) {
+		if (child->GetStartTime() < timestamp && child->GetEndTime() > timestamp) {
 
 		}
 		child->Play(timestamp);
 	}
+}
+
+double Timeline::GetDuration()
+{
+	return 0.0;
+}
+
+double Timeline::GetEndTime()
+{
+	return 0.0;
 }
 
 /**

@@ -136,6 +136,6 @@ bool Window::IsVisible() const {
 void Window::Play(double timestamp)
 {
 	if (IsVisible()) {
-		Draw();
+		Draw({});
 	}
 }
