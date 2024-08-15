@@ -1,6 +1,6 @@
 #include "util\util.h"
 #include "Parser.h"
-
+#include <regex>
 using json = nlohmann::json; //For convenience
 
 bool AdvanceLine(std::ifstream& file, std::string& line, std::streampos& prevLine) {
@@ -80,14 +80,14 @@ void Parser::HandleFileMode(const json& data) {
 	}
 
 	std::string fileType = file_extension(string_base_name(filepath));
-	if (fileType == "ssa" || "ass") {
+	/*if (fileType == "ssa" || "ass") {
 		ParseSSA(file);
 		return;
 	}
 	else if (fileType == "vtt") {
 
-	}
-	else if (fileType == "srt"){
+	}*/
+	if (fileType == "srt"){
 		ParseSRT(file);
 		return;
 	}
@@ -283,8 +283,10 @@ void Parser::ParseSRT(std::ifstream& file) {
 	std::string currentSubtitle;
 	double startTime = 0.0;
 	double endTime = 0.0;
-
+	const std::regex pattern("^[0-9]+");
+	std::getline(file,line);
 	while (std::getline(file, line)) {
+		
 		if (line.empty()) {
 			if (!currentSubtitle.empty()) {
 				subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
@@ -293,13 +295,7 @@ void Parser::ParseSRT(std::ifstream& file) {
 			continue;
 		}
 
-		if (all_of(line.begin(), line.end(), ::isdigit)) {
-			if (!currentSubtitle.empty()) {
-				subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
-				currentSubtitle.clear();
-			}
-			continue;
-		}
+		
 
 		if (line.find("-->") != std::string::npos) {
 			std::istringstream timestampStream(line);
@@ -313,9 +309,13 @@ void Parser::ParseSRT(std::ifstream& file) {
 			std::cout << "Parsed Timestamps: Start - " << std::fixed << std::setprecision(3) << startTime << " End - " << endTime << std::endl;
 		}
 		else {
-			if (!currentSubtitle.empty()) {
-				currentSubtitle += "\n";
+			if (std::regex_match(line, pattern)||line[0]=='?') {
+				continue;
 			}
+			if (!currentSubtitle.empty()) {
+				currentSubtitle += "\n\n\n";
+			}
+			
 			currentSubtitle += line;
 		}
 	}
