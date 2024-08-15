@@ -319,6 +319,22 @@ void Parser::ParseSRT(std::ifstream& file) {
 			currentSubtitle += line;
 		}
 	}
+
+	if (!currentSubtitle.empty()) {
+		subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
+	}
+
+	for (const auto& subtitle : subtitles) {
+		double lifetime = std::get<1>(subtitle) - std::get<0>(subtitle);
+
+		std::cout << "Adding Subtitle: \"" << std::get<2>(subtitle) << "\" with lifetime: " << lifetime << " second" << std::endl;
+
+		Styles styles;
+		styles.lifetime = lifetime;
+		Subtitle sub(std::get<2>(subtitle), styles, std::get<0>(subtitle));
+		Window window(sub);
+		m_windowManager.AddWindow(std::move(window));
+	}
 }
 
 void Parser::_ScriptInfo(std::ifstream& file) {
