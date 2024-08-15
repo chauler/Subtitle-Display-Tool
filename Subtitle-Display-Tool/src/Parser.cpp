@@ -80,7 +80,7 @@ void Parser::HandleFileMode(const json& data) {
 	}
 
 	std::string fileType = file_extension(string_base_name(filepath));
-	if (fileType == "ssa" || "ass") {
+	if (fileType == "ssa" || fileType == "ass") {
 		ParseSSA(file);
 		return;
 	}
