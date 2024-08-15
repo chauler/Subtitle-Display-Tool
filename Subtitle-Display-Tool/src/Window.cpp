@@ -10,70 +10,13 @@
 
 Window::Window(std::string dialogue, double creationTime) : Window(Subtitle{ dialogue, {}, creationTime }) {}
 
-Window::Window(Subtitle subtitle) : 
-	m_subtitle(subtitle), 
-	m_target(LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y)), 
-	m_creationTime(GetTime())
+Window::Window(Subtitle subtitle) :
+	m_subtitle(subtitle),
+	m_target(),
+	m_creationTime(GetTime()),
+	m_textureRendered(false)
 {
-	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
-	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
-	int outlineSize = m_subtitle.GetStyles().outline.outlineSize;
-	float* shadowColor = m_subtitle.GetStyles().shadow.color.values;
-	int* shadowOffset = m_subtitle.GetStyles().shadow.offset.values;
 
-	//Replace the macro once the layout of the distributed version is decided
-	Shader SDFShader = LoadShader(0, SDF_SHADER_PATH);
-	Shader outlineShader = LoadShader(0, OUTLINE_SHADER_PATH);
-	Shader shadowShader = LoadShader(0, SHADOW_SHADER_PATH);
-
-	//Update shader uniforms with values from subtitle styles
-	int outlineSizeLoc = GetShaderLocation(outlineShader, "outlineSize");
-	int outlineColorLoc = GetShaderLocation(outlineShader, "outlineColor");
-	int textureSizeLoc = GetShaderLocation(outlineShader, "textureSize");
-	float textureSize[2] = { GetWindowDimensions().x, GetWindowDimensions().y };
-	SetShaderValue(outlineShader, outlineSizeLoc, &outlineSize, SHADER_UNIFORM_INT);
-	SetShaderValue(outlineShader, outlineColorLoc, m_subtitle.GetStyles().outline.outlineColor.values, SHADER_UNIFORM_VEC4);
-	SetShaderValue(outlineShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
-
-	textureSizeLoc = GetShaderLocation(shadowShader, "samplerSize");
-	SetShaderValue(shadowShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
-	SetShaderValue(shadowShader, GetShaderLocation(shadowShader, "color"), shadowColor,SHADER_UNIFORM_VEC3);
-	SetShaderValue(shadowShader, GetShaderLocation(shadowShader, "offset"), shadowOffset, SHADER_UNIFORM_IVEC2);
-
-	RenderTexture2D secondaryTex = LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y);
-	RenderTexture2D pingpongBuffers[2] = { LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y) , LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y) };
-	//We are drawing to a texture, with a shader used to draw SDF fonts
-	BeginTextureMode(secondaryTex);
-	BeginShaderMode(SDFShader);
-	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
-	ClearBackground(BLANK);
-	rlDrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), { (float)m_subtitle.GetStyles().outline.outlineSize, (float)m_subtitle.GetStyles().outline.outlineSize }, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
-	EndShaderMode();
-	EndTextureMode();
-	
-	//Second pass. Draw texture with outline shader enabled.
-	BeginTextureMode(pingpongBuffers[0]);
-	//We draw rectangle for the background so that non-opaque text correctly
-	//inherits the background color, rather than the color of the screen behind the window
-	BeginShaderMode(outlineShader);
-	DrawTextureRec(secondaryTex.texture, {0, 0, GetWindowDimensions().x, -GetWindowDimensions().y}, {0, 0}, WHITE);
-	EndShaderMode();
-	EndTextureMode();
-
-	BeginTextureMode(pingpongBuffers[1]);
-	ClearBackground(BLANK);
-	BeginShaderMode(shadowShader);
-	DrawTextureRec(pingpongBuffers[0].texture, {0, 0, GetWindowDimensions().x, -GetWindowDimensions().y}, {0, 0}, WHITE);
-	EndShaderMode();
-	//DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
-	EndTextureMode();
-
-	BeginTextureMode(m_target);
-	ClearBackground(BLANK);
-	DrawRectangle(0, 0, GetWindowDimensions().x, GetWindowDimensions().y, bgColor);
-	DrawTextureRec(pingpongBuffers[1].texture, {0, 0, GetWindowDimensions().x, -GetWindowDimensions().y}, {0, 0}, WHITE);
-	DrawTextureRec(pingpongBuffers[0].texture, {0, 0, GetWindowDimensions().x, -GetWindowDimensions().y}, {0, 0}, WHITE);
-	EndTextureMode();
 }
 
 Window::Window(const Window& other): Window(other.m_subtitle)
@@ -82,7 +25,7 @@ Window::Window(const Window& other): Window(other.m_subtitle)
 
 //If we copy a temporary over, we don't want the texture to be unloaded when the temporary is destroyed.
 // So, remove the temporary's render target.
-Window::Window(Window&& other) noexcept : m_subtitle(other.m_subtitle), m_target(other.m_target), m_creationTime(other.m_creationTime)
+Window::Window(Window&& other) noexcept : m_subtitle(other.m_subtitle), m_target(other.m_target), m_creationTime(other.m_creationTime), m_textureRendered(false)
 {
 	other.m_target = {};
 }
@@ -115,15 +58,23 @@ Vec2f Window::GetWindowDimensions() const
 	return { dims.x, dims.y };
 }
 
-void Window::Draw(DrawConfig configuration) const
+void Window::Draw(DrawConfig configuration)
 {
-	float finalXPosition = configuration.hostX + m_subtitle.GetPosition().x;
-	float finalYPosition = configuration.hostY + m_subtitle.GetPosition().y;
 	if (IsVisible()) {
+		float finalXPosition = configuration.hostX + m_subtitle.GetPosition().x;
+		float finalYPosition = configuration.hostY + m_subtitle.GetPosition().y;
+		if (m_textureRendered == false) {
+			RenderTexture();
+			m_textureRendered = true;
+		}
 		DrawTextureRec(m_target.texture,
 			{ 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y },
 			{ finalXPosition, finalYPosition },
 			WHITE);
+	}
+	if (!IsVisible() && m_textureRendered) {
+		UnloadTexture(m_target.texture);
+		m_textureRendered = false;
 	}
 }
 
@@ -131,4 +82,67 @@ bool Window::IsVisible() const {
 	double currentTime = GetTime();
 	double subtitleStartTime = m_creationTime + m_subtitle.GetStartTime();
 	return currentTime >= subtitleStartTime && currentTime < subtitleStartTime + m_subtitle.GetLifetime();
+}
+
+void Window::RenderTexture() {
+	m_target = LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y);
+	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
+	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
+	int outlineSize = m_subtitle.GetStyles().outline.outlineSize;
+	float* shadowColor = m_subtitle.GetStyles().shadow.color.values;
+	int* shadowOffset = m_subtitle.GetStyles().shadow.offset.values;
+
+	//Replace the macro once the layout of the distributed version is decided
+	Shader SDFShader = LoadShader(0, SDF_SHADER_PATH);
+	Shader outlineShader = LoadShader(0, OUTLINE_SHADER_PATH);
+	Shader shadowShader = LoadShader(0, SHADOW_SHADER_PATH);
+
+	//Update shader uniforms with values from subtitle styles
+	int outlineSizeLoc = GetShaderLocation(outlineShader, "outlineSize");
+	int outlineColorLoc = GetShaderLocation(outlineShader, "outlineColor");
+	int textureSizeLoc = GetShaderLocation(outlineShader, "textureSize");
+	float textureSize[2] = { GetWindowDimensions().x, GetWindowDimensions().y };
+	SetShaderValue(outlineShader, outlineSizeLoc, &outlineSize, SHADER_UNIFORM_INT);
+	SetShaderValue(outlineShader, outlineColorLoc, m_subtitle.GetStyles().outline.outlineColor.values, SHADER_UNIFORM_VEC4);
+	SetShaderValue(outlineShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
+
+	textureSizeLoc = GetShaderLocation(shadowShader, "samplerSize");
+	SetShaderValue(shadowShader, textureSizeLoc, textureSize, SHADER_UNIFORM_VEC2);
+	SetShaderValue(shadowShader, GetShaderLocation(shadowShader, "color"), shadowColor, SHADER_UNIFORM_VEC3);
+	SetShaderValue(shadowShader, GetShaderLocation(shadowShader, "offset"), shadowOffset, SHADER_UNIFORM_IVEC2);
+
+	RenderTexture2D secondaryTex = LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y);
+	RenderTexture2D pingpongBuffers[2] = { LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y) , LoadRenderTexture(GetWindowDimensions().x, GetWindowDimensions().y) };
+	//We are drawing to a texture, with a shader used to draw SDF fonts
+	BeginTextureMode(secondaryTex);
+	BeginShaderMode(SDFShader);
+	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
+	ClearBackground(BLANK);
+	rlDrawTextEx(m_subtitle.GetFont(), m_subtitle.GetDialogue().c_str(), { (float)m_subtitle.GetStyles().outline.outlineSize, (float)m_subtitle.GetStyles().outline.outlineSize }, m_subtitle.GetFontSize(), DEFAULT_SPACING, fontColor);
+	EndShaderMode();
+	EndTextureMode();
+
+	//Second pass. Draw texture with outline shader enabled.
+	BeginTextureMode(pingpongBuffers[0]);
+	//We draw rectangle for the background so that non-opaque text correctly
+	//inherits the background color, rather than the color of the screen behind the window
+	BeginShaderMode(outlineShader);
+	DrawTextureRec(secondaryTex.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	EndShaderMode();
+	EndTextureMode();
+
+	BeginTextureMode(pingpongBuffers[1]);
+	ClearBackground(BLANK);
+	BeginShaderMode(shadowShader);
+	DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	EndShaderMode();
+	//DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	EndTextureMode();
+
+	BeginTextureMode(m_target);
+	ClearBackground(BLANK);
+	DrawRectangle(0, 0, GetWindowDimensions().x, GetWindowDimensions().y, bgColor);
+	DrawTextureRec(pingpongBuffers[1].texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	EndTextureMode();
 }

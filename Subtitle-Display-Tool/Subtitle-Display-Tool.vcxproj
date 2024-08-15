@@ -172,6 +172,7 @@
     <ClInclude Include="src\InputManager.h" />
     <ClInclude Include="src\Parser.h" />
     <ClInclude Include="src\Subtitle.h" />
+    <ClInclude Include="src\util\util.h" />
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\WindowManager.h" />
     <ClInclude Include="src\TcpConnection.h" />

@@ -1,6 +1,12 @@
+#include "util\util.h"
 #include "Parser.h"
 
 using json = nlohmann::json; //For convenience
+
+bool AdvanceLine(std::ifstream& file, std::string& line, std::streampos& prevLine) {
+	prevLine = file.tellg();
+	return (bool)std::getline(file, line);
+}
 
 Parser::Parser(WindowManager& wm) : m_windowManager(wm) {}
 
@@ -71,6 +77,18 @@ void Parser::HandleFileMode(const json& data) {
 	if (!file.is_open()) {
 		std::cout << "Failed to open file: " << filepath << std::endl;
 		return;
+	}
+
+	std::string fileType = file_extension(string_base_name(filepath));
+	if (fileType == "ssa" || fileType == "ass") {
+		ParseSSA(file);
+		return;
+	}
+	else if(fileType == "vtt") {
+
+	}
+	else if (fileType == "srt") {
+
 	}
 
 	std::string line;
@@ -219,4 +237,227 @@ bool Parser::ValidateDataObject(const json& data, const std::string& key) {
 		return false;
 	}
 	return true;
+}
+
+void Parser::ParseSSA(std::ifstream& file) {
+	std::string line;
+
+	std::getline(file, line);
+	trim(line);
+	if (line.find("[Script Info]")) {
+		_ScriptInfo(file);
+	}
+	else {
+		std::cout << "Invalid SSA/ASS file." << std::endl;
+		return;
+	}
+
+	std::getline(file, line);
+	if (line == "[V4+ Styles]") {
+		_V4Styles(file);
+	}
+
+	std::getline(file, line);
+	if (line == "[Events]") {
+		_Events(file);
+	}
+
+	std::getline(file, line);
+	if (line == "[Fonts]") {
+		_Fonts(file);
+	}
+
+	std::getline(file, line);
+	if (line == "[Graphics]") {
+		_Graphics(file);
+	}
+}
+
+void Parser::_ScriptInfo(std::ifstream& file) {
+	//TEMPORARY: IMPLEMENT LATER
+	std::string line;
+	std::streampos prevLine;
+	while (AdvanceLine(file, line, prevLine)) {
+		if (line.empty()) { //We found the next section: return
+			return;
+		}
+	}
+}
+
+void Parser::_V4Styles(std::ifstream& file) {
+	//TEMPORARY: IMPLEMENT LATER
+	std::string line;
+	std::streampos prevLine;
+	while (AdvanceLine(file, line, prevLine)) {
+		if (line.empty()) { //We found the next section: return
+			return;
+		}
+	}
+}
+
+void Parser::_Events(std::ifstream& file) {
+	double creationTime = GetTime();
+	std::string line, token;
+	std::streampos prevLine;
+
+	//Events section always starts with a Format line containing comma-separated fields
+	AdvanceLine(file, line, prevLine);
+	std::istringstream lineStream(line);
+	lineStream.ignore(10, ':'); //Line starts with 'Format:'. skip it
+
+	//Parse presence and order of fields for the dialogue lines
+	std::vector<FormatField> presentFields{};
+	while (std::getline(lineStream, token, ',')) {
+		ltrim(token);
+		if (token == "Marked") {
+			presentFields.push_back(FormatField::Marked);
+		}
+		else if (token == "Layer") {
+			presentFields.push_back(FormatField::Layer);
+		}
+		else if (token == "Start") {
+			presentFields.push_back(FormatField::Start);
+		}
+		else if (token == "End") {
+			presentFields.push_back(FormatField::End);
+		}
+		else if (token == "Style") {
+			presentFields.push_back(FormatField::Style);
+		}
+		else if (token == "Name") {
+			presentFields.push_back(FormatField::Name);
+		}
+		else if (token == "MarginL") {
+			presentFields.push_back(FormatField::MarginL);
+		}
+		else if (token == "MarginR") {
+			presentFields.push_back(FormatField::MarginR);
+		}
+		else if (token == "MarginV") {
+			presentFields.push_back(FormatField::MarginV);
+		}
+		else if (token == "Effect") {
+			presentFields.push_back(FormatField::Effect);
+		}
+		else if (token == "Text") {
+			presentFields.push_back(FormatField::Text);
+		}
+	}
+
+	//Parse the event lines using the defined order of fields
+	while (AdvanceLine(file, line, prevLine)) {
+		std::istringstream event(line);
+		//Get Event type
+		std::getline(event, token, ':');
+		if (event.fail()) { //Line descriptor not present. Assume end of section.
+			break;
+		}
+
+		if (token == "Dialogue") {
+			double start = 0, end = 0;
+			std::string dialogue;
+			Styles styles;
+			for (const FormatField& field : presentFields) {
+				if (field == FormatField::Text) {
+					std::getline(event, token);
+				}
+				else {
+					std::getline(event, token, ',');
+				}
+				std::istringstream tokenStream(token);
+				switch (field) {
+				case FormatField::Marked:
+					break;
+				case FormatField::Layer:
+					break;
+				case FormatField::Start:
+					start = ParseTimeStamp(token);
+					break;
+				case FormatField::End:
+					end = ParseTimeStamp(token);
+					break;
+				case FormatField::Style:
+					break;
+				case FormatField::Name:
+					break;
+				case FormatField::MarginL:
+					break;
+				case FormatField::MarginR:
+					break;
+				case FormatField::Effect:
+					break;
+				case FormatField::Text:
+					bool styleOverride = false;
+					bool drawing = false;
+					for (int i = 0; i < token.length(); i++) {
+						if (token[i] == '{') {
+							styleOverride = true;
+						}
+						else if (styleOverride && token[i] == '}') {
+							styleOverride = false;
+							continue;
+						}
+						if (styleOverride) {
+							//Check for drawing commands
+							if (token.length() > i + 2 && token[i] == '\\' && token[i+1] == 'p' && isdigit(token[i + 2]) && token[i + 2] != '0') {
+								drawing = true;
+							}
+							else if (token.length() > i + 2 && token[i] == '\\' && token[i + 1] == 'p' && token[i + 2] == '0') {
+								drawing = false;
+							}
+						}
+						if(!styleOverride && !drawing) {
+							dialogue.push_back(token[i]);
+						}
+					}
+					break;
+				}
+			}
+			if (dialogue.empty()) {
+				continue;
+			}
+			styles.lifetime = end - start;
+			Subtitle sub(dialogue, styles, start);
+			Window window(sub);
+			m_windowManager.AddWindow(std::move(window));
+		}
+		else if (token == "Comment") {
+
+		}
+		else if (token == "Picture") {
+
+		}
+		else if (token == "Sound") {
+
+		}
+		else if (token == "Movie") {
+
+		}
+		else if (token == "Command") {
+
+		}
+
+	}
+}
+
+void Parser::_Fonts(std::ifstream& file) {
+	//TEMPORARY: IMPLEMENT LATER
+	std::string line;
+	std::streampos prevLine;
+	while (AdvanceLine(file, line, prevLine)) {
+		if (line.empty()) { //We found the next section: return
+			return;
+		}
+	}
+}
+
+void Parser::_Graphics(std::ifstream& file) {
+	//TEMPORARY: IMPLEMENT LATER
+	std::string line;
+	std::streampos prevLine;
+	while (AdvanceLine(file, line, prevLine)) {
+		if (line.empty()) { //We found the next section: return
+			return;
+		}
+	}
 }

@@ -1,4 +1,5 @@
 #include "WindowManager.h"
+#include <iostream>
 
 void WindowManager::AddWindow(const Window& window)
 {
@@ -12,8 +13,7 @@ void WindowManager::AddWindow(Window&& window)
 
 void WindowManager::DrawWindows()
 {
-	for (const auto& window : m_windows) {
+	for (auto& window : m_windows) {
 		window.Draw({ .hostX{hostX}, .hostY{hostY}, .hostWidth{hostWidth}, .hostHeight{hostHeight} });
 	}
 }
-
