@@ -2,7 +2,7 @@
 Our project is a standalone application that can be included in or called on by other applications to display subtitles. Relevant functionalities of the application include displaying a window, displaying subtitle text, communicating with the host application, accepting multiple subtitle formats, and providing custom API for the host application. 
 
 # Usage
-At this point in time, users must build the program themselves. Clone the repo and build in Visual Studio using the provided solution file. Within your own application, execute the previously built executable, providing a port number. Then, open a TCP socket and send a JSON message using our API (To be documented here later). 
+At this point in time, users must build the program themselves. Clone the repo and build in Visual Studio using the provided solution file. Within your own application, execute the previously built executable, providing a port number. Then, open a TCP socket and send a JSON message using our API.
 For an example of this in action, build the solution and run the TkinterExample project provided within the solution.
 
 Example (Python):
