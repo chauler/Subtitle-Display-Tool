@@ -21,3 +21,6 @@ subprocess.Popen(args)
 ## Milestone 3
 * Added automatic generation and deployment of Doxygen documentation to [GitHub Pages](https://chauler.github.io/Subtitle-Display-Tool/). Added testing project to solution, is separate from but references main project's obj files. Can be built and run separately from the main project. Added text outlines with customizable colors and sizes and drop shadows with customizable colors and offsets. Added parsing support for these new additions. Added parsing support for .vtt files.
 * Still to be added: .srt, .ssa, continuous communication via TCP to allow for updates to Host window information, such as the Host window moving or pausing.
+
+## Milestone 4
+* Added the aforementioned delayed persistent TCP communication. New implementation allows multiple connections and each connection persists until the Host app closes it. Added a new mode to the API to allow for sending Host window information (size, position) to update where the subtitles are drawn. Added support for .srt and .ssa/.ass files, extracting the dialogue and timing information from each to create the appropriate subtitles.
