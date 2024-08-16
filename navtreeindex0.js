@@ -176,6 +176,7 @@ var NAVTREEINDEX0 =
 "md_README.html#autotoc_md3":[0,1,0],
 "md_README.html#autotoc_md4":[0,1,1],
 "md_README.html#autotoc_md5":[0,1,2],
+"md_README.html#autotoc_md6":[0,1,3],
 "namespaceTkinterExample.html":[1,0,0],
 "namespaceTkinterExample.html#a0377d392090e361c6879d3658bfae976":[1,0,0,48],
 "namespaceTkinterExample.html#a04ced8023b506daa4ed7e9e29cdd7e07":[1,0,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "structDrawConfig.html#a359d04fbb1476c816ffb6c7e36107946":[2,0,1,3],
 "structDrawConfig.html#acdc73f6e96588c6cca9c580d3f6128ea":[2,0,1,0],
 "structDropShadowSettings.html":[2,0,2],
-"structDropShadowSettings.html#a0d315e743d11a0f05abd4b4d9bebdffc":[2,0,2,7],
-"structDropShadowSettings.html#a15dd3d8cfdf3dedd98803f236f3c50e2":[2,0,2,1]
+"structDropShadowSettings.html#a0d315e743d11a0f05abd4b4d9bebdffc":[2,0,2,7]
 };

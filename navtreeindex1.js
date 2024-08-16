@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"structDropShadowSettings.html#a15dd3d8cfdf3dedd98803f236f3c50e2":[2,0,2,1],
 "structDropShadowSettings.html#a1b20e5149326e8d8bbc5b6d7e617756d":[2,0,2,9],
 "structDropShadowSettings.html#a40f5251a9baef7d41854e2438bc4a3c2":[2,0,2,8],
 "structDropShadowSettings.html#a4fae8e6d305df80244c531829213e410":[2,0,2,2],

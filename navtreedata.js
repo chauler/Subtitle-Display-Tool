@@ -30,7 +30,8 @@ var NAVTREE =
       [ "Release Notes", "md_README.html#autotoc_md2", [
         [ "Milestone 1", "md_README.html#autotoc_md3", null ],
         [ "Milestone 2", "md_README.html#autotoc_md4", null ],
-        [ "Milestone 3", "md_README.html#autotoc_md5", null ]
+        [ "Milestone 3", "md_README.html#autotoc_md5", null ],
+        [ "Milestone 4", "md_README.html#autotoc_md6", null ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
@@ -69,7 +70,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "InputManager_8cpp.html",
-"structDropShadowSettings.html#a1b20e5149326e8d8bbc5b6d7e617756d"
+"structDropShadowSettings.html#a15dd3d8cfdf3dedd98803f236f3c50e2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

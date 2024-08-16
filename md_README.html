@@ -107,7 +107,12 @@ Milestone 2</h2>
 Milestone 3</h2>
 <ul>
 <li>Added automatic generation and deployment of Doxygen documentation to <a href="https://chauler.github.io/Subtitle-Display-Tool/">GitHub Pages</a>. Added testing project to solution, is separate from but references main project's obj files. Can be built and run separately from the main project. Added text outlines with customizable colors and sizes and drop shadows with customizable colors and offsets. Added parsing support for these new additions. Added parsing support for .vtt files.</li>
-<li>Still to be added: .srt, .ssa, continuous communication via TCP to allow for updates to Host window information, such as the Host window moving or pausing. </li>
+<li>Still to be added: .srt, .ssa, continuous communication via TCP to allow for updates to Host window information, such as the Host window moving or pausing.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Milestone 4</h2>
+<ul>
+<li>Added the aforementioned delayed persistent TCP communication. New implementation allows multiple connections and each connection persists until the Host app closes it. Added a new mode to the API to allow for sending Host window information (size, position) to update where the subtitles are drawn. Added support for .srt and .ssa/.ass files, extracting the dialogue and timing information from each to create the appropriate subtitles. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
