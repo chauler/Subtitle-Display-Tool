@@ -14,11 +14,11 @@ int main(int argc, char * argv[]) {
 	SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED | FLAG_WINDOW_UNFOCUSED | FLAG_WINDOW_MOUSE_PASSTHROUGH | FLAG_VSYNC_HINT);
 	InitWindow(0, 0, "Subtitle Display Tool");
 	
-	//The below AddWindow() calls are temporary to showcase how to create Windows and add them to the manager. These should be located within the parser at some point.
+	// Initialize the window manager and parser
 	WindowManager wm{};
 	Parser parser{wm};
 	
-	
+	// check if port number is in the input and valid
 	if (argc < 2) {
 		std::cout << "Usage: " << argv[0] << "PORT" << std::endl;
 		return 1;
@@ -36,9 +36,9 @@ int main(int argc, char * argv[]) {
 	asio::io_context::work idleWork(io_context);
 	std::thread ioThread = std::thread([&]() { io_context.run(); });
   
+	//main loop for raylib
 	while (!WindowShouldClose()) {
 		std::string input_data = im.getData();
-		//Just using this to test the parser - this should eventually be called by the Input Manager with whatever messages were received
 		if (input_data != "") {
 			parser.Parse(input_data);
 		}
