@@ -98,7 +98,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ca1e2e981113988f1e4c33ac4fd15ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a3ca1e2e981113988f1e4c33ac4fd15ea">getData</a> ()</td></tr>
 <tr class="separator:a3ca1e2e981113988f1e4c33ac4fd15ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles input and connections from the host application </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portNum</td><td>integer used as the port number when creating the socket </td></tr>
+    <tr><td class="paramname">io_context</td><td>an asio object that handles continuity of the socket and async functions </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ada704ff58bc420c4dad4e214a80ddf43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada704ff58bc420c4dad4e214a80ddf43">&#9670;&nbsp;</a></span>InputManager()</h2>
 
@@ -142,6 +150,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gathers the current data Checks if the file recieved is in json format Constructs and returns a json formatted string by checking for braces in the current data </p>
 
 <p class="reference">References <a class="el" href="InputManager_8cpp.html#aa931d3d1197c9d0ca56806455c70d20b">current_data</a>.</p>
 

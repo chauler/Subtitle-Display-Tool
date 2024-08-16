@@ -88,32 +88,15 @@ $(document).ready(function(){initNavTree('TcpConnection_8h_source.html',''); ini
 <a href="TcpConnection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;asio/ip/tcp.hpp&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&lt;asio/io_context.hpp&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/**********************************************************************************</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">* Handles reading from the socket and provides a shared pointer for the connection</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***********************************************************************************/</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classTcpConnection.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTcpConnection.html">TcpConnection</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;TcpConnection&gt; {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    /***********************************************</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    * shared pointer to handle the created socket</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    ************************************************/</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a">   12</a></span>&#160;    <span class="keyword">typedef</span> std::shared_ptr&lt;TcpConnection&gt; <a class="code" href="classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a">pointer</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    /*******************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    * Creates and returns a socket based on the current io_context</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    ********************************************************************/</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a">pointer</a> <a class="code" href="classTcpConnection.html#afd1cea95dc246909279b6cdbe0fd388b">create</a>(asio::io_context&amp;);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    asio::ip::tcp::socket&amp; <a class="code" href="classTcpConnection.html#a66ed4482195e795f58aa0d496af0cd5a">socket</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">    /******************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">    * Starts the asynchronous reading from the socket into a buffer</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">    *******************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTcpConnection.html#a634a1244d08aaaffcfa9c9223a93ffc7">start</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classTcpConnection.html#ac4562b762c75c0243309587773d34293">   22</a></span>&#160;    std::vector&lt;char&gt; <a class="code" href="classTcpConnection.html#ac4562b762c75c0243309587773d34293">message</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">    /********************************************************************</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">    * Handles the asynchronous read_some function</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">    * Keeps track of the bytes read into the buffer and loops the reading</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">    * ends if an error occurs</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">    *********************************************************************/</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classTcpConnection.html">TcpConnection</a>(asio::io_context&amp;);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classTcpConnection.html">TcpConnection</a>(asio::io_context&amp;);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> handle_read(std::error_code, std::size_t);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    asio::ip::tcp::socket socket_;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
