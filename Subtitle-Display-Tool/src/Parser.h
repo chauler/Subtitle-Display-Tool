@@ -16,6 +16,7 @@ private:
 	void HandleAdvancedMode(const nlohmann::json& data);
 	void HandleFileMode(const nlohmann::json& data);
 	void ParseSSA(std::ifstream& file);
+	void ParseSRT(std::ifstream& file);
 	void _ScriptInfo(std::ifstream& file);
 	void _V4Styles(std::ifstream& file);
 	void _Events(std::ifstream& file);

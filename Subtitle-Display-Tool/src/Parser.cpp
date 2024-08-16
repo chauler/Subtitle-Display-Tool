@@ -1,6 +1,6 @@
 #include "util\util.h"
 #include "Parser.h"
-
+#include <regex>
 using json = nlohmann::json; //For convenience
 
 bool AdvanceLine(std::ifstream& file, std::string& line, std::streampos& prevLine) {
@@ -84,11 +84,12 @@ void Parser::HandleFileMode(const json& data) {
 		ParseSSA(file);
 		return;
 	}
-	else if(fileType == "vtt") {
+	else if (fileType == "vtt") {
 
 	}
 	else if (fileType == "srt") {
-
+		ParseSRT(file);
+		return;
 	}
 
 	std::string line;
@@ -219,6 +220,9 @@ double Parser::ParseTimeStamp(const std::string& timestamp) {
 	if (stream.peek() == '.') {
 		stream >> sep3 >> milliseconds;
 	}
+	else if (stream.peek() == ',') {
+		stream >> sep3 >> milliseconds;
+	}
 
 	return hours * 3600 + minutes * 60 + seconds + milliseconds / 1000.0;
 }
@@ -270,6 +274,66 @@ void Parser::ParseSSA(std::ifstream& file) {
 	std::getline(file, line);
 	if (line == "[Graphics]") {
 		_Graphics(file);
+	}
+}
+
+void Parser::ParseSRT(std::ifstream& file) {
+	std::string line;
+	std::vector<std::tuple<double, double, std::string>> subtitles;
+	std::string currentSubtitle;
+	double startTime = 0.0;
+	double endTime = 0.0;
+	const std::regex pattern("^[0-9]+");
+	std::getline(file,line);
+	while (std::getline(file, line)) {
+		
+		if (line.empty()) {
+			if (!currentSubtitle.empty()) {
+				subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
+				currentSubtitle.clear();
+			}
+			continue;
+		}
+
+		
+
+		if (line.find("-->") != std::string::npos) {
+			std::istringstream timestampStream(line);
+			std::string startTimestamp, endTimestamp;
+			timestampStream >> startTimestamp;
+			timestampStream.ignore(4);
+			timestampStream >> endTimestamp;
+
+			startTime = ParseTimeStamp(startTimestamp);
+			endTime = ParseTimeStamp(endTimestamp);
+			std::cout << "Parsed Timestamps: Start - " << std::fixed << std::setprecision(3) << startTime << " End - " << endTime << std::endl;
+		}
+		else {
+			if (std::regex_match(line, pattern)||line[0]=='?') {
+				continue;
+			}
+			if (!currentSubtitle.empty()) {
+				currentSubtitle += "\n\n\n";
+			}
+			
+			currentSubtitle += line;
+		}
+	}
+
+	if (!currentSubtitle.empty()) {
+		subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
+	}
+
+	for (const auto& subtitle : subtitles) {
+		double lifetime = std::get<1>(subtitle) - std::get<0>(subtitle);
+
+		std::cout << "Adding Subtitle: \"" << std::get<2>(subtitle) << "\" with lifetime: " << lifetime << " second" << std::endl;
+
+		Styles styles;
+		styles.lifetime = lifetime;
+		Subtitle sub(std::get<2>(subtitle), styles, std::get<0>(subtitle));
+		Window window(sub);
+		m_windowManager.AddWindow(std::move(window));
 	}
 }
 
