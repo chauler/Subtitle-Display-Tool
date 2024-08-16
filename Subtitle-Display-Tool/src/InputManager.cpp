@@ -1,6 +1,5 @@
 #include"InputManager.h"
 #include"TcpConnection.h"
-#include<array>
 #include<asio.hpp>
 #include<iostream>
 #include<string>

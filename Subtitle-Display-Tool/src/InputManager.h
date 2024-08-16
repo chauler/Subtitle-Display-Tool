@@ -32,4 +32,9 @@ private:
 	void handleAccept(TcpConnection::pointer new_connection, const std::error_code& error);
 	asio::io_context& io_context_;
 	asio::ip::tcp::acceptor acceptor_;
+
+#ifdef UNIT_TEST
+	friend int GetPortNum(InputManager& im);
+	friend bool GetAcceptorOpen(InputManager& im);
+#endif
 };

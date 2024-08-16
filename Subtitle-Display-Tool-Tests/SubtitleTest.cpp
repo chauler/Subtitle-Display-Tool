@@ -23,7 +23,8 @@ TEST_F(SubtitleTest, DefaultConstruction) {
 }
 
 TEST_F(SubtitleTest, OutlineConstruction) {
-	Subtitle testValue{ testString, {.outline{.outlineColor{.values{1.0, 1.0, 1.0, 1.0}}, .outlineSize{5}} } };
+	float colors[4]{ 1.0, 1.0, 1.0, 1.0 };
+	Subtitle testValue{ testString, {.outline{ colors, 5 } } };
 	OutlineSettings result = testValue.GetStyles().outline;
 	EXPECT_EQ(result.outlineColor.r, 1.0);
 	EXPECT_EQ(result.outlineColor.g, 1.0);
@@ -33,7 +34,8 @@ TEST_F(SubtitleTest, OutlineConstruction) {
 }
 
 TEST_F(SubtitleTest, OutlineNegativeColors) {
-	Subtitle testValue{ testString, {.outline{.outlineColor{.values{-1.0, -1.0, -1.0, -1.0}}} } };
+	float colors[4]{ -1.0 , -1.0 , -1.0 , -1.0 };
+	Subtitle testValue{ testString, {.outline{ colors, 5 } } };
 	OutlineSettings result = testValue.GetStyles().outline;
 	EXPECT_EQ(result.outlineColor.r, 0.0);
 	EXPECT_EQ(result.outlineColor.g, 0.0);

@@ -26,8 +26,9 @@ struct Vec4i {
 	int w;
 };
 
-//Modify individual channels using outlineColor.r, .g, .b, and .a
-//Read all 4 floats using outlineColor.values
+/**
+* Struct containing data for the configuration of the outline in the Styles object.
+*/
 struct OutlineSettings {
 	union {
 		struct {
@@ -39,8 +40,25 @@ struct OutlineSettings {
 		float values[4] = {1.0, 0.0, 0.0, 1.0};
 	} outlineColor;
 	int outlineSize = 2;
+	OutlineSettings() {}
+	OutlineSettings(float* color, int size): outlineSize(size) {
+		for (int i = 0; i < 4; i++) {
+			if (color[i] < 0) {
+				outlineColor.values[i] = 0;
+			}
+			else if (color[i] > 1) {
+				outlineColor.values[i] = 1;
+			}
+			else {
+				outlineColor.values[i] = color[i];
+			}
+		}
+	}
 };
 
+/**
+* Struct containing data for the configuration of the drop shadow in the Styles object.
+*/
 struct DropShadowSettings {
 	union {
 		struct {
@@ -80,14 +98,41 @@ struct Styles {
 class Subtitle {
 public:
 	Subtitle(std::string dialogue, Styles styles = {}, double startTime = 0.0);
+	/**
+	* Returns the subtitle's font size.
+	*/
 	float GetFontSize() const { return m_styles.fontSize; }
+	/**
+	* Returns the subtitle's dialogue.
+	*/
 	std::string GetDialogue() const { return m_dialogue; }
+	/**
+	* Returns the subtitle's position.
+	*/
 	Vec2i GetPosition() const { return m_styles.position; }
+	/**
+	* Returns the subtitle's font color.
+	*/
 	Vec4i GetColor() const { return m_styles.fontColor; }
+	/**
+	* Returns the subtitle's background color.
+	*/
 	Vec4i GetBackgroundColor() const { return m_styles.bgColor; }
+	/**
+	* Returns the subtitle's font face.
+	*/
 	Font GetFont() const { return m_font; }
+	/**
+	* Returns the subtitle's lifetime.
+	*/
 	double GetLifetime() const { return m_styles.lifetime; }
+	/**
+	* Returns the subtitle's start time.
+	*/
 	double GetStartTime() const { return m_startTime; }
+	/**
+	* Returns the subtitle's Styles object.
+	*/
 	Styles GetStyles() const { return m_styles; }
 private:
 	Font ConvertFontToSDF(std::string fontPath);

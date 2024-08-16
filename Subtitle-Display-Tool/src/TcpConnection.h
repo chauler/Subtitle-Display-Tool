@@ -30,5 +30,3 @@ private:
 	void handle_read(std::error_code, std::size_t);
 	asio::ip::tcp::socket socket_;
 };
-
-
