@@ -85,67 +85,17 @@ void Parser::HandleFileMode(const json& data) {
 		return;
 	}
 	else if (fileType == "vtt") {
-
+		ParseVTT(file);
+		return;
 	}
 	else if (fileType == "srt") {
 		ParseSRT(file);
 		return;
 	}
-
-	std::string line;
-	bool isVTT = false;
-	std::vector<std::tuple<double, double, std::string>> subtitles;
-	std::string currentSubtitle;
-	double startTime = 0.0;
-	double endTime = 0.0;
-
-	while (std::getline(file, line)) {
-		if (line.find("WEBVTT") != std::string::npos) {
-			isVTT = true;
-			continue;
-		}
-
-		if (line.empty()) {
-			if (!currentSubtitle.empty()) {
-				subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
-				currentSubtitle.clear();
-			}
-			continue;
-		}
-
-		if (line.find("-->") != std::string::npos) {
-			std::istringstream timestampStream(line);
-			std::string startTimestamp, endTimestamp;
-			timestampStream >> startTimestamp;
-			timestampStream.ignore(4);
-			timestampStream >> endTimestamp;
-
-			startTime = ParseTimeStamp(startTimestamp);
-			endTime = ParseTimeStamp(endTimestamp);
-			std::cout << "Parsed Timestamps: Start - " << std::fixed << std::setprecision(3) << startTime << " End - " << endTime << std::endl;
-		} else {
-			if (!currentSubtitle.empty()) {
-				currentSubtitle += "\n";
-			}
-			currentSubtitle += line;
-		}
+	else {
+		std::cout << "Unsupported file type: " << fileType << std::endl;
+		return;
 	}
-
-	if (!currentSubtitle.empty()) {
-		subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
-	}
-
-	for (const auto& subtitle : subtitles) {
-		double lifetime = std::get<1>(subtitle) - std::get<0>(subtitle);
-
-		std::cout << "Adding Subtitle: \"" << std::get<2>(subtitle) << "\" with lifetime: " << lifetime << " second" << std::endl;
-
-		Styles styles;
-		styles.lifetime = lifetime;
-		Subtitle sub(std::get<2>(subtitle), styles, std::get<0>(subtitle));
-		Window window(sub);
-		m_windowManager.AddWindow(std::move(window));
-	}	
 }
 
 void Parser::HandleCommandMode(const nlohmann::json& data)
@@ -241,6 +191,62 @@ bool Parser::ValidateDataObject(const json& data, const std::string& key) {
 		return false;
 	}
 	return true;
+}
+
+void Parser::ParseVTT(std::ifstream& file) {
+	std::string line;
+	std::vector<std::tuple<double, double, std::string>> subtitles;
+	std::string currentSubtitle;
+	double startTime = 0.0;
+	double endTime = 0.0;
+
+	while (std::getline(file, line)) {
+		if (line.find("WEBVTT") != std::string::npos) {
+			continue;
+		}
+
+		if (line.empty()) {
+			if (!currentSubtitle.empty()) {
+				subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
+				currentSubtitle.clear();
+			}
+			continue;
+		}
+
+		if (line.find("-->") != std::string::npos) {
+			std::istringstream timestampStream(line);
+			std::string startTimestamp, endTimestamp;
+			timestampStream >> startTimestamp;
+			timestampStream.ignore(4);
+			timestampStream >> endTimestamp;
+
+			startTime = ParseTimeStamp(startTimestamp);
+			endTime = ParseTimeStamp(endTimestamp);
+			std::cout << "Parsed Timestamps: Start - " << std::fixed << std::setprecision(3) << startTime << " End - " << endTime << std::endl;
+		}
+		else {
+			if (!currentSubtitle.empty()) {
+				currentSubtitle += "\n";
+			}
+			currentSubtitle += line;
+		}
+	}
+
+	if (!currentSubtitle.empty()) {
+		subtitles.push_back(std::make_tuple(startTime, endTime, currentSubtitle));
+	}
+
+	for (const auto& subtitle : subtitles) {
+		double lifetime = std::get<1>(subtitle) - std::get<0>(subtitle);
+
+		std::cout << "Adding Subtitle: \"" << std::get<2>(subtitle) << "\" with lifetime: " << lifetime << " second" << std::endl;
+
+		Styles styles;
+		styles.lifetime = lifetime;
+		Subtitle sub(std::get<2>(subtitle), styles, std::get<0>(subtitle));
+		Window window(sub);
+		m_windowManager.AddWindow(std::move(window));
+	}
 }
 
 void Parser::ParseSSA(std::ifstream& file) {
