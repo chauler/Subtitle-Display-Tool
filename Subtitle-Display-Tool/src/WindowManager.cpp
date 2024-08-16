@@ -13,7 +13,6 @@ void WindowManager::AddWindow(Window&& window)
 
 void WindowManager::DrawWindows()
 {
-	std::cout << GetTime() << std::endl;
 	for (auto& window : m_windows) {
 		window.Draw({ .hostX{hostX}, .hostY{hostY}, .hostWidth{hostWidth}, .hostHeight{hostHeight} });
 	}
