@@ -39,6 +39,20 @@ struct OutlineSettings {
 		float values[4] = {1.0, 0.0, 0.0, 1.0};
 	} outlineColor;
 	int outlineSize = 2;
+	OutlineSettings() {}
+	OutlineSettings(float* color, int size): outlineSize(size) {
+		for (int i = 0; i < 4; i++) {
+			if (color[i] < 0) {
+				outlineColor.values[i] = 0;
+			}
+			else if (color[i] > 1) {
+				outlineColor.values[i] = 1;
+			}
+			else {
+				outlineColor.values[i] = color[i];
+			}
+		}
+	}
 };
 
 struct DropShadowSettings {
