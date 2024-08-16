@@ -1,5 +1,7 @@
 var structOutlineSettings =
 [
+    [ "OutlineSettings", "structOutlineSettings.html#a95d18fbf71b324076b7b64085749bebd", null ],
+    [ "OutlineSettings", "structOutlineSettings.html#ac742d699c1db9d22cbd2c63ef4e06729", null ],
     [ "a", "structOutlineSettings.html#a1c04be55e78e8597322a8eab2b96a7bc", null ],
     [ "b", "structOutlineSettings.html#a0d142d53ad5da2da768eb60b9c05dab7", null ],
     [ "g", "structOutlineSettings.html#a35060ccde9db70000e0e1eff26155f5e", null ],

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['select_5ffile_205',['select_file',['../namespaceTkinterExample.html#a97611ae78ead19429f0b51d47d56365b',1,'TkinterExample']]],
-  ['socket_206',['socket',['../classTcpConnection.html#a66ed4482195e795f58aa0d496af0cd5a',1,'TcpConnection']]],
-  ['start_207',['start',['../classTcpConnection.html#a634a1244d08aaaffcfa9c9223a93ffc7',1,'TcpConnection']]],
-  ['subtitle_208',['Subtitle',['../classSubtitle.html#a9b7a1d47378f1316a03abf71e1a1cbbf',1,'Subtitle']]]
+  ['on_5fclosing_240',['on_closing',['../namespaceTkinterExample.html#a48e9d2a28d2a1691536d13eff2672fa0',1,'TkinterExample']]],
+  ['onresize_241',['onResize',['../namespaceTkinterExample.html#a6c67409b443e35244f3b74284a1296cd',1,'TkinterExample']]],
+  ['operator_3d_242',['operator=',['../classWindow.html#a4ac87eae37bb12194243b4bea906d396',1,'Window::operator=(const Window &amp;other)'],['../classWindow.html#ad15770fee0a78a710766d422eb21d2e1',1,'Window::operator=(Window &amp;&amp;other) noexcept']]],
+  ['outlinesettings_243',['OutlineSettings',['../structOutlineSettings.html#a95d18fbf71b324076b7b64085749bebd',1,'OutlineSettings::OutlineSettings()'],['../structOutlineSettings.html#ac742d699c1db9d22cbd2c63ef4e06729',1,'OutlineSettings::OutlineSettings(float *color, int size)']]]
 ];

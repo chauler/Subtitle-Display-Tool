@@ -1,21 +1,10 @@
 var searchData=
 [
-  ['sdf_5fshader_5fpath_103',['SDF_SHADER_PATH',['../Window_8cpp.html#a2ff7e539f9cecf814840d27c7db8209c',1,'Window.cpp']]],
-  ['select_5ffile_104',['select_file',['../namespaceTkinterExample.html#a97611ae78ead19429f0b51d47d56365b',1,'TkinterExample']]],
-  ['shadow_105',['shadow',['../structStyles.html#aad417210492bd68be5d08bf118a8d811',1,'Styles']]],
-  ['shadow_5fshader_5fpath_106',['SHADOW_SHADER_PATH',['../Window_8cpp.html#a19362133eabc88fe8851324bf94f19b0',1,'Window.cpp']]],
-  ['show_107',['show',['../classTkinterExample_1_1CollapsibleFrame.html#ac20bf1964e0ffeb24971681f77d23322',1,'TkinterExample::CollapsibleFrame']]],
-  ['side_108',['side',['../namespaceTkinterExample.html#a3b253995fe3621abf0abe149678829f4',1,'TkinterExample']]],
-  ['simple_5fbtn_109',['simple_btn',['../namespaceTkinterExample.html#a5f88f921343e956162826ec7e0ec8788',1,'TkinterExample']]],
-  ['simple_5fdialogue_5fentry_110',['simple_dialogue_entry',['../namespaceTkinterExample.html#a4be2c417c331ea82b7504aacdb5a2914',1,'TkinterExample']]],
-  ['simple_5fdialogue_5flabel_111',['simple_dialogue_label',['../namespaceTkinterExample.html#ada6785c006aaa20344d38fb1a7aed082',1,'TkinterExample']]],
-  ['simple_5fframe_112',['simple_frame',['../namespaceTkinterExample.html#a3b11848269634fe1ccb14c996fe67d08',1,'TkinterExample']]],
-  ['socket_113',['socket',['../classTcpConnection.html#a66ed4482195e795f58aa0d496af0cd5a',1,'TcpConnection']]],
-  ['start_114',['start',['../classTcpConnection.html#a634a1244d08aaaffcfa9c9223a93ffc7',1,'TcpConnection']]],
-  ['sticky_115',['sticky',['../namespaceTkinterExample.html#a250d4cb265dcbfa424b452938a66cb6f',1,'TkinterExample']]],
-  ['styles_116',['Styles',['../structStyles.html',1,'']]],
-  ['sub_5fframe_117',['sub_frame',['../classTkinterExample_1_1CollapsibleFrame.html#af39c59572b4440bd70569cd617415456',1,'TkinterExample::CollapsibleFrame']]],
-  ['subtitle_118',['Subtitle',['../classSubtitle.html#a9b7a1d47378f1316a03abf71e1a1cbbf',1,'Subtitle::Subtitle()'],['../classSubtitle.html',1,'Subtitle']]],
-  ['subtitle_2ecpp_119',['Subtitle.cpp',['../Subtitle_8cpp.html',1,'']]],
-  ['subtitle_2eh_120',['Subtitle.h',['../Subtitle_8h.html',1,'']]]
+  ['r_120',['r',['../structOutlineSettings.html#ae11deec18f127a744ed295958576ee6f',1,'OutlineSettings::r()'],['../structDropShadowSettings.html#a650eb6ff947fe4a78e330ebf85b4a06e',1,'DropShadowSettings::r()']]],
+  ['readme_2emd_121',['README.md',['../README_8md.html',1,'']]],
+  ['remove_5fextension_122',['remove_extension',['../util_8h.html#af06dc74abe67c47d163c6c339d71d9b4',1,'util.h']]],
+  ['restart_5fconnection_123',['restart_connection',['../namespaceTkinterExample.html#a2da7d5836bc71b0907434d51458f6a54',1,'TkinterExample']]],
+  ['row_124',['row',['../namespaceTkinterExample.html#a73e834bf7789371de4434bf90e6236f8',1,'TkinterExample']]],
+  ['rtrim_125',['rtrim',['../util_8h.html#aa09e1d628a7971037572fa4ed3f3e43b',1,'util.h']]],
+  ['rtrim_5fcopy_126',['rtrim_copy',['../util_8h.html#a7c4812e8fc5a928a705af34b6a791644',1,'util.h']]]
 ];

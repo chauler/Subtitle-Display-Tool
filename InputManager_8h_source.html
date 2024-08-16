@@ -99,10 +99,15 @@ $(document).ready(function(){initNavTree('InputManager_8h_source.html',''); init
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> handleAccept(<a class="code" href="classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a">TcpConnection::pointer</a> new_connection, <span class="keyword">const</span> std::error_code&amp; error);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    asio::io_context&amp; io_context_;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    asio::ip::tcp::acceptor acceptor_;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifdef UNIT_TEST</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">int</span> GetPortNum(<a class="code" href="classInputManager.html">InputManager</a>&amp; im);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> GetAcceptorOpen(<a class="code" href="classInputManager.html">InputManager</a>&amp; im);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">};</span></div>
 <div class="ttc" id="aclassInputManager_html"><div class="ttname"><a href="classInputManager.html">InputManager</a></div><div class="ttdef"><b>Definition:</b> InputManager.h:10</div></div>
-<div class="ttc" id="aclassInputManager_html_a3ca1e2e981113988f1e4c33ac4fd15ea"><div class="ttname"><a href="classInputManager.html#a3ca1e2e981113988f1e4c33ac4fd15ea">InputManager::getData</a></div><div class="ttdeci">std::string getData()</div><div class="ttdef"><b>Definition:</b> InputManager.cpp:33</div></div>
-<div class="ttc" id="aclassInputManager_html_ada704ff58bc420c4dad4e214a80ddf43"><div class="ttname"><a href="classInputManager.html#ada704ff58bc420c4dad4e214a80ddf43">InputManager::InputManager</a></div><div class="ttdeci">InputManager(int portNum, asio::io_context &amp;io_context)</div><div class="ttdef"><b>Definition:</b> InputManager.cpp:14</div></div>
+<div class="ttc" id="aclassInputManager_html_a3ca1e2e981113988f1e4c33ac4fd15ea"><div class="ttname"><a href="classInputManager.html#a3ca1e2e981113988f1e4c33ac4fd15ea">InputManager::getData</a></div><div class="ttdeci">std::string getData()</div><div class="ttdef"><b>Definition:</b> InputManager.cpp:32</div></div>
+<div class="ttc" id="aclassInputManager_html_ada704ff58bc420c4dad4e214a80ddf43"><div class="ttname"><a href="classInputManager.html#ada704ff58bc420c4dad4e214a80ddf43">InputManager::InputManager</a></div><div class="ttdeci">InputManager(int portNum, asio::io_context &amp;io_context)</div><div class="ttdef"><b>Definition:</b> InputManager.cpp:13</div></div>
 <div class="ttc" id="aclassTcpConnection_html_a3541bfa825615e14bb5cbaa58cdcd45a"><div class="ttname"><a href="classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a">TcpConnection::pointer</a></div><div class="ttdeci">std::shared_ptr&lt; TcpConnection &gt; pointer</div><div class="ttdef"><b>Definition:</b> TcpConnection.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

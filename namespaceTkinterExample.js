@@ -6,7 +6,9 @@ var namespaceTkinterExample =
     [ "create_label_entry", "namespaceTkinterExample.html#ae515e049c7bc00c2312d91d0fffc61d7", null ],
     [ "create_style_fields", "namespaceTkinterExample.html#a5edaec721a25c81415ab0daa8cc10107", null ],
     [ "get_style_data", "namespaceTkinterExample.html#ae3cd4c6a39b7c7b978ac1f8f86f212c8", null ],
+    [ "limit_rate", "namespaceTkinterExample.html#a16ac83f0d03ce5b873025b5566147e54", null ],
     [ "on_closing", "namespaceTkinterExample.html#a48e9d2a28d2a1691536d13eff2672fa0", null ],
+    [ "onResize", "namespaceTkinterExample.html#a6c67409b443e35244f3b74284a1296cd", null ],
     [ "restart_connection", "namespaceTkinterExample.html#a2da7d5836bc71b0907434d51458f6a54", null ],
     [ "select_file", "namespaceTkinterExample.html#a97611ae78ead19429f0b51d47d56365b", null ],
     [ "update_format_options", "namespaceTkinterExample.html#a1ed59f643a888d141f8d17421fcf64b8", null ],
@@ -57,5 +59,6 @@ var namespaceTkinterExample =
     [ "simple_dialogue_entry", "namespaceTkinterExample.html#a4be2c417c331ea82b7504aacdb5a2914", null ],
     [ "simple_dialogue_label", "namespaceTkinterExample.html#ada6785c006aaa20344d38fb1a7aed082", null ],
     [ "simple_frame", "namespaceTkinterExample.html#a3b11848269634fe1ccb14c996fe67d08", null ],
+    [ "sock", "namespaceTkinterExample.html#a79177cea1dac8cb6fcceffd273a1ed55", null ],
     [ "sticky", "namespaceTkinterExample.html#a250d4cb265dcbfa424b452938a66cb6f", null ]
 ];

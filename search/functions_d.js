@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['window_211',['Window',['../classWindow.html#a32731f3baacbf6254006363452c8684b',1,'Window::Window(std::string dialogue, double creationTime)'],['../classWindow.html#a48caa2730c3bc768420d3cf4d03596c0',1,'Window::Window(Subtitle subtitle)'],['../classWindow.html#a51219ab9188d3eeef69a8f597cc8919e',1,'Window::Window(const Window &amp;other)'],['../classWindow.html#a493ef00d0bef6b2c3cd4f8acfde4e32d',1,'Window::Window(Window &amp;&amp;other) noexcept']]]
+  ['select_5ffile_250',['select_file',['../namespaceTkinterExample.html#a97611ae78ead19429f0b51d47d56365b',1,'TkinterExample']]],
+  ['socket_251',['socket',['../classTcpConnection.html#a66ed4482195e795f58aa0d496af0cd5a',1,'TcpConnection']]],
+  ['start_252',['start',['../classTcpConnection.html#a634a1244d08aaaffcfa9c9223a93ffc7',1,'TcpConnection']]],
+  ['string_5fbase_5fname_253',['string_base_name',['../util_8h.html#a2fced1eec2d4dcb50f0d5283bb6dc05d',1,'util.h']]],
+  ['subtitle_254',['Subtitle',['../classSubtitle.html#a9b7a1d47378f1316a03abf71e1a1cbbf',1,'Subtitle']]]
 ];

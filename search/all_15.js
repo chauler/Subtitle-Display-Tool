@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['x_142',['x',['../structVec2f.html#a6d9e939be74a9bce0bd025cffb7cd958',1,'Vec2f::x()'],['../structVec4f.html#ab1956fd0918f9ecc5e47420874b17ec2',1,'Vec4f::x()'],['../structVec2i.html#a1a17dc75854bdc0e28194f006cb4c1b8',1,'Vec2i::x()'],['../structVec4i.html#a88d245286c4f8aabc26285b8750c582d',1,'Vec4i::x()'],['../structDropShadowSettings.html#a40f5251a9baef7d41854e2438bc4a3c2',1,'DropShadowSettings::x()']]]
+  ['w_167',['w',['../structVec4f.html#a3adedb55e5441178dbcc632fab5df8de',1,'Vec4f::w()'],['../structVec4i.html#a5ebe9c932bafb81e934421fc478fec72',1,'Vec4i::w()']]],
+  ['window_168',['Window',['../classWindow.html',1,'Window'],['../classWindow.html#a32731f3baacbf6254006363452c8684b',1,'Window::Window(std::string dialogue, double creationTime)'],['../classWindow.html#a48caa2730c3bc768420d3cf4d03596c0',1,'Window::Window(Subtitle subtitle)'],['../classWindow.html#a51219ab9188d3eeef69a8f597cc8919e',1,'Window::Window(const Window &amp;other)'],['../classWindow.html#a493ef00d0bef6b2c3cd4f8acfde4e32d',1,'Window::Window(Window &amp;&amp;other) noexcept']]],
+  ['window_2ecpp_169',['Window.cpp',['../Window_8cpp.html',1,'']]],
+  ['window_2eh_170',['Window.h',['../Window_8h.html',1,'']]],
+  ['windowmanager_171',['WindowManager',['../classWindowManager.html',1,'']]],
+  ['windowmanager_2ecpp_172',['WindowManager.cpp',['../WindowManager_8cpp.html',1,'']]],
+  ['windowmanager_2eh_173',['WindowManager.h',['../WindowManager_8h.html',1,'']]]
 ];

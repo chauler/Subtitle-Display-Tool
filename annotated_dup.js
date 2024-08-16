@@ -3,6 +3,7 @@ var annotated_dup =
     [ "TkinterExample", "namespaceTkinterExample.html", [
       [ "CollapsibleFrame", "classTkinterExample_1_1CollapsibleFrame.html", "classTkinterExample_1_1CollapsibleFrame" ]
     ] ],
+    [ "DrawConfig", "structDrawConfig.html", "structDrawConfig" ],
     [ "DropShadowSettings", "structDropShadowSettings.html", "structDropShadowSettings" ],
     [ "InputManager", "classInputManager.html", "classInputManager" ],
     [ "OutlineSettings", "structOutlineSettings.html", "structOutlineSettings" ],

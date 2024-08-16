@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['padx_89',['padx',['../namespaceTkinterExample.html#a48b3134bc5c9612e9670958444faa753',1,'TkinterExample']]],
-  ['pady_90',['pady',['../namespaceTkinterExample.html#a0e15ecf283c010bf4896855cab376581',1,'TkinterExample']]],
-  ['parse_91',['Parse',['../classParser.html#a5fdd0be34dcd32dd4af176248dafc89a',1,'Parser']]],
-  ['parser_92',['Parser',['../classParser.html',1,'Parser'],['../classParser.html#a95d75277ccf53b62317a37bcc50a1193',1,'Parser::Parser()']]],
-  ['parser_2ecpp_93',['Parser.cpp',['../Parser_8cpp.html',1,'']]],
-  ['parser_2eh_94',['Parser.h',['../Parser_8h.html',1,'']]],
-  ['pointer_95',['pointer',['../classTcpConnection.html#a3541bfa825615e14bb5cbaa58cdcd45a',1,'TcpConnection::pointer()'],['../TcpConnection_8cpp.html#a3868ede3803941b563fb997f8e84269d',1,'pointer():&#160;TcpConnection.cpp']]],
-  ['port_96',['PORT',['../namespaceTkinterExample.html#a561e746e8e30129c7e2e7cf3e9325adc',1,'TkinterExample']]],
-  ['position_97',['position',['../structStyles.html#aa92ad37651dce2368d1067ba1fd67d91',1,'Styles']]],
-  ['proc_98',['proc',['../namespaceTkinterExample.html#ae7aaa6ab1d5361560c9bca39731c7756',1,'TkinterExample']]]
+  ['offset_101',['offset',['../structDropShadowSettings.html#a96e4cfd2133dffa342faea9ec6c58cf8',1,'DropShadowSettings']]],
+  ['on_5fclosing_102',['on_closing',['../namespaceTkinterExample.html#a48e9d2a28d2a1691536d13eff2672fa0',1,'TkinterExample']]],
+  ['onresize_103',['onResize',['../namespaceTkinterExample.html#a6c67409b443e35244f3b74284a1296cd',1,'TkinterExample']]],
+  ['operator_3d_104',['operator=',['../classWindow.html#a4ac87eae37bb12194243b4bea906d396',1,'Window::operator=(const Window &amp;other)'],['../classWindow.html#ad15770fee0a78a710766d422eb21d2e1',1,'Window::operator=(Window &amp;&amp;other) noexcept']]],
+  ['outline_105',['outline',['../structStyles.html#afaf21911dcf0aae138ce02d37b3c4b57',1,'Styles']]],
+  ['outline_5fshader_5fpath_106',['OUTLINE_SHADER_PATH',['../Window_8cpp.html#a2dbfe16bd755c9bd528f464c25a6691c',1,'Window.cpp']]],
+  ['outlinecolor_107',['outlineColor',['../structOutlineSettings.html#a3be5090767ad5e81d0ccdb30e70d3235',1,'OutlineSettings']]],
+  ['outlinesettings_108',['OutlineSettings',['../structOutlineSettings.html',1,'OutlineSettings'],['../structOutlineSettings.html#a95d18fbf71b324076b7b64085749bebd',1,'OutlineSettings::OutlineSettings()'],['../structOutlineSettings.html#ac742d699c1db9d22cbd2c63ef4e06729',1,'OutlineSettings::OutlineSettings(float *color, int size)']]],
+  ['outlinesize_109',['outlineSize',['../structOutlineSettings.html#af88b99bfa387d02265dd83b28d44f89b',1,'OutlineSettings']]]
 ];

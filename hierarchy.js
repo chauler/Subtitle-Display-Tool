@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "DrawConfig", "structDrawConfig.html", null ],
     [ "DropShadowSettings", "structDropShadowSettings.html", null ],
     [ "std::enable_shared_from_this", null, [
       [ "TcpConnection", "classTcpConnection.html", null ]

@@ -10,5 +10,6 @@ var searchData=
   ['advanced_5fframe_8',['advanced_frame',['../namespaceTkinterExample.html#a9a67ef6c7b6f2e86a4c46188b8e286ff',1,'TkinterExample']]],
   ['advanced_5flifetime_5fentry_9',['advanced_lifetime_entry',['../namespaceTkinterExample.html#afcd64958d5a7198f0a415b233c474414',1,'TkinterExample']]],
   ['advanced_5flifetime_5flabel_10',['advanced_lifetime_label',['../namespaceTkinterExample.html#a34573f74b5adc0925d1c6016ca4ae2af',1,'TkinterExample']]],
-  ['app_11',['app',['../namespaceTkinterExample.html#a13cf11c70a5fa4b1c75a4dd848fba9c9',1,'TkinterExample']]]
+  ['advanceline_11',['AdvanceLine',['../Parser_8cpp.html#aaa89d752ade2ca83a2202d3687bfe1f1',1,'Parser.cpp']]],
+  ['app_12',['app',['../namespaceTkinterExample.html#a13cf11c70a5fa4b1c75a4dd848fba9c9',1,'TkinterExample']]]
 ];

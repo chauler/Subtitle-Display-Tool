@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['toggle_209',['toggle',['../classTkinterExample_1_1CollapsibleFrame.html#ab47b2d565fa5ad831b7d769609f6a45e',1,'TkinterExample::CollapsibleFrame']]]
+  ['parse_244',['Parse',['../classParser.html#a5fdd0be34dcd32dd4af176248dafc89a',1,'Parser']]],
+  ['parser_245',['Parser',['../classParser.html#a95d75277ccf53b62317a37bcc50a1193',1,'Parser']]]
 ];

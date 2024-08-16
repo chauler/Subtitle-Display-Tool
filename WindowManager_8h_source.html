@@ -94,18 +94,23 @@ $(document).ready(function(){initNavTree('WindowManager_8h_source.html',''); ini
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWindowManager.html#a60d11145a64aea022064d01483902734">AddWindow</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>&amp; window);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWindowManager.html#a60d11145a64aea022064d01483902734">AddWindow</a>(<a class="code" href="classWindow.html">Window</a>&amp;&amp; window);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWindowManager.html#af529aaef6b61fe2c90955c1561957e19">DrawWindows</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::vector&lt;Window&gt; m_windows;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef UNIT_TEST</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">friend</span> std::vector&lt;Window&gt;&amp; GetWindows(<a class="code" href="classWindowManager.html">WindowManager</a>&amp; wm);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">};</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classWindowManager.html#a621b69991402170991550b9c560ba698">   24</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classWindowManager.html#aa46b84352282db5448ea81058be24385">hostX</a>, <a class="code" href="classWindowManager.html#a74192a4906575e3a9db85146eca61fa2">hostY</a>, <a class="code" href="classWindowManager.html#ae8a842ab437655083ad0a590db4d0e20">hostWidth</a>, <a class="code" href="classWindowManager.html#a621b69991402170991550b9c560ba698">hostHeight</a> = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::vector&lt;Window&gt; m_windows;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifdef UNIT_TEST</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">friend</span> std::vector&lt;Window&gt;&amp; GetWindows(<a class="code" href="classWindowManager.html">WindowManager</a>&amp; wm);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">};</span></div>
 <div class="ttc" id="aWindow_8h_html"><div class="ttname"><a href="Window_8h.html">Window.h</a></div></div>
 <div class="ttc" id="aclassWindowManager_html"><div class="ttname"><a href="classWindowManager.html">WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.h:8</div></div>
-<div class="ttc" id="aclassWindowManager_html_a60d11145a64aea022064d01483902734"><div class="ttname"><a href="classWindowManager.html#a60d11145a64aea022064d01483902734">WindowManager::AddWindow</a></div><div class="ttdeci">void AddWindow(const Window &amp;window)</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:3</div></div>
-<div class="ttc" id="aclassWindowManager_html_af529aaef6b61fe2c90955c1561957e19"><div class="ttname"><a href="classWindowManager.html#af529aaef6b61fe2c90955c1561957e19">WindowManager::DrawWindows</a></div><div class="ttdeci">void DrawWindows()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:13</div></div>
-<div class="ttc" id="aclassWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:8</div></div>
+<div class="ttc" id="aclassWindowManager_html_a60d11145a64aea022064d01483902734"><div class="ttname"><a href="classWindowManager.html#a60d11145a64aea022064d01483902734">WindowManager::AddWindow</a></div><div class="ttdeci">void AddWindow(const Window &amp;window)</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:4</div></div>
+<div class="ttc" id="aclassWindowManager_html_a621b69991402170991550b9c560ba698"><div class="ttname"><a href="classWindowManager.html#a621b69991402170991550b9c560ba698">WindowManager::hostHeight</a></div><div class="ttdeci">int hostHeight</div><div class="ttdef"><b>Definition:</b> WindowManager.h:24</div></div>
+<div class="ttc" id="aclassWindowManager_html_a74192a4906575e3a9db85146eca61fa2"><div class="ttname"><a href="classWindowManager.html#a74192a4906575e3a9db85146eca61fa2">WindowManager::hostY</a></div><div class="ttdeci">int hostY</div><div class="ttdef"><b>Definition:</b> WindowManager.h:24</div></div>
+<div class="ttc" id="aclassWindowManager_html_aa46b84352282db5448ea81058be24385"><div class="ttname"><a href="classWindowManager.html#aa46b84352282db5448ea81058be24385">WindowManager::hostX</a></div><div class="ttdeci">int hostX</div><div class="ttdef"><b>Definition:</b> WindowManager.h:24</div></div>
+<div class="ttc" id="aclassWindowManager_html_ae8a842ab437655083ad0a590db4d0e20"><div class="ttname"><a href="classWindowManager.html#ae8a842ab437655083ad0a590db4d0e20">WindowManager::hostWidth</a></div><div class="ttdeci">int hostWidth</div><div class="ttdef"><b>Definition:</b> WindowManager.h:24</div></div>
+<div class="ttc" id="aclassWindowManager_html_af529aaef6b61fe2c90955c1561957e19"><div class="ttname"><a href="classWindowManager.html#af529aaef6b61fe2c90955c1561957e19">WindowManager::DrawWindows</a></div><div class="ttdeci">void DrawWindows()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:14</div></div>
+<div class="ttc" id="aclassWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
