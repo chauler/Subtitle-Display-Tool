@@ -9,6 +9,7 @@ import time
 HOST = "localhost"
 PORT = 9999
 EXE_PATH = '..\\..\\bin\\Debug\\Subtitle-Display-Tool.exe'
+CWD = '..\\..\\bin\\Debug\\'
 FONT_DIR = "C:\\Windows\\Fonts"
 FONT_EXTENSIONS = ('.ttf', '.otf')
 DEFAULT_FONT_SIZE = "54"
@@ -21,7 +22,7 @@ DEFAULT_DROP_SHADOW_COLOR = "0.0"
 DEFAULT_DROP_SHADOW_OFFSET = "1"
 DEFAULT_DROP_SHADOW_BLUR_STRENGTH = "1"
 
-proc = subprocess.Popen([EXE_PATH, str(PORT)])
+proc = subprocess.Popen([EXE_PATH, str(PORT)], cwd=CWD)
 
 app = Tk()
 app.title("Subtitle Display Tool")

@@ -1,6 +1,10 @@
 #include "WindowManager.h"
 #include <iostream>
 
+WindowManager::WindowManager(): hostX(0), hostY(0), hostWidth(GetScreenWidth()), hostHeight(GetScreenHeight())
+{
+}
+
 void WindowManager::AddWindow(const Window& window)
 {
 	m_windows.push_back(window);

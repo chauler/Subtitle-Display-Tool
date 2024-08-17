@@ -24,7 +24,7 @@ public:
 	/**
 	* Returns the width and height of the window, calculated to the exact size of the text + any graphical effects.
 	*/
-	Vec2f GetWindowDimensions() const;
+	Vec2f GetWindowDimensions(DrawConfig configuration) const;
 	/**
 	* Draws the Window's associated texture to whatever texture is active at the time of call (in general, the main framebuffer).
 	*/
@@ -36,7 +36,8 @@ public:
 
 private:
 	Window();
-	void RenderTexture();
+	void RenderTexture(DrawConfig);
+	void DrawText();
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
 	double m_creationTime;
