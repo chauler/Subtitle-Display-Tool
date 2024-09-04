@@ -32,7 +32,7 @@ void TcpConnection::start() {
 
 void TcpConnection::handle_read(std::error_code ec, std::size_t bytes) {
 		if (!ec) {
-			std::cout << "Read " << bytes << " bytes\n\n";
+			//std::cout << "Read " << bytes << " bytes\n\n";
 
 			for (int i = 0; i < bytes; i++) {
 				//std::cout << message[i];

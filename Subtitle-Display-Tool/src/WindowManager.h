@@ -7,6 +7,7 @@
 */
 class WindowManager {
 public:
+	WindowManager();
 	/**
 	* Pushes window into the WindowManager's internal list of windows.
 	* @param window The window to be pushed - is copied before being pushed.
@@ -21,9 +22,12 @@ public:
 	* Iterates through the list of Windows and calls the Draw() method of each visible one.
 	*/
 	void DrawWindows();
-	int hostX, hostY, hostWidth, hostHeight = 0;
+	int hostX, hostY, hostWidth, hostHeight;
 private:
 	std::vector<Window> m_windows;
+	Shader SDFShader;
+	Shader outlineShader;
+	Shader shadowShader;
 
 #ifdef UNIT_TEST
 	friend std::vector<Window>& GetWindows(WindowManager& wm);
