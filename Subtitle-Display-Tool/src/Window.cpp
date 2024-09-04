@@ -53,15 +53,28 @@ Window::~Window() {
 
 Vec2f Window::GetWindowDimensions(const std::string& text) const
 {
+	//Calculate x first, as it can be done in one pass.
 	Vector2 dims = { MeasureTextEx(m_subtitle.GetFont(), text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x, 0 };
+	dims.x += 2 * m_subtitle.GetStyles().outline.outlineSize;
+
+	//Calculate y by adding height for each line.
 	std::istringstream textStream{ text };
 	std::string line;
 	while (getline(textStream, line)) {
-		dims.y += MeasureTextEx(m_subtitle.GetFont(), line.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).y;
+		dims.y += GetLineHeight(line);
 	}
-	dims.x += 2*m_subtitle.GetStyles().outline.outlineSize;
-	dims.y += 2*m_subtitle.GetStyles().outline.outlineSize;
 	return { dims.x, dims.y };
+}
+
+float Window::GetLineHeight(const std::string& text) const {
+	//Window width has to be calculated with all lines considered, so we skip it here.
+	float height = MeasureTextEx(m_subtitle.GetFont(), text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).y;
+
+	//Add extra pixels for anything added to the text - outlines, shadows, underlines, etc.
+	height += 2 * m_subtitle.GetStyles().outline.outlineSize;
+
+	//Still need to decide a good way to calculate the space to add for shadows.
+	return height;
 }
 
 void Window::Draw(const DrawConfig& config)
@@ -71,12 +84,10 @@ void Window::Draw(const DrawConfig& config)
 		float finalYPosition = config.hostY + m_subtitle.GetPosition().y;
 		std::string wrappedText = WrapText(m_subtitle.GetDialogue().c_str(), config.hostWidth, config.hostHeight);
 		if (m_textureRendered == false || wrappedText != renderedText) {
-			//std::cout << "WRAPPED TEXT:" << std::endl;
 			std::cout << wrappedText << std::endl;
 			if (m_textureRendered) {
 				UnloadRenderTexture(m_target);
 			}
-			//SetTextLineSpacing(5);
 			RenderTexture(wrappedText, config.SDFShader, config.outlineShader, config.shadowShader);
 			renderedText = wrappedText;
 			m_textureRendered = true;
@@ -191,15 +202,12 @@ std::string Window::WrapText(const std::string& text, const int& w, const int& h
 	std::string line;
 	//Split based on user-provided newlines
 	while (getline(textStream, line)) {
-		//std::cout << "PROCESSING LINE: " << line << std::endl;
 		//For each line, add words until line becomes longer than host width. If first word is longer than host width, let it overflow for now.
 		std::istringstream lineStream{ line };
 		std::string subLine;
 		std::string word;
 		while (getline(lineStream, word, ' ')) {
-			//std::cout << "PROCESSING WORD: " << word << std::endl;
 			if (MeasureTextEx(m_subtitle.GetFont(), (subLine + ' ' + word).c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x > usableW) {
-				//std::cout << "APPENDING SUBLINE: " << subLine << std::endl;
 				output << subLine << '\n';
 				subLine.assign(word);
 			}
@@ -209,6 +217,5 @@ std::string Window::WrapText(const std::string& text, const int& w, const int& h
 		}
 		output << subLine << '\n';
 	}
-	//std::cout << output.str() << std::endl;
 	return trim_copy(output.str());
 }

@@ -41,6 +41,7 @@ private:
 	Window();
 	void RenderTexture(const std::string& text, const Shader& SDFShader, const Shader& outlineShader, const Shader& shadowShader);
 	std::string WrapText(const std::string& text, const int& w, const int& h);
+	float GetLineHeight(const std::string& text) const;
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
 	double m_creationTime;
