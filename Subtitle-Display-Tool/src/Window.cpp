@@ -88,14 +88,14 @@ void Window::Draw(const DrawConfig& config)
 			if (m_textureRendered) {
 				UnloadRenderTexture(m_target);
 			}
-			RenderTexture(wrappedText, config.SDFShader, config.outlineShader, config.shadowShader);
+			RenderTexture(wrappedText, config.MSDFShader, config.outlineShader, config.shadowShader);
 			renderedText = wrappedText;
 			m_textureRendered = true;
 		}
 		DrawTextureRec(m_target.texture,
 			{ 0, 0, GetWindowDimensions(wrappedText).x, -GetWindowDimensions(wrappedText).y },
 			{ finalXPosition, finalYPosition },
-			WHITE);
+			rlWHITE);
 	}
 	if (!IsVisible() && m_textureRendered) {
 		UnloadRenderTexture(m_target);
@@ -117,7 +117,8 @@ void Window::RenderTexture(const std::string& text, const Shader& SDFShader, con
 	int outlineSize = m_subtitle.GetStyles().outline.outlineSize;
 	float* shadowColor = m_subtitle.GetStyles().shadow.color.values;
 	int* shadowOffset = m_subtitle.GetStyles().shadow.offset.values;
-
+	float fontSize = m_subtitle.GetFontSize();
+	SetShaderValue(SDFShader, GetShaderLocation(SDFShader, "fontSize"), &fontSize, SHADER_UNIFORM_FLOAT);
 	//Update shader uniforms with values from subtitle styles
 	int outlineSizeLoc = GetShaderLocation(outlineShader, "outlineSize");
 	int outlineColorLoc = GetShaderLocation(outlineShader, "outlineColor");
@@ -135,10 +136,10 @@ void Window::RenderTexture(const std::string& text, const Shader& SDFShader, con
 	RenderTexture2D secondaryTex = LoadRenderTexture(dims.x, dims.y);
 	RenderTexture2D pingpongBuffers[2] = { LoadRenderTexture(dims.x, dims.y) , LoadRenderTexture(dims.x, dims.y) };
 	//We are drawing to a texture, with a shader used to draw SDF fonts
-	BeginTextureMode(secondaryTex);
+	BeginTextureMode(m_target);
 	BeginShaderMode(SDFShader);
 	//Texture is already sized to how it will be displayed, so just use the texture as the background and color it.
-	ClearBackground(BLANK);
+	ClearBackground(rlBLANK);
 	std::istringstream textStream{ text };
 	std::string line;
 	std::string prevLine;
@@ -164,28 +165,28 @@ void Window::RenderTexture(const std::string& text, const Shader& SDFShader, con
 	EndTextureMode();
 
 	//Second pass. Draw texture with outline shader enabled.
-	BeginTextureMode(pingpongBuffers[0]);
-	//We draw rectangle for the background so that non-opaque text correctly
-	//inherits the background color, rather than the color of the screen behind the window
-	BeginShaderMode(outlineShader);
-	DrawTextureRec(secondaryTex.texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, WHITE);
-	EndShaderMode();
-	EndTextureMode();
+	//BeginTextureMode(pingpongBuffers[0]);
+	////We draw rectangle for the background so that non-opaque text correctly
+	////inherits the background color, rather than the color of the screen behind the window
+	//BeginShaderMode(outlineShader);
+	//DrawTextureRec(secondaryTex.texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, rlWHITE);
+	//EndShaderMode();
+	//EndTextureMode();
 
-	BeginTextureMode(pingpongBuffers[1]);
-	ClearBackground(BLANK);
-	BeginShaderMode(shadowShader);
-	DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, WHITE);
-	EndShaderMode();
-	//DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
-	EndTextureMode();
+	//BeginTextureMode(pingpongBuffers[1]);
+	//ClearBackground(rlBLANK);
+	//BeginShaderMode(shadowShader);
+	//DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, rlWHITE);
+	//EndShaderMode();
+	////DrawTextureRec(m_target.texture, { 0, 0, GetWindowDimensions().x, -GetWindowDimensions().y }, { 0, 0 }, WHITE);
+	//EndTextureMode();
 
-	BeginTextureMode(m_target);
-	ClearBackground(BLANK);
-	DrawRectangle(0, 0, dims.x, dims.y, bgColor);
-	DrawTextureRec(pingpongBuffers[1].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, WHITE);
-	DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, WHITE);
-	EndTextureMode();
+	//BeginTextureMode(m_target);
+	//ClearBackground(rlBLANK);
+	//DrawRectangle(0, 0, dims.x, dims.y, bgColor);
+	//DrawTextureRec(pingpongBuffers[1].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, rlWHITE);
+	//DrawTextureRec(pingpongBuffers[0].texture, { 0, 0, dims.x, -dims.y }, { 0, 0 }, rlWHITE);
+	//EndTextureMode();
 
 	UnloadRenderTexture(secondaryTex);
 	UnloadRenderTexture(pingpongBuffers[0]);

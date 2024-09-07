@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\msdfgen.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1B16F215-DD18-3A24-8B4B-0D1E5F761A10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

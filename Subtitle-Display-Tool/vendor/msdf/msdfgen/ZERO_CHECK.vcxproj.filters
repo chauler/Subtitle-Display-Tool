@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\CMakeFiles\a21b5c32640ec0f29ba04d2aa8fab5cb\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{AA08EEEB-6428-3E7E-BA35-E79A0EB6E2C2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

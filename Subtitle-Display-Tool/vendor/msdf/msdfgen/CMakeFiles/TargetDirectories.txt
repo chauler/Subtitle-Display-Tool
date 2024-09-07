@@ -1,0 +1,5 @@
+C:/projects/Subtitle-Display-Tool/Subtitle-Display-Tool/vendor/msdf/msdfgen/CMakeFiles/msdfgen-core.dir
+C:/projects/Subtitle-Display-Tool/Subtitle-Display-Tool/vendor/msdf/msdfgen/CMakeFiles/msdfgen-ext.dir
+C:/projects/Subtitle-Display-Tool/Subtitle-Display-Tool/vendor/msdf/msdfgen/CMakeFiles/msdfgen.dir
+C:/projects/Subtitle-Display-Tool/Subtitle-Display-Tool/vendor/msdf/msdfgen/CMakeFiles/ALL_BUILD.dir
+C:/projects/Subtitle-Display-Tool/Subtitle-Display-Tool/vendor/msdf/msdfgen/CMakeFiles/ZERO_CHECK.dir

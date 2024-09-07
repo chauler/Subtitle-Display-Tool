@@ -136,6 +136,7 @@ public:
 	Styles GetStyles() const { return m_styles; }
 private:
 	Font ConvertFontToSDF(std::string fontPath);
+	Font LoadMSDF(std::string fontPath);
 	std::string m_dialogue;
 	Styles m_styles;
 	Font m_font;

@@ -1,10 +1,11 @@
 #include "Subtitle.h"
+#include "FontManager.h"
 
 Subtitle::Subtitle(std::string dialogue, Styles styles, double startTime) :
 	m_dialogue(dialogue),
 	m_styles(styles),
-	m_font(m_styles.fontPath.empty() ? GetFontDefault() : ConvertFontToSDF(m_styles.fontPath.c_str())),
-	m_startTime(startTime)
+	m_startTime(startTime),
+	m_font(m_styles.fontPath.empty() ? GetFontDefault() : LoadMSDF(m_styles.fontPath))
 {
 }
 
@@ -24,4 +25,8 @@ Font Subtitle::ConvertFontToSDF(std::string fontPath)
 	UnloadFileData(fileData);
 
 	return sdfFont;
+}
+
+Font Subtitle::LoadMSDF(std::string fontPath) {
+	return generateAtlas(fontPath.c_str());
 }

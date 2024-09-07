@@ -28,6 +28,7 @@ private:
 	Shader SDFShader;
 	Shader outlineShader;
 	Shader shadowShader;
+	Shader MSDFShader;
 
 #ifdef UNIT_TEST
 	friend std::vector<Window>& GetWindows(WindowManager& wm);

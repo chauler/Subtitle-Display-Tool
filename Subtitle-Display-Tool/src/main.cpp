@@ -10,14 +10,13 @@
 #include "InputManager.h"
 #include <thread>
 
+
 int main(int argc, char * argv[]) {
 	SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_TOPMOST | FLAG_WINDOW_UNDECORATED | FLAG_WINDOW_UNFOCUSED | FLAG_WINDOW_MOUSE_PASSTHROUGH | FLAG_VSYNC_HINT);
 	InitWindow(0, 0, "Subtitle Display Tool");
-	
 	//The below AddWindow() calls are temporary to showcase how to create Windows and add them to the manager. These should be located within the parser at some point.
 	WindowManager wm{};
 	Parser parser{wm};
-	
 	
 	if (argc < 2) {
 		std::cout << "Usage: " << argv[0] << "PORT" << std::endl;
@@ -45,7 +44,9 @@ int main(int argc, char * argv[]) {
 
 		BeginDrawing();
 		wm.DrawWindows();
-		ClearBackground(BLANK);
+		/*DrawTexturePro(testFont.texture, { 0, 0, (float)testFont.texture.width, (float)testFont.texture.height },
+			{ 0, 0, 1000, 1000 }, {0, 0}, 0.0f, rlWHITE);*/
+		ClearBackground(rlBLANK);
 		EndDrawing();
 	}
 	return 0;

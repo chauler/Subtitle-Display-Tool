@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Contour.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\DistanceMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\EdgeHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\MSDFErrorCorrection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Projection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Scanline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Shape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\contour-combiners.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-coloring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-segments.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-selectors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\equation-solver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\export-svg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\msdf-error-correction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\msdfgen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\rasterization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\render-sdf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-bmp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-fl32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-rgba.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-tiff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\sdf-error-estimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\shape-description.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\msdfgen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Bitmap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\BitmapRef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Contour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\DistanceMapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\EdgeColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\EdgeHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\MSDFErrorCorrection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Projection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Range.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\SDFTransformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Scanline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Shape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\ShapeDistanceFinder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\ShapeDistanceFinder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\SignedDistance.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\Vector2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\arithmetics.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\bitmap-interpolation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\contour-combiners.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-coloring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-segments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\edge-selectors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\equation-solver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\export-svg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\generator-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\msdf-error-correction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\pixel-conversion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\rasterization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\render-sdf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-bmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-fl32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-rgba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\save-tiff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\sdf-error-estimation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\core\shape-description.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\projects\Subtitle-Display-Tool\Subtitle-Display-Tool\vendor\msdf\msdfgen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{65622ECD-BE0D-3658-ADA6-1592487CD0B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1B16F215-DD18-3A24-8B4B-0D1E5F761A10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

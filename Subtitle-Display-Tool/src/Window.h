@@ -10,6 +10,7 @@ struct DrawConfig {
 	Shader SDFShader;
 	Shader outlineShader;
 	Shader shadowShader;
+	Shader MSDFShader;
 };
 
 /**
