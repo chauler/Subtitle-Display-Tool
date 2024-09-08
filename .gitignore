@@ -22,8 +22,10 @@ mono_crash.*
 
 # Build results
 [Dd]ebug/
+!Subtitle-Display-Tool/vendor/**
 [Dd]ebugPublic/
 [Rr]elease/
+!Subtitle-Display-Tool/vendor/**
 [Rr]eleases/
 x64/
 x86/
