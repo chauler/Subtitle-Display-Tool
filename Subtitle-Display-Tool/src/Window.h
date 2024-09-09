@@ -7,6 +7,7 @@ struct DrawConfig {
 	int hostY;
 	int hostWidth;
 	int hostHeight;
+	Font* font;
 	Shader SDFShader;
 	Shader outlineShader;
 	Shader shadowShader;
@@ -25,10 +26,11 @@ public:
 	Window& operator=(const Window& other);
 	Window& operator=(Window&& other) noexcept;
 	~Window();
+	const Subtitle& GetSubtitle() { return m_subtitle; }
 	/**
 	* Returns the width and height of the window, calculated to the exact size of the text + any graphical effects.
 	*/
-	Vec2f GetWindowDimensions(const std::string&) const;
+	Vec2f GetWindowDimensions(const std::string&, const DrawConfig& config) const;
 	/**
 	* Draws the Window's associated texture to whatever texture is active at the time of call (in general, the main framebuffer).
 	*/
@@ -40,9 +42,9 @@ public:
 
 private:
 	Window();
-	void RenderTexture(const std::string& text, const Shader& SDFShader, const Shader& outlineShader, const Shader& shadowShader);
-	std::string WrapText(const std::string& text, const int& w, const int& h);
-	float GetLineHeight(const std::string& text) const;
+	void RenderTexture(const std::string& text, const DrawConfig& config, const Shader& SDFShader, const Shader& outlineShader, const Shader& shadowShader);
+	std::string WrapText(const std::string& text, const int& w, const int& h, const DrawConfig& config);
+	float GetLineHeight(const std::string& text, const DrawConfig& config) const;
 	Subtitle m_subtitle;
 	RenderTexture2D m_target;
 	double m_creationTime;

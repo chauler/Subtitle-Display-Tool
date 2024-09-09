@@ -121,7 +121,7 @@ public:
 	/**
 	* Returns the subtitle's font face.
 	*/
-	Font GetFont() const { return m_font; }
+	const std::string& GetFont() const { return m_styles.fontPath; }
 	/**
 	* Returns the subtitle's lifetime.
 	*/
@@ -139,6 +139,5 @@ private:
 	Font LoadMSDF(std::string fontPath);
 	std::string m_dialogue;
 	Styles m_styles;
-	Font m_font;
 	double m_startTime;
 };

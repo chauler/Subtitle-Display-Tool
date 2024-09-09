@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Window.h"
+#include "FontManager.h"
 
 /**
 * High-level management of Window objects. Stores them, controls their lifetime, and displays them.
@@ -25,6 +26,7 @@ public:
 	int hostX, hostY, hostWidth, hostHeight;
 private:
 	std::vector<Window> m_windows;
+	FontManager m_fontManager;
 	Shader SDFShader;
 	Shader outlineShader;
 	Shader shadowShader;

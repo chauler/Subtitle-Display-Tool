@@ -41,6 +41,7 @@ void WindowManager::DrawWindows()
 		.MSDFShader{MSDFShader}
 	};
 	for (auto& window : m_windows) {
+		config.font = &m_fontManager.GetFont(window.GetSubtitle().GetFont());
 		window.Draw(config);
 	}
 }

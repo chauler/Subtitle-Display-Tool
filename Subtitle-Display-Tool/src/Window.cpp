@@ -51,24 +51,24 @@ Window::~Window() {
 	UnloadTexture(m_target.texture);
 }
 
-Vec2f Window::GetWindowDimensions(const std::string& text) const
+Vec2f Window::GetWindowDimensions(const std::string& text, const DrawConfig& config) const
 {
 	//Calculate x first, as it can be done in one pass.
-	Vector2 dims = { MeasureTextEx(m_subtitle.GetFont(), text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x, 0 };
+	Vector2 dims = { MeasureTextEx(*config.font, text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x, 0 };
 	dims.x += 2 * m_subtitle.GetStyles().outline.outlineSize;
 
 	//Calculate y by adding height for each line.
 	std::istringstream textStream{ text };
 	std::string line;
 	while (getline(textStream, line)) {
-		dims.y += GetLineHeight(line);
+		dims.y += GetLineHeight(line, config);
 	}
 	return { dims.x, dims.y };
 }
 
-float Window::GetLineHeight(const std::string& text) const {
+float Window::GetLineHeight(const std::string& text, const DrawConfig& config) const {
 	//Window width has to be calculated with all lines considered, so we skip it here.
-	float height = MeasureTextEx(m_subtitle.GetFont(), text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).y;
+	float height = MeasureTextEx(*config.font, text.c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).y;
 
 	//Add extra pixels for anything added to the text - outlines, shadows, underlines, etc.
 	height += 2 * m_subtitle.GetStyles().outline.outlineSize;
@@ -82,18 +82,18 @@ void Window::Draw(const DrawConfig& config)
 	if (IsVisible()) {
 		float finalXPosition = config.hostX + m_subtitle.GetPosition().x;
 		float finalYPosition = config.hostY + m_subtitle.GetPosition().y;
-		std::string wrappedText = WrapText(m_subtitle.GetDialogue().c_str(), config.hostWidth, config.hostHeight);
+		std::string wrappedText = WrapText(m_subtitle.GetDialogue().c_str(), config.hostWidth, config.hostHeight, config);
 		if (m_textureRendered == false || wrappedText != renderedText) {
 			std::cout << wrappedText << std::endl;
 			if (m_textureRendered) {
 				UnloadRenderTexture(m_target);
 			}
-			RenderTexture(wrappedText, config.MSDFShader, config.outlineShader, config.shadowShader);
+			RenderTexture(wrappedText, config, config.MSDFShader, config.outlineShader, config.shadowShader);
 			renderedText = wrappedText;
 			m_textureRendered = true;
 		}
 		DrawTextureRec(m_target.texture,
-			{ 0, 0, GetWindowDimensions(wrappedText).x, -GetWindowDimensions(wrappedText).y },
+			{ 0, 0, GetWindowDimensions(wrappedText, config).x, -GetWindowDimensions(wrappedText, config).y },
 			{ finalXPosition, finalYPosition },
 			rlWHITE);
 	}
@@ -109,8 +109,8 @@ bool Window::IsVisible() const {
 	return currentTime >= subtitleStartTime && currentTime < subtitleStartTime + m_subtitle.GetLifetime();
 }
 
-void Window::RenderTexture(const std::string& text, const Shader& SDFShader, const Shader& outlineShader, const Shader& shadowShader) {
-	Vec2f dims = GetWindowDimensions(text);
+void Window::RenderTexture(const std::string& text, const DrawConfig& config, const Shader& SDFShader, const Shader& outlineShader, const Shader& shadowShader) {
+	Vec2f dims = GetWindowDimensions(text, config);
 	m_target = LoadRenderTexture(dims.x, dims.y);
 	Color fontColor = { m_subtitle.GetColor().x, m_subtitle.GetColor().y, m_subtitle.GetColor().z, m_subtitle.GetColor().w };
 	Color bgColor = { m_subtitle.GetBackgroundColor().x, m_subtitle.GetBackgroundColor().y, m_subtitle.GetBackgroundColor().z, m_subtitle.GetBackgroundColor().w };
@@ -146,12 +146,12 @@ void Window::RenderTexture(const std::string& text, const Shader& SDFShader, con
 	int cumulativeHeight = 0;
 	for (int i = 0; getline(textStream, line); i++, prevLine=line) {
 		cumulativeHeight += prevLine.empty() ? 0 : MeasureTextEx(
-			m_subtitle.GetFont(),
+			*config.font,
 			prevLine.c_str(),
 			m_subtitle.GetFontSize(),
 			DEFAULT_SPACING).y;
 
-		rlDrawTextEx(m_subtitle.GetFont(),
+		rlDrawTextEx(*config.font,
 			line.c_str(),
 			{ 
 				(float)m_subtitle.GetStyles().outline.outlineSize,
@@ -193,7 +193,7 @@ void Window::RenderTexture(const std::string& text, const Shader& SDFShader, con
 	UnloadRenderTexture(pingpongBuffers[1]);
 }
 
-std::string Window::WrapText(const std::string& text, const int& w, const int& h)
+std::string Window::WrapText(const std::string& text, const int& w, const int& h, const DrawConfig& config)
 {
 	int usableW = w - m_subtitle.GetPosition().x;
 	int usableH = h - m_subtitle.GetPosition().y;
@@ -208,7 +208,7 @@ std::string Window::WrapText(const std::string& text, const int& w, const int& h
 		std::string subLine;
 		std::string word;
 		while (getline(lineStream, word, ' ')) {
-			if (MeasureTextEx(m_subtitle.GetFont(), (subLine + ' ' + word).c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x > usableW) {
+			if (MeasureTextEx(*config.font, (subLine + ' ' + word).c_str(), m_subtitle.GetFontSize(), DEFAULT_SPACING).x > usableW) {
 				output << subLine << '\n';
 				subLine.assign(word);
 			}

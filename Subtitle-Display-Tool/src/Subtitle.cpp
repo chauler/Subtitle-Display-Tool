@@ -4,8 +4,7 @@
 Subtitle::Subtitle(std::string dialogue, Styles styles, double startTime) :
 	m_dialogue(dialogue),
 	m_styles(styles),
-	m_startTime(startTime),
-	m_font(m_styles.fontPath.empty() ? GetFontDefault() : LoadMSDF(m_styles.fontPath))
+	m_startTime(startTime)
 {
 }
 
@@ -28,5 +27,6 @@ Font Subtitle::ConvertFontToSDF(std::string fontPath)
 }
 
 Font Subtitle::LoadMSDF(std::string fontPath) {
-	return generateAtlas(fontPath.c_str());
+	//return generateAtlas(fontPath.c_str());
+	return Font();
 }
