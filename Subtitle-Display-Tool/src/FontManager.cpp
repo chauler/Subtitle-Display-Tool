@@ -14,9 +14,12 @@ void FontManager::SaveFont(const std::string& fontPath)
         return;
     }
 
-    auto [bitmapContainer, glyphs] = generateAtlas(fontPath.c_str());
-    Font font = GenerateFontFromBitmap(bitmapContainer, glyphs);
-    m_fontStorage.insert({ fontPath, {font, bitmapContainer} });
+    std::pair<msdf_atlas::BitmapAtlasStorage<msdf_atlas::byte, 3>, std::vector<msdf_atlas::GlyphGeometry>> atlasFontPair = generateAtlas(fontPath.c_str());
+    msdfgen::Bitmap<msdf_atlas::byte, 3> bitmap = (msdfgen::Bitmap<msdf_atlas::byte, 3>&&) atlasFontPair.first;
+    Font font = GenerateFontFromBitmap((msdfgen::BitmapRef<msdf_atlas::byte, 3>)bitmap, atlasFontPair.second);
+    std::pair<Font, msdfgen::Bitmap<msdf_atlas::byte, 3>> valuePair{font, std::move(bitmap)};
+    std::pair<std::string, std::pair<Font, msdfgen::Bitmap<msdf_atlas::byte, 3>>> kvPair{ fontPath, std::move(valuePair) };
+    m_fontStorage.emplace(std::move(kvPair));
 }
 
 std::pair<msdf_atlas::BitmapAtlasStorage<msdf_atlas::byte, 3>, std::vector<msdf_atlas::GlyphGeometry>> generateAtlas(const char* fontFilename) {
@@ -56,9 +59,7 @@ std::pair<msdf_atlas::BitmapAtlasStorage<msdf_atlas::byte, 3>, std::vector<msdf_
     }
 }
 
-Font GenerateFontFromBitmap(msdf_atlas::BitmapAtlasStorage<msdf_atlas::byte, 3>& bitmapContainer, std::vector<msdf_atlas::GlyphGeometry>& glyphs) {
-    msdfgen::BitmapRef<msdf_atlas::byte, 3> bitmap = (msdfgen::BitmapRef<msdf_atlas::byte, 3>)bitmapContainer;
-
+Font GenerateFontFromBitmap(msdfgen::BitmapRef<msdf_atlas::byte, 3> bitmap, std::vector<msdf_atlas::GlyphGeometry>& glyphs) {
     Image fontImage = { .data{bitmap.pixels},
     .width{bitmap.width},
     .height{bitmap.height},
